@@ -22,6 +22,11 @@
       "1.5 Update Pack": 20
     },
 
+    "New Zealand": {
+      "1.5 Core Game": 40,
+      "1.5 Update Pack": 20
+    },
+
     "Rest of the World": {
       "1.5 Core Game": 100,
       "1.5 Update Pack": 30
@@ -31,27 +36,32 @@
   const EXPANSIONS_SHIPPING_COSTS = {
     "United States": {
       "Base": 15,
-      "Additional": 5
+      "Additional": 3
     },
 
     "European Union": {
       "Base": 15,
-      "Additional": 5
+      "Additional": 3
     },
 
     "Canada": {
       "Base": 15,
-      "Additional": 5
+      "Additional": 3
     },
 
     "Australia": {
       "Base": 15,
-      "Additional": 5
+      "Additional": 3
+    },
+
+    "New Zealand": {
+      "Base": 15,
+      "Additional": 3
     },
 
     "Rest of the World": {
       "Base": 30,
-      "Additional": 5
+      "Additional": 3
     }
   };
 
@@ -72,6 +82,11 @@
     },
 
     "Australia": {
+      "Base": 20,
+      "Additional": 2
+    },
+
+    "New Zealand": {
       "Base": 20,
       "Additional": 2
     },

@@ -82,6 +82,12 @@
     +   '</div>'
     +  '</div>'
     +  '<div class="form-group">'
+    +   '<label for="wave5" class="total-label control-label col-md-4">Wave 5 Shipping</label>'
+    +   '<div class="col-md-4">'
+    +    '<p id="wave5" class="form-control-static">$0</p>'
+    +   '</div>'
+    +  '</div>'
+    +  '<div class="form-group">'
     +   '<label for="total" class="total-label control-label col-md-4">Total</label>'
     +   '<div class="col-md-4">'
     +    '<p id="total" class="form-control-static">$0</p>'
@@ -183,7 +189,7 @@
     var waveTotals = self.shippingCalculator.calculateShippingForRegion(region, orderItems);
     var total = subtotal;
 
-    ['1', '2', '3', '4'].forEach(function(wave) {
+    ['1', '2', '3', '4', '5'].forEach(function(wave) {
       var waveTotal = waveTotals[wave] || 0;
       self.$wrapperEl.find('#wave' + wave).html('$' + waveTotal);
       total += waveTotal;
