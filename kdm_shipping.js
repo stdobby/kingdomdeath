@@ -123,7 +123,7 @@
   };
 
   KdmShippingCalculator.prototype.calculateShippingForCoreGames = function(region, items) {
-    var cores = items.filter(function(item) { return item.contentType.type === 'Core Game'; });
+    var cores = items.filter(function(item) { return item.contentType.type === 'Main Component'; });
     return cores.reduce(function(total, item) {
       return total + CORE_SHIPPING_COSTS[region][item.title];
     }, 0);
@@ -139,7 +139,7 @@
 
   KdmShippingCalculator.prototype.calculateShippingForOtherContent = function(region, items) {
     var startingOtherContentCost = OTHER_SHIPPING_COSTS[region]['Base'] - OTHER_SHIPPING_COSTS[region]['Additional'];
-    var otherContent = items.filter(function(item) { return item.contentType.type !== 'Expansion' && item.contentType.type !== 'Core Game'; });
+    var otherContent = items.filter(function(item) { return item.contentType.type !== 'Expansion' && item.contentType.type !== 'Main Component'; });
     return otherContent.length ? otherContent.reduce(function(total, item) {
       return total + OTHER_SHIPPING_COSTS[region]['Additional'];
     }, startingOtherContentCost) : 0;
