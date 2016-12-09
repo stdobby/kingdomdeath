@@ -42,9 +42,39 @@
       '<hr>'
     + '<form class="form-horizontal totals-form">'
     +  '<div class="form-group">'
-    +   '<label for="subtotal" class="total-label control-label col-md-4">Total</label>'
+    +   '<label for="subtotal" class="total-label control-label col-md-4">Subtotal</label>'
     +   '<div class="col-md-4">'
-    +    '<p class="form-control-static">$0</p>'
+    +    '<p id="subtotal" class="form-control-static">$0</p>'
+    +   '</div>'
+    +  '</div>'
+    +  '<div class="form-group">'
+    +   '<label for="wave1" class="total-label control-label col-md-4">Wave 1 Shipping</label>'
+    +   '<div class="col-md-4">'
+    +    '<p id="wave1" class="form-control-static">$0</p>'
+    +   '</div>'
+    +  '</div>'
+    +  '<div class="form-group">'
+    +   '<label for="wave2" class="total-label control-label col-md-4">Wave 2 Shipping</label>'
+    +   '<div class="col-md-4">'
+    +    '<p id="wave2" class="form-control-static">$0</p>'
+    +   '</div>'
+    +  '</div>'
+    +  '<div class="form-group">'
+    +   '<label for="wave3" class="total-label control-label col-md-4">Wave 3 Shipping</label>'
+    +   '<div class="col-md-4">'
+    +    '<p id="wave3" class="form-control-static">$0</p>'
+    +   '</div>'
+    +  '</div>'
+    +  '<div class="form-group">'
+    +   '<label for="wave4" class="total-label control-label col-md-4">Wave 4 Shipping</label>'
+    +   '<div class="col-md-4">'
+    +    '<p id="wave4" class="form-control-static">$0</p>'
+    +   '</div>'
+    +  '</div>'
+    +  '<div class="form-group">'
+    +   '<label for="total" class="total-label control-label col-md-4">Total</label>'
+    +   '<div class="col-md-4">'
+    +    '<p id="total" class="form-control-static">$0</p>'
     +   '</div>'
     +  '</div>'
     + '</form>'
@@ -129,13 +159,19 @@
       }
     });
 
-    var total = _.sumBy(cart, function(order) { return order.item.price * order.quantity; });
+    var subtotal = _.sumBy(cart, function(order) { return order.item.price * order.quantity; });
     var orderItems = self.getOrderItems(cart);
     var waveTotals = self.shippingCalculator.calculateShippingForRegion('United States', orderItems); // TODO: don't hardcode region
+    var total = subtotal;
 
-    console.log(waveTotals);
+    ['1', '2', '3', '4'].forEach(function(wave) {
+      var waveTotal = waveTotals[wave] || 0;
+      self.$wrapperEl.find('#wave' + wave).html('$' + waveTotal);
+      total += waveTotal;
+    });
 
-    self.$wrapperEl.find('.totals-form .form-control-static').html('$' + total);
+    self.$wrapperEl.find('#subtotal').html('$' + subtotal);
+    self.$wrapperEl.find('#total').html('$' + total);
   };
 
   KdmForm.prototype.getAddOnOrder = function($select) {
