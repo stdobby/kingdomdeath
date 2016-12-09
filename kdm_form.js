@@ -95,6 +95,43 @@
     +  '</div>'
     + '</form>'
     + '<hr>'
+    + '<form class="form-horizontal">'
+    +  '<div class="form-group">'
+    +   '<div class="col-md-4 col-md-offset-4">'
+    +    '<button id="reset" class="btn btn-primary">Reset</button>'
+    +   '</div>'
+    +  '</div>'
+    + '</form>'
+    + '<hr>'
+  );
+
+  var shippingBreakdownTemplate = _.template(
+      '<h3>Shipping Breakdown</h3>'
+    + '<table class="table table-bordered">'
+    +  '<tbody>'
+    +   '<% waves.forEach(function(wave) { %>'
+    +    '<tr class="wave-section-header info">'
+    +     '<td colspan="2"><%= wave.meta.title %></td>'
+    +    '</tr>'
+    +    '<tr class="wave-table-header active">'
+    +     '<td>Item</td>'
+    +     '<td>Type</td>'
+    +    '</tr>'
+    +    '<% if (wave.items.length > 0) { %>'
+    +     '<% wave.items.forEach(function(item) { %>'
+    +      '<tr>'
+    +       '<td><%= item.title %></td>'
+    +       '<td><%= item.contentType.type %></td>'
+    +      '</tr>'
+    +     '<% }) %>'
+    +    '<% } else { %>'
+    +     '<tr class="no-content">'
+    +      '<td colspan="2">No content</td>'
+    +     '</tr>'
+    +    '<% } %>'
+    +   '<% }) %>'
+    +  '</tbody>'
+    + '</table>'
   );
 
   function KdmForm(wrapperEl, KdmContentManager) {
@@ -108,6 +145,7 @@
     self.shippingCalculator = new KdmShippingCalculator();
     self.$wrapperEl.on('change', 'select', function() {
       self.updateTotals();
+      self.updateShippingBreakdown();
     });
   }
 
@@ -118,6 +156,7 @@
     this.initializeTotals();
     this.listenToResetButton();
     this.updateTotals();
+    this.updateShippingBreakdown();
   };
 
   KdmForm.prototype.initializePledgeAndShippingDropdowns = function() {
@@ -155,10 +194,10 @@
     this.$wrapperEl.append(totalsTemplate());
   };
 
-  KdmForm.prototype.updateTotals = function() {
+  KdmForm.prototype.getCart = function() {
     var self = this;
     var region = null;
-    var cart = [];
+    var orders = [];
 
     self.$wrapperEl.find('select').each(function() {
       var $select = $(this);
@@ -166,10 +205,10 @@
 
       switch (type) {
         case 'addon':
-          cart.push(self.getAddOnOrder($select));
+          orders.push(self.getAddOnOrder($select));
           break;
         case 'pledge':
-          cart.push(self.getPledgeOrder($select));
+          orders.push(self.getPledgeOrder($select));
           break;
         case 'shipping':
           region = $select.val();
@@ -180,10 +219,21 @@
       }
     });
 
-    var subtotal = _.sumBy(cart, function(order) { return order.item.price * order.quantity; });
-    var orderItems = self.getOrderItems(cart);
-    var waveTotals = self.shippingCalculator.calculateShippingForRegion(region, orderItems);
-    var total = subtotal;
+    var subtotal = _.sumBy(orders, function(order) { return order.item.price * order.quantity; });
+    var orderItems = self.getOrderItems(orders);
+
+    return {
+      region: region,
+      subtotal: subtotal,
+      orderItems: orderItems
+    }
+  };
+
+  KdmForm.prototype.updateTotals = function() {
+    var self = this;
+    var cart = self.getCart();
+    var waveTotals = self.shippingCalculator.calculateShippingForRegion(cart.region, cart.orderItems);
+    var total = cart.subtotal;
 
     ['1', '2', '3', '4', '5'].forEach(function(wave) {
       var waveTotal = waveTotals[wave] || 0;
@@ -191,7 +241,7 @@
       total += waveTotal;
     });
 
-    self.$wrapperEl.find('#subtotal').html('$' + subtotal);
+    self.$wrapperEl.find('#subtotal').html('$' + cart.subtotal);
     self.$wrapperEl.find('#total').html('$' + total);
   };
 
@@ -242,6 +292,55 @@
     $('#reset').on('click', function() {
       self.initialize();
     });
+  };
+
+  KdmForm.prototype.updateShippingBreakdown = function() {
+    const waves = [{
+        wave: 1,
+        meta: {
+          title: 'Wave 1 - Summer 2017 - 1.5 Core Game / Update Pack'
+        },
+        items: []
+      }, {
+        wave: 2,
+        meta: {
+          title: 'Wave 2 - Winter 2017 - Old Expansions'
+        },
+        items: []
+      }, {
+        wave: 3,
+        meta: {
+          title: 'Wave 3 - Spring 2018 - Gambler\'s Box, Promos, and Cross-Over Figures'
+        },
+        items: []
+      }, {
+        wave: 4,
+        meta: {
+          title: 'Wave 4 - Spring 2019 - New Expansions'
+        },
+        items: []
+      }, {
+        wave: 5,
+        meta: {
+          title: 'Wave 5 - Winter 2020 - ???'
+        },
+        items: []
+      }];
+    const cart = this.getCart();
+    const items = cart.orderItems.sort(function(a, b) { return a.title.localeCompare(b.title); });
+
+    items.forEach(function(item) {
+      var waveConfig = _.find(waves, function(wave) { return wave.wave === item.wave; });
+      if (waveConfig) {
+        waveConfig.items.push(item);
+      }
+    });
+
+    if (!this.$wrapperEl.find('.shipping-breakdown').length) {
+      this.$wrapperEl.append($('<div></div>').addClass('shipping-breakdown'));
+    }
+
+    this.$wrapperEl.find('.shipping-breakdown').html(shippingBreakdownTemplate({ waves: waves }));
   };
 
   function findByTitle(items, title) {

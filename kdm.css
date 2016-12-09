@@ -10,3 +10,15 @@ body {
   font-size: 20px;
   font-weight: bold;
 }
+
+.wave-section-header td {
+  font-weight: bold;
+}
+
+.wave-table-header td {
+  font-weight: bold;
+}
+
+.no-content {
+  text-align: center;
+}
