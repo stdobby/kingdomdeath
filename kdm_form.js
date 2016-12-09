@@ -1,4 +1,4 @@
-(function(global, pledges, items) {
+(function(global) {
   'use strict';
 
   var $kdmFormWrapper = $('#kdmFormWrapper');
@@ -97,17 +97,13 @@
     + '<hr>'
   );
 
-  pledges.sort(function(a, b) {
-    return a.price - b.price;
-  });
-
-  function KdmForm(wrapperEl, pledges, items) {
+  function KdmForm(wrapperEl, KdmContentManager) {
     var self = this;
 
     self.$wrapperEl = $(wrapperEl);
-    self.pledges = _.cloneDeep(pledges);
-    self.items = _.cloneDeep(items);
-    self.addons = self.items.filter(function(item) { return item.addon; });
+    self.pledges = KdmContentManager.getPledges();
+    self.items = KdmContentManager.getAllItems();
+    self.addons = KdmContentManager.getAddOns();
     self.addonsByType = _.groupBy(self.addons, 'contentType.type');
     self.shippingCalculator = new KdmShippingCalculator();
     self.$wrapperEl.on('change', 'select', function() {
@@ -252,8 +248,8 @@
     return _.find(items, function(item) { return item.title == title; });
   }
 
-  var kdmForm = new KdmForm($kdmFormWrapper, pledges, items);
+  var kdmForm = new KdmForm($kdmFormWrapper, new KdmContentManager());
 
   kdmForm.initialize();
 
-})(window, PLEDGES, ITEMS);
+})(window);
