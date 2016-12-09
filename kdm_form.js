@@ -15,6 +15,16 @@
     +    '</select>'
     +   '</div>'
     +  '</div>'
+    +  '<div class="form-group">'
+    +   '<label for="shipping" class="control-label col-md-4">Shipping</label>'
+    +   '<div class="col-md-4">'
+    +    '<select class="form-control" data-type="shipping">'
+    +     '<% shippingRegions.forEach(function(region) { %>'
+    +      '<option value="<%= region %>"><%= region %></option>'
+    +     '<% }) %>'
+    +    '</select>'
+    +   '</div>'
+    +  '</div>'
     + '</form>'
   );
 
@@ -101,15 +111,18 @@
 
   KdmForm.prototype.initialize = function() {
     this.$wrapperEl.empty();
-    this.initializePledgeDropdown();
+    this.initializePledgeAndShippingDropdowns();
     this.initializeAllAddOns();
     this.initializeTotals();
     this.listenToResetButton();
     this.updateTotals();
   };
 
-  KdmForm.prototype.initializePledgeDropdown = function() {
-    this.$wrapperEl.append(pledgeTemplate({ pledges: this.pledges }));
+  KdmForm.prototype.initializePledgeAndShippingDropdowns = function() {
+    this.$wrapperEl.append(pledgeTemplate({
+      pledges: this.pledges,
+      shippingRegions: this.shippingCalculator.getRegions()
+    }));
   };
 
   KdmForm.prototype.initializeAllAddOns = function() {
@@ -142,6 +155,7 @@
 
   KdmForm.prototype.updateTotals = function() {
     var self = this;
+    var region = null;
     var cart = [];
 
     self.$wrapperEl.find('select').each(function() {
@@ -155,6 +169,9 @@
         case 'pledge':
           cart.push(self.getPledgeOrder($select));
           break;
+        case 'shipping':
+          region = $select.val();
+          break;
         default:
           console.error('Unknown type: ' + type);
           break;
@@ -163,7 +180,7 @@
 
     var subtotal = _.sumBy(cart, function(order) { return order.item.price * order.quantity; });
     var orderItems = self.getOrderItems(cart);
-    var waveTotals = self.shippingCalculator.calculateShippingForRegion('United States', orderItems); // TODO: don't hardcode region
+    var waveTotals = self.shippingCalculator.calculateShippingForRegion(region, orderItems);
     var total = subtotal;
 
     ['1', '2', '3', '4'].forEach(function(wave) {

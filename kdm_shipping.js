@@ -86,6 +86,10 @@
 
   }
 
+  KdmShippingCalculator.prototype.getRegions = function() {
+    return Object.keys(CORE_SHIPPING_COSTS);
+  };
+
   KdmShippingCalculator.prototype.calculateShippingForRegion = function(region, items) {
     var self = this;
     var itemsByWave = _.groupBy(items, 'wave');
