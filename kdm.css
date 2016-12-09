@@ -2,6 +2,10 @@ body {
   padding-top: 10px;
 }
 
+.kdm-container {
+  margin-bottom: 15px;
+}
+
 .section-label {
   font-size: 20px;
   font-weight: bold;

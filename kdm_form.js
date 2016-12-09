@@ -78,6 +78,7 @@
     +   '</div>'
     +  '</div>'
     + '</form>'
+    + '<hr>'
   );
 
   pledges.sort(function(a, b) {
@@ -103,6 +104,7 @@
     this.initializePledgeDropdown();
     this.initializeAllAddOns();
     this.initializeTotals();
+    this.listenToResetButton();
     this.updateTotals();
   };
 
@@ -216,6 +218,13 @@
     });
   };
 
+  KdmForm.prototype.listenToResetButton = function() {
+    var self = this;
+    $('#reset').on('click', function() {
+      self.initialize();
+    });
+  };
+
   function findByTitle(items, title) {
     return _.find(items, function(item) { return item.title == title; });
   }
@@ -223,6 +232,5 @@
   var kdmForm = new KdmForm($kdmFormWrapper, pledges, items);
 
   kdmForm.initialize();
-  kdmForm.updateTotals();
 
 })(window, PLEDGES, ITEMS);
