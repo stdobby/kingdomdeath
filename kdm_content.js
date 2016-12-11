@@ -6,6 +6,10 @@
       type: 'Main Component',
       new: true
     },
+    NEW_CROSSOVER: {
+      type: 'Crossover',
+      new: true
+    },
     NEW_EXPANSION: {
       type: 'Expansion',
       new: true
@@ -286,7 +290,10 @@
     { title: 'Messenger of Courage', price: undefined, contentType: CONTENT_TYPES.OLD_PROMO, addon: false, wave: 3 },
     { title: 'Messenger of First Story', price: undefined, contentType: CONTENT_TYPES.OLD_PROMO, addon: false, wave: 3 },
     { title: 'Messenger of Humanity', price: undefined, contentType: CONTENT_TYPES.OLD_PROMO, addon: false, wave: 3 },
-    { title: 'Messenger of Spiral Path', price: undefined, contentType: CONTENT_TYPES.OLD_PROMO, addon: false, wave: 3 }
+    { title: 'Messenger of Spiral Path', price: undefined, contentType: CONTENT_TYPES.OLD_PROMO, addon: false, wave: 3 },
+
+    // New Crossovers
+    { title: "LY3 Candy & Cola", price: 20, contentType: CONTENT_TYPES.NEW_CROSSOVER, addon: true, wave: 3 }
   ];
 
   function KdmContentManager() {
