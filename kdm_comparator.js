@@ -16,6 +16,15 @@
     +   '</div>'
     +  '</div>'
     +  '<div class="form-group">'
+    +   '<label for="gamblersChest" class="control-label col-md-4">Do you want the Gambler\'s Chest?</label>'
+    +   '<div class="col-md-4">'
+    +    '<select class="form-control" data-type="gamblersChest">'
+    +     '<option value="yes">Yes</option>'
+    +     '<option value="no">No</option>'
+    +    '</select>'
+    +   '</div>'
+    +  '</div>'
+    +  '<div class="form-group">'
     +    '<label for="new_expansions" class="control-label col-md-4">The <span class="question-content-type">new expansions</span> I would like are</label>'
     +    '<div class="col-md-8 checkbox-columns">'
     +      '<% newExpansions.forEach(function(newExpansion) { %>'
@@ -151,12 +160,16 @@
 
   KdmComparator.prototype.combineSatanLevelPledges = function(pledges) {
     var satansLantern = _.cloneDeep(_.find(pledges, function(pledge) { return pledge.title === "Satan's Lantern"; }));
-    var filteredPledges = pledges.filter(function(pledge) {
-      return pledge.title.indexOf('Satan') === -1;
-    });
-    satansLantern.title = 'Various Satan Lantern Pledges';
-    filteredPledges.push(satansLantern);
-    return filteredPledges;
+    if (satansLantern) {
+      var filteredPledges = pledges.filter(function(pledge) {
+        return pledge.title.indexOf('Satan') === -1;
+      });
+      satansLantern.title = 'Various Satan Lantern Pledges';
+      filteredPledges.push(satansLantern);
+      return filteredPledges;
+    } else {
+      return pledges;
+    }
   };
 
   KdmComparator.prototype.getPotentialOrders = function(pledges, requiredItems) {
