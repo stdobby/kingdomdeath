@@ -44,6 +44,36 @@
     +      '<% }) %>'
     +    '</div>'
     +  '</div>'
+    +  '<div class="form-group">'
+    +    '<label for="new_pinups" class="control-label col-md-4">The <span class="question-content-type">new pinups</span> I would like are</label>'
+    +    '<div class="col-md-8 checkbox-columns">'
+    +      '<% newPinups.forEach(function(pinup) { %>'
+    +        '<label class="checkbox-inline" for="<%= pinup.title %>">'
+    +          '<input type="checkbox" name="new_pinups" id="<%= pinup.title %>" value="<%= pinup.title %>"><%= pinup.title %>'
+    +        '</label>'
+    +      '<% }) %>'
+    +    '</div>'
+    +  '</div>'
+    +  '<div class="form-group">'
+    +    '<label for="new_promos" class="control-label col-md-4">The <span class="question-content-type">new promos</span> I would like are</label>'
+    +    '<div class="col-md-8 checkbox-columns">'
+    +      '<% newPromos.forEach(function(promo) { %>'
+    +        '<label class="checkbox-inline" for="<%= promo.title %>">'
+    +          '<input type="checkbox" name="new_promos" id="<%= promo.title %>" value="<%= promo.title %>"><%= promo.title %>'
+    +        '</label>'
+    +      '<% }) %>'
+    +    '</div>'
+    +  '</div>'
+    +  '<div class="form-group">'
+    +    '<label for="new_crossovers" class="control-label col-md-4">The <span class="question-content-type">new crossovers</span> I would like are</label>'
+    +    '<div class="col-md-8 checkbox-columns">'
+    +      '<% newCrossovers.forEach(function(crossover) { %>'
+    +        '<label class="checkbox-inline" for="<%= crossover.title %>">'
+    +          '<input type="checkbox" name="new_crossovers" id="<%= crossover.title %>" value="<%= crossover.title %>"><%= crossover.title %>'
+    +        '</label>'
+    +      '<% }) %>'
+    +    '</div>'
+    +  '</div>'
     + '</form>'
   );
 
@@ -102,6 +132,9 @@
     this.addons = this.contentManager.getAddOns();
     this.newExpansions = this.contentManager.getAllNewExpansions().filter(function(expansion) { return expansion.addon; });
     this.oldExpansions = this.contentManager.getAllOldExpansions().filter(function(expansion) { return expansion.addon; });
+    this.newPinups = this.contentManager.getAllNewPinups().filter(function(pinup) { return pinup.addon; });
+    this.newPromos = this.contentManager.getAllNewPromos().filter(function(promo) { return promo.addon; });
+    this.newCrossovers = this.contentManager.getAllNewCrossovers().filter(function(crossover) { return crossover.addon; });
   }
 
   KdmComparator.prototype.initialize = function() {
@@ -113,7 +146,10 @@
   KdmComparator.prototype.initializeQuestionnaire = function() {
     this.$wrapperEl.find('.questionnaire').html(questionnaireTemplate({
       newExpansions: this.newExpansions,
-      oldExpansions: this.oldExpansions
+      oldExpansions: this.oldExpansions,
+      newPinups: this.newPinups,
+      newPromos: this.newPromos,
+      newCrossovers: this.newCrossovers
     }));
   };
 
@@ -143,20 +179,28 @@
   };
 
   KdmComparator.prototype.getRequiredItems = function() {
-    var newExpansionTitles = this.$wrapperEl.find('input[name=new_expansions]:checked').map(function() {
-      return $(this).val();
-    }).get();
-    var oldExpansionTitles = this.$wrapperEl.find('input[name=old_expansions]:checked').map(function() {
-      return $(this).val();
-    }).get();
+    var newExpansionTitles = this.getFormValues('input[name=new_expansions]:checked');
+    var oldExpansionTitles = this.getFormValues('input[name=old_expansions]:checked');
+    var newPinupTitles = this.getFormValues('input[name=new_pinups]:checked');
+    var newPromoTitles = this.getFormValues('input[name=new_promos]:checked');
+    var newCrossoverTitles = this.getFormValues('input[name=new_crossovers]:checked');
     var requiredNewExpansions = this.newExpansions.filter(function(expansion) {
       return _.includes(newExpansionTitles, expansion.title);
     });
     var requiredOldExpansions = this.oldExpansions.filter(function(expansion) {
       return _.includes(oldExpansionTitles, expansion.title);
     });
+    var requiredNewPinups = this.newPinups.filter(function(pinup) {
+      return _.includes(newPinupTitles, pinup.title);
+    });
+    var requiredNewPromos = this.newPromos.filter(function(promo) {
+      return _.includes(newPromoTitles, promo.title);
+    });
+    var requiredNewCrossovers = this.newCrossovers.filter(function(crossover) {
+      return _.includes(newCrossoverTitles, crossover.title);
+    });
     var requiresGamblersChest = this.$wrapperEl.find('select[data-type=gamblersChest]').val() === 'yes';
-    var requiredItems = [].concat(requiredNewExpansions, requiredOldExpansions).sort(itemSort);
+    var requiredItems = [].concat(requiredNewExpansions, requiredOldExpansions, requiredNewPinups, requiredNewPromos, requiredNewCrossovers).sort(itemSort);
 
     if (requiresGamblersChest) {
       var gamblersChest = _.find(this.addons, function(addon) { return addon.title === 'Gambler\'s Chest'; });
@@ -166,6 +210,12 @@
     }
 
     return requiredItems;
+  };
+
+  KdmComparator.prototype.getFormValues = function(selector) {
+    return this.$wrapperEl.find(selector).map(function() {
+      return $(this).val();
+    }).get();
   };
 
   KdmComparator.prototype.combineSatanLevelPledges = function(pledges) {
@@ -185,7 +235,6 @@
   KdmComparator.prototype.getPotentialOrders = function(pledges, requiredItems) {
     const requiredItemTitles = _.map(requiredItems, 'title');
     const requiredItemsByTitle = _.keyBy(requiredItems, 'title');
-    console.log(requiredItemsByTitle);
     return pledges.map(function(pledge) {
       const applicableItems = pledge.getApplicableItems(this.addons);
       const applicableItemTitles = _.map(applicableItems, 'title');

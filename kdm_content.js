@@ -342,6 +342,18 @@
     return this.getAllItems().filter(function(item) { return _.isEqual(item.contentType, CONTENT_TYPES.OLD_EXPANSION); }).sort(itemSort);
   };
 
+  KdmContentManager.prototype.getAllNewPinups = function() {
+    return this.getAllItems().filter(function(item) { return _.isEqual(item.contentType, CONTENT_TYPES.NEW_PINUP); }).sort(itemSort);
+  };
+
+  KdmContentManager.prototype.getAllNewPromos = function() {
+    return this.getAllItems().filter(function(item) { return _.isEqual(item.contentType, CONTENT_TYPES.NEW_PROMO); }).sort(itemSort);
+  };
+
+  KdmContentManager.prototype.getAllNewCrossovers = function() {
+    return this.getAllItems().filter(function(item) { return _.isEqual(item.contentType, CONTENT_TYPES.NEW_CROSSOVER); }).sort(itemSort);
+  };
+
   function itemSort(a, b) {
     return a.title.localeCompare(b.title);
   }
