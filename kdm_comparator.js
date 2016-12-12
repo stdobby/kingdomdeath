@@ -155,7 +155,17 @@
     var requiredOldExpansions = this.oldExpansions.filter(function(expansion) {
       return _.includes(oldExpansionTitles, expansion.title);
     });
-    return [].concat(requiredNewExpansions, requiredOldExpansions);
+    var requiresGamblersChest = this.$wrapperEl.find('select[data-type=gamblersChest]').val() === 'yes';
+    var requiredItems = [].concat(requiredNewExpansions, requiredOldExpansions).sort(itemSort);
+
+    if (requiresGamblersChest) {
+      var gamblersChest = _.find(this.addons, function(addon) { return addon.title === 'Gambler\'s Chest'; });
+      if (gamblersChest) {
+        requiredItems.unshift(gamblersChest);
+      }
+    }
+
+    return requiredItems;
   };
 
   KdmComparator.prototype.combineSatanLevelPledges = function(pledges) {
@@ -175,6 +185,7 @@
   KdmComparator.prototype.getPotentialOrders = function(pledges, requiredItems) {
     const requiredItemTitles = _.map(requiredItems, 'title');
     const requiredItemsByTitle = _.keyBy(requiredItems, 'title');
+    console.log(requiredItemsByTitle);
     return pledges.map(function(pledge) {
       const applicableItems = pledge.getApplicableItems(this.addons);
       const applicableItemTitles = _.map(applicableItems, 'title');
@@ -199,6 +210,10 @@
       orders: potentialOrders
     }));
   };
+
+  function itemSort(a, b) {
+    return a.title.localeCompare(b.title);
+  }
 
   var comparator = new KdmComparator($comparatorWrapper);
 
