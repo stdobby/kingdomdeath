@@ -47,6 +47,7 @@
   const PLEDGES = [
     {
       title: "Add-On's Only",
+      gameType: 'none',
       price: 5,
       getApplicableItems: function(items) {
         return [];
@@ -54,6 +55,7 @@
     },
     {
       title: "Lantern Upgrade",
+      gameType: 'update_pack',
       price: 60,
       getApplicableItems: function(items) {
         return items.filter(function(item) {
@@ -63,6 +65,7 @@
     },
     {
       title: "Silver Lantern",
+      gameType: 'update_pack',
       price: 195,
       getApplicableItems: function(items) {
         var titles = ["1.5 Update Pack", "Gambler's Chest", "The First Hero Expansion"]
@@ -73,6 +76,7 @@
     },
     {
       title: "Lantern",
+      gameType: 'core_game',
       price: 250,
       getApplicableItems: function(items) {
         return items.filter(function(item) {
@@ -82,6 +86,7 @@
     },
     {
       title: "Gold Lantern",
+      gameType: 'core_game',
       price: 350,
       getApplicableItems: function(items) {
         var titles = ["1.5 Core Game", "Gambler's Chest"]
@@ -92,6 +97,7 @@
     },
     {
       title: "Ancient Gold Lantern",
+      gameType: 'core_game',
       price: 750,
       getApplicableItems: function(items) {
         var titles = ["1.5 Core Game", "Gambler's Chest"]
@@ -102,6 +108,7 @@
     },
     {
       title: "Retail Lantern",
+      gameType: 'core_game',
       price: 1200,
       getApplicableItems: function(items) {
         var coreGame = _.find(items, function(item) { return item.title === "1.5 Core Game"; });
@@ -114,6 +121,7 @@
     },
     {
       title: "Black Friday Lantern Upgrade",
+      gameType: 'update_pack',
       price: 50,
       getApplicableItems: function(items) {
         return items.filter(function(item) {
@@ -123,6 +131,7 @@
     },
     {
       title: "Black Friday Silver Lantern",
+      gameType: 'update_pack',
       price: 185,
       getApplicableItems: function(items) {
         var titles = ["1.5 Update Pack", "Gambler's Chest", "The First Hero Expansion"]
@@ -133,6 +142,7 @@
     },
     {
       title: "Black Friday Lantern",
+      gameType: 'core_game',
       price: 200,
       getApplicableItems: function(items) {
         return items.filter(function(item) {
@@ -142,6 +152,7 @@
     },
     {
       title: "Black Friday Gold Lantern",
+      gameType: 'core_game',
       price: 300,
       getApplicableItems: function(items) {
         var titles = ["1.5 Core Game", "Gambler's Chest"]
@@ -152,6 +163,7 @@
     },
     {
       title: "Black Friday Gambler's Lantern",
+      gameType: 'update_pack',
       price: 777,
       getApplicableItems: function(items) {
         var titles = ["1.5 Update Pack", "Gambler's Chest"]
@@ -163,6 +175,7 @@
     },
     {
       title: "Black Friday Gambler's Lantern 2nd Face",
+      gameType: 'core_game',
       price: 927,
       getApplicableItems: function(items) {
         var titles = ["1.5 Core Game", "Gambler's Chest"]
@@ -174,6 +187,7 @@
     },
     {
       title: "Satan's Lantern",
+      gameType: 'core_game',
       price: 1666,
       getApplicableItems: function(items) {
         var titles = ["1.5 Core Game", "Gambler's Chest"]
@@ -185,6 +199,7 @@
     },
     {
       title: "Twin Satan's Lantern",
+      gameType: 'core_game',
       price: 1666,
       getApplicableItems: function(items) {
         var titles = ["1.5 Core Game", "Gambler's Chest"]
@@ -196,6 +211,7 @@
     },
     {
       title: "True Form Satan's Lantern",
+      gameType: 'core_game',
       price: 1666,
       getApplicableItems: function(items) {
         var titles = ["1.5 Core Game", "Gambler's Chest"]
@@ -207,6 +223,7 @@
     },
     {
       title: "Final Form Satan's Lantern",
+      gameType: 'core_game',
       price: 1666,
       getApplicableItems: function(items) {
         var titles = ["1.5 Core Game", "Gambler's Chest"]
@@ -305,6 +322,10 @@
     return _.sortBy(pledges, 'price');
   };
 
+  KdmContentManager.prototype.getPledgesForGameType = function(gameType) {
+    return this.getPledges().filter(function(pledge) { return pledge.gameType === gameType; });
+  };
+
   KdmContentManager.prototype.getAllItems = function() {
     return _.cloneDeep(ITEMS);
   };
@@ -312,6 +333,18 @@
   KdmContentManager.prototype.getAddOns = function() {
     return this.getAllItems().filter(function(item) { return item.addon; });
   };
+
+  KdmContentManager.prototype.getAllNewExpansions = function() {
+    return this.getAllItems().filter(function(item) { return _.isEqual(item.contentType, CONTENT_TYPES.NEW_EXPANSION); }).sort(itemSort);
+  };
+
+  KdmContentManager.prototype.getAllOldExpansions = function() {
+    return this.getAllItems().filter(function(item) { return _.isEqual(item.contentType, CONTENT_TYPES.OLD_EXPANSION); }).sort(itemSort);
+  };
+
+  function itemSort(a, b) {
+    return a.title.localeCompare(b.title);
+  }
 
   global.KdmContentManager = KdmContentManager;
 })(window);

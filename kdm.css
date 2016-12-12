@@ -2,8 +2,13 @@ body {
   padding-top: 10px;
 }
 
+h3 {
+  text-align: center;
+}
+
 .kdm-container {
   margin-bottom: 15px;
+  margin-top: 50px
 }
 
 .section-label {
@@ -25,4 +30,65 @@ body {
 
 .update-box {
   text-align: center;
+}
+
+.question-content-type {
+  text-decoration: underline;
+}
+
+label.checkbox-inline {
+  background-color: #dcdfd4;
+  cursor: pointer;
+  font-weight: 400;
+  margin-bottom: 10px !important;
+  margin-right: 2%;
+  margin-left:0;
+  padding: 10px 10px 10px 30px;
+}
+
+label.checkbox-inline.checked {
+  background-color: #266c8e;
+  color: #fff !important;
+  text-shadow: 1px 1px 2px #000 !important;
+}
+
+.checkbox-inline + .checkbox-inline {
+  margin-left: 0;
+}
+
+.checkbox-columns label.checkbox-inline {
+  min-width: 190px;
+  vertical-align: top;
+  width: 40%;
+}
+
+.compare-results td {
+  font-size: 0.8em;
+}
+
+.compare-results tr td:first-of-type {
+  font-size: 0.9em;
+  font-weight: bold;
+  width: 10%;
+}
+
+.total-cost-row td {
+  font-size: 0.9em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.table-section-divider td {
+  font-variant: small-caps;
+  text-align: center;
+}
+
+.add-ons-row td {
+  font-size: 0.7em;
+  text-align: left;
+}
+
+.add-ons-row ul {
+  margin: 0;
+  padding: 0 0 0 7px;
 }

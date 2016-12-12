@@ -1,10 +1,11 @@
 (function(global) {
   'use strict';
 
-  var $kdmFormWrapper = $('#kdmFormWrapper');
+  var $kdmFormWrapper = $('#calculator');
 
   var pledgeTemplate = _.template(
-      '<form class="form-horizontal">'
+      '<h3>Pledge and Shipping Calculator</h3>'
+    + '<form class="form-horizontal">'
     +  '<div class="form-group">'
     +   '<label for="pledge" class="control-label col-md-4">Pledge</label>'
     +   '<div class="col-md-4">'
