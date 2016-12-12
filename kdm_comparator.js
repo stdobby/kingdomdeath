@@ -90,9 +90,9 @@
   function KdmComparator(wrapperEl) {
     this.$wrapperEl = $(wrapperEl);
     this.contentManager = new KdmContentManager();
-    this.allItems = this.contentManager.getAllItems();
-    this.newExpansions = this.contentManager.getAllNewExpansions();
-    this.oldExpansions = this.contentManager.getAllOldExpansions();
+    this.addons = this.contentManager.getAddOns();
+    this.newExpansions = this.contentManager.getAllNewExpansions().filter(function(expansion) { return expansion.addon; });
+    this.oldExpansions = this.contentManager.getAllOldExpansions().filter(function(expansion) { return expansion.addon; });
   }
 
   KdmComparator.prototype.initialize = function() {
@@ -163,7 +163,7 @@
     const requiredItemTitles = _.map(requiredItems, 'title');
     const requiredItemsByTitle = _.keyBy(requiredItems, 'title');
     return pledges.map(function(pledge) {
-      const applicableItems = pledge.getApplicableItems(this.allItems);
+      const applicableItems = pledge.getApplicableItems(this.addons);
       const applicableItemTitles = _.map(applicableItems, 'title');
       const missingItemTitles = _.difference(requiredItemTitles, applicableItemTitles);
       const missingItems = missingItemTitles.map(function(title) { return requiredItemsByTitle[title]; });
