@@ -4,11 +4,12 @@
   var $kdmFormWrapper = $('#calculator');
 
   var pledgeTemplate = _.template(
-      '<h3>Pledge and Shipping Calculator</h3>'
+    '<h3 style="margin-bottom: 30px">Pledge and Shipping Calculator</h3>'
     + '<form class="form-horizontal">'
+    +  '<div id="pledgeBuilder" class="col-md-8">'
     +  '<div class="form-group">'
-    +   '<label for="pledge" class="control-label col-md-4">Pledge</label>'
-    +   '<div class="col-md-4">'
+    +   '<label for="pledge" class="control-label col-md-6">Pledge</label>'
+    +   '<div class="col-md-6">'
     +    '<select class="form-control" data-type="pledge">'
     +     '<% pledges.forEach(function(pledge) { %>'
     +      '<option value="<%= pledge.title %>"><%= pledge.title %> ($<%= pledge.price %>)</option>'
@@ -17,8 +18,8 @@
     +   '</div>'
     +  '</div>'
     +  '<div class="form-group">'
-    +   '<label for="shipping" class="control-label col-md-4">Shipping</label>'
-    +   '<div class="col-md-4">'
+    +   '<label for="shipping" class="control-label col-md-6">Shipping</label>'
+    +   '<div class="col-md-6">'
     +    '<select class="form-control" data-type="shipping">'
     +     '<% shippingRegions.forEach(function(region) { %>'
     +      '<option value="<%= region %>"><%= region %></option>'
@@ -26,23 +27,30 @@
     +    '</select>'
     +   '</div>'
     +  '</div>'
+    +  '</div>'
     + '</form>'
   );
 
   var addonTypeTemplate = _.template(
       '<form class="form-horizontal">'
     +  '<div class="form-group">'
-    +   '<label class="section-label control-label col-md-5"><%= sectionLabel %></label>'
+    +   '<label class="section-label control-label col-md-6"><%= sectionLabel %></label>'
     +  '</div>'
     +  '<% addons.forEach(function(addon) { %>'
     +   '<div class="form-group">'
-    +    '<label for="<%= addon.title %>" class="control-label col-md-4"><%= addon.title %></label>'
-    +    '<div class="col-md-2">'
-    +     '<select class="form-control" data-type="addon" data-title="<%= addon.title %>">'
-    +      '<% for (var i = 0; i <= 10; i++) { %>'
-    +       '<option value="<%= i %>"><%= i %> (+$<%= addon.price * i %>)</option>'
-    +      '<% } %>'
-    +     '</select>'
+    +    '<label for="<%= addon.title %>" class="control-label col-md-6"><%= addon.title %></label>'
+    +    '<div class="col-md-6">'
+      +    '<div class="col-xs-10">'
+      +     '<select class="form-control" data-type="addon" data-title="<%= addon.title %>">'
+      +      '<% for (var i = 0; i <= 10; i++) { %>'
+      +       '<option value="<%= i %>"><%= i %> (+$<%= addon.price * i %>)</option>'
+      +      '<% } %>'
+      +     '</select>'
+      +    '</div>'
+      +    '<div class="col-xs-2" style="padding: 7px 0 0 0; text-align: left;">'
+      +     '<span class="glyphicon glyphicon-plus" aria-hidden="true" style="color: darkgreen; margin-right: 8px; cursor: pointer"></span>'
+      +     '<span class="glyphicon glyphicon-minus" aria-hidden="true" style="color: darkred; cursor: pointer"></span>'
+      +    '</div>'
     +    '</div>'
     +   '</div>'
     +  '<% }) %>'
@@ -50,46 +58,47 @@
   );
 
   var totalsTemplate = _.template(
-      '<hr>'
+      '<div class="col-md-4">'
+    + '<hr>'
     + '<form class="form-horizontal totals-form">'
     +  '<div class="form-group">'
-    +   '<label for="subtotal" class="total-label control-label col-md-4">Kickstarter</label>'
+    +   '<label for="subtotal" class="total-label control-label col-md-8">Kickstarter</label>'
     +   '<div class="col-md-4">'
     +    '<p id="subtotal" class="form-control-static">$0</p>'
     +   '</div>'
     +  '</div>'
     +  '<div class="form-group">'
-    +   '<label for="wave1" class="total-label control-label col-md-4">Wave 1 (2017)</label>'
+    +   '<label for="wave1" class="total-label control-label col-md-8">Wave 1 (2017)</label>'
     +   '<div class="col-md-4">'
     +    '<p id="wave1" class="form-control-static">$0</p>'
     +   '</div>'
     +  '</div>'
     +  '<div class="form-group">'
-    +   '<label for="wave2" class="total-label control-label col-md-4">Wave 2 (2017)</label>'
+    +   '<label for="wave2" class="total-label control-label col-md-8">Wave 2 (2017)</label>'
     +   '<div class="col-md-4">'
     +    '<p id="wave2" class="form-control-static">$0</p>'
     +   '</div>'
     +  '</div>'
     +  '<div class="form-group">'
-    +   '<label for="wave3" class="total-label control-label col-md-4">Wave 3 (2018)</label>'
+    +   '<label for="wave3" class="total-label control-label col-md-8">Wave 3 (2018)</label>'
     +   '<div class="col-md-4">'
     +    '<p id="wave3" class="form-control-static">$0</p>'
     +   '</div>'
     +  '</div>'
     +  '<div class="form-group">'
-    +   '<label for="wave4" class="total-label control-label col-md-4">Wave 4 (2019)</label>'
+    +   '<label for="wave4" class="total-label control-label col-md-8">Wave 4 (2019)</label>'
     +   '<div class="col-md-4">'
     +    '<p id="wave4" class="form-control-static">$0</p>'
     +   '</div>'
     +  '</div>'
     +  '<div class="form-group">'
-    +   '<label for="wave5" class="total-label control-label col-md-4">Wave 5 (2020)</label>'
+    +   '<label for="wave5" class="total-label control-label col-md-8">Wave 5 (2020)</label>'
     +   '<div class="col-md-4">'
     +    '<p id="wave5" class="form-control-static">$0</p>'
     +   '</div>'
     +  '</div>'
     +  '<div class="form-group">'
-    +   '<label for="total" class="total-label control-label col-md-4">Total</label>'
+    +   '<label for="total" class="total-label control-label col-md-8">Total</label>'
     +   '<div class="col-md-4">'
     +    '<p id="total" class="form-control-static">$0</p>'
     +   '</div>'
@@ -103,11 +112,12 @@
     +   '</div>'
     +  '</div>'
     + '</form>'
-    + '<hr>'
+    + '</div>'
   );
 
   var shippingBreakdownTemplate = _.template(
-      '<h3>Shipping Breakdown</h3>'
+      '<div class="col-md-12">'
+    + '<h3>Shipping Breakdown</h3>'
     + '<table class="table table-bordered">'
     +  '<tbody>'
     +   '<% waves.forEach(function(wave) { %>'
@@ -133,6 +143,7 @@
     +   '<% }) %>'
     +  '</tbody>'
     + '</table>'
+    + '</div>'
   );
 
   function KdmForm(wrapperEl, KdmContentManager) {
@@ -156,6 +167,8 @@
     this.initializeAllAddOns();
     this.initializeTotals();
     this.listenToResetButton();
+    this.listenToIncrementButtons();
+    this.listenToDecrementButtons();
     this.updateTotals();
     this.updateShippingBreakdown();
   };
@@ -184,7 +197,7 @@
     if (addons) {
       addons.sort(function(a, b) { return a.title.localeCompare(b.title); });
 
-      this.$wrapperEl.append(addonTypeTemplate({
+      this.$wrapperEl.find("#pledgeBuilder").append(addonTypeTemplate({
         sectionLabel: sectionLabel,
         addons: addons
       }));
@@ -292,6 +305,34 @@
     var self = this;
     $('#reset').on('click', function() {
       self.initialize();
+    });
+  };
+  
+  KdmForm.prototype.listenToIncrementButtons = function() {
+    var self = this;
+    $('.glyphicon-plus').on('click', function(e) {
+      var elSelect = $(e.target).parent().parent().find("select");
+      var curVal = parseInt(elSelect.val());
+      var nextVal = curVal + 1;
+      if (elSelect.find("option[value="+nextVal+"]").length > 0)
+      {
+        elSelect.val(nextVal);
+        elSelect.change();
+      }
+    });
+  };
+  
+  KdmForm.prototype.listenToDecrementButtons = function() {
+    var self = this;
+    $('.glyphicon-minus').on('click', function(e) {
+      var elSelect = $(e.target).parent().parent().find("select");
+      var curVal = parseInt(elSelect.val());
+      var nextVal = curVal - 1;
+      if (elSelect.find("option[value="+nextVal+"]").length > 0)
+      {
+        elSelect.val(nextVal);
+        elSelect.change();
+      }
     });
   };
 
