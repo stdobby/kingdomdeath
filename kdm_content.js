@@ -314,10 +314,19 @@
     { title: "LY3 Candy & Cola", price: 20, contentType: CONTENT_TYPES.NEW_CROSSOVER, addon: true, wave: 3 }
   ];
 
-  const CAMPAIGN_NODE_DESCRIPTIONS = {
-    1: "Expansions in this node represent a monster that can be hunted at the very start of the campaign.",
-    2: "Expansions in this node contain content that can be utilized from as early as Lantern Year 2, and provides a good ramp to mid campaign content.",
-    5: "Expansions in this node are limited to ONE per campaign."
+  const CAMPAIGN_NODES = {
+    1: {
+      description: "Expansions in this node represent a monster that can be hunted at the very start of the campaign.",
+      core_game_monsters: ["White Lion"]
+    },
+    2: {
+      description: "Expansions in this node contain content that can be utilized from as early as Lantern Year 2, and provides a good ramp to mid campaign content.",
+      core_game_monsters: ["Screaming Antelope"]
+    },
+    5: {
+      description: "Expansions in this node are limited to ONE per campaign.",
+      core_game_monsters: []
+    }
   };
 
   function KdmContentManager() {
@@ -368,11 +377,13 @@
       const expansionsByNewness = _.groupBy(expansions, 'contentType.new');
       const newExpansions = (expansionsByNewness['true'] || []).sort(itemSort);
       const oldExpansions = (expansionsByNewness['false'] || []).sort(itemSort);
+      const campaignNode = CAMPAIGN_NODES[nodeNumber];
       return {
         nodeNumber: nodeNumber,
-        description: CAMPAIGN_NODE_DESCRIPTIONS[nodeNumber],
+        description: campaignNode.description,
         newExpansions: newExpansions,
-        oldExpansions: oldExpansions
+        oldExpansions: oldExpansions,
+        coreMonsters: campaignNode.core_game_monsters
       };
     }).sort(sortCampaignNodesByNodeNumber);
   };
