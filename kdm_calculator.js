@@ -122,22 +122,24 @@
     +  '<tbody>'
     +   '<% waves.forEach(function(wave) { %>'
     +    '<tr class="wave-section-header info">'
-    +     '<td colspan="2"><%= wave.meta.title %></td>'
+    +     '<td colspan="3"><%= wave.meta.title %></td>'
     +    '</tr>'
     +    '<tr class="wave-table-header active">'
+    +     '<td>Quantity</td>'
     +     '<td>Item</td>'
     +     '<td>Type</td>'
     +    '</tr>'
     +    '<% if (wave.items.length > 0) { %>'
     +     '<% wave.items.forEach(function(item) { %>'
     +      '<tr>'
+    +       '<td><%= item.quantity %></td>'
     +       '<td><%= item.title %></td>'
     +       '<td><%= item.contentType.type %></td>'
     +      '</tr>'
     +     '<% }) %>'
     +    '<% } else { %>'
     +     '<tr class="no-content">'
-    +      '<td colspan="2">No content</td>'
+    +      '<td colspan="3">No content</td>'
     +     '</tr>'
     +    '<% } %>'
     +   '<% }) %>'
@@ -307,7 +309,7 @@
       self.initialize();
     });
   };
-  
+
   KdmForm.prototype.listenToIncrementButtons = function() {
     var self = this;
     $('.glyphicon-plus').on('click', function(e) {
@@ -321,7 +323,7 @@
       }
     });
   };
-  
+
   KdmForm.prototype.listenToDecrementButtons = function() {
     var self = this;
     $('.glyphicon-minus').on('click', function(e) {
@@ -337,7 +339,7 @@
   };
 
   KdmForm.prototype.updateShippingBreakdown = function() {
-    const waves = [{
+    var waves = [{
         wave: 1,
         meta: {
           title: 'Wave 1 - Summer 2017 - 1.5 Core Game / Update Pack'
@@ -376,6 +378,16 @@
       if (waveConfig) {
         waveConfig.items.push(item);
       }
+    });
+
+    waves.forEach(function(wave) {
+      var itemsByTitle = _.groupBy(wave.items, 'title');
+      var reducedItems = _.map(itemsByTitle, function(items, title) {
+        var clonedItem = _.cloneDeep(items[0]);
+        clonedItem.quantity = items.length;
+        return clonedItem;
+      });
+      wave.items = reducedItems;
     });
 
     if (!this.$wrapperEl.find('.shipping-breakdown').length) {

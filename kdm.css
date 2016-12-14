@@ -98,3 +98,8 @@ label.checkbox-inline.checked {
   margin: 0;
   padding: 0 0 0 15px;
 }
+
+.shipping-breakdown tr td:first-of-type {
+  text-align: center;
+  width: 50px;
+}
