@@ -55,6 +55,16 @@
     +    '</div>'
     +  '</div>'
     +  '<div class="form-group">'
+    +    '<label for="old_pinups" class="control-label col-md-4">The <span class="question-content-type">old pinups</span> I would like are</label>'
+    +    '<div class="col-md-8 checkbox-columns">'
+    +      '<% oldPinups.forEach(function(pinup) { %>'
+    +        '<label class="checkbox-inline" for="<%= pinup.title %>">'
+    +          '<input type="checkbox" name="old_pinups" id="<%= pinup.title %>" value="<%= pinup.title %>"><%= pinup.title %>'
+    +        '</label>'
+    +      '<% }) %>'
+    +    '</div>'
+    +  '</div>'
+    +  '<div class="form-group">'
     +    '<label for="new_promos" class="control-label col-md-4">The <span class="question-content-type">new promos</span> I would like are</label>'
     +    '<div class="col-md-8 checkbox-columns">'
     +      '<% newPromos.forEach(function(promo) { %>'
@@ -133,6 +143,7 @@
     this.newExpansions = this.contentManager.getAllNewExpansions().filter(function(expansion) { return expansion.addon; });
     this.oldExpansions = this.contentManager.getAllOldExpansions().filter(function(expansion) { return expansion.addon; });
     this.newPinups = this.contentManager.getAllNewPinups().filter(function(pinup) { return pinup.addon; });
+    this.oldPinups = this.contentManager.getAllOldPinups().filter(function(pinup) { return pinup.addon; });
     this.newPromos = this.contentManager.getAllNewPromos().filter(function(promo) { return promo.addon; });
     this.newCrossovers = this.contentManager.getAllNewCrossovers().filter(function(crossover) { return crossover.addon; });
   }
@@ -148,6 +159,7 @@
       newExpansions: this.newExpansions,
       oldExpansions: this.oldExpansions,
       newPinups: this.newPinups,
+      oldPinups: this.oldPinups,
       newPromos: this.newPromos,
       newCrossovers: this.newCrossovers
     }));
@@ -179,29 +191,9 @@
   };
 
   KdmComparator.prototype.getRequiredItems = function() {
-    var newExpansionTitles = this.getFormValues('input[name=new_expansions]:checked');
-    var oldExpansionTitles = this.getFormValues('input[name=old_expansions]:checked');
-    var newPinupTitles = this.getFormValues('input[name=new_pinups]:checked');
-    var newPromoTitles = this.getFormValues('input[name=new_promos]:checked');
-    var newCrossoverTitles = this.getFormValues('input[name=new_crossovers]:checked');
-    var requiredNewExpansions = this.newExpansions.filter(function(expansion) {
-      return _.includes(newExpansionTitles, expansion.title);
-    });
-    var requiredOldExpansions = this.oldExpansions.filter(function(expansion) {
-      return _.includes(oldExpansionTitles, expansion.title);
-    });
-    var requiredNewPinups = this.newPinups.filter(function(pinup) {
-      return _.includes(newPinupTitles, pinup.title);
-    });
-    var requiredNewPromos = this.newPromos.filter(function(promo) {
-      return _.includes(newPromoTitles, promo.title);
-    });
-    var requiredNewCrossovers = this.newCrossovers.filter(function(crossover) {
-      return _.includes(newCrossoverTitles, crossover.title);
-    });
+    var requiredTitles = this.getFormValues('input:checked');
+    var requiredItems = this.addons.filter(function(item) { return _.includes(requiredTitles, item.title); }).sort(itemSort);
     var requiresGamblersChest = this.$wrapperEl.find('select[data-type=gamblersChest]').val() === 'yes';
-    var requiredItems = [].concat(requiredNewExpansions, requiredOldExpansions, requiredNewPinups, requiredNewPromos, requiredNewCrossovers).sort(itemSort);
-
     if (requiresGamblersChest) {
       var gamblersChest = _.find(this.addons, function(addon) { return addon.title === 'Gambler\'s Chest'; });
       if (gamblersChest) {

@@ -287,18 +287,7 @@
     { title: "Nightmare Ram Armor & Ramette", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
 
     // Old Pinups
-    { title: 'Dragon Sacrifice', price: undefined, contentType: CONTENT_TYPES.OLD_PINUP, addon: false, wave: 3 },
-    { title: 'Lantern Festival', price: undefined, contentType: CONTENT_TYPES.OLD_PINUP, addon: false, wave: 3 },
-    { title: 'Leather Queen', price: undefined, contentType: CONTENT_TYPES.OLD_PINUP, addon: false, wave: 3 },
-    { title: 'Lioness', price: undefined, contentType: CONTENT_TYPES.OLD_PINUP, addon: false, wave: 3 },
-    { title: 'Phoenix Dancer', price: undefined, contentType: CONTENT_TYPES.OLD_PINUP, addon: false, wave: 3 },
-    { title: 'Pinups of Death', price: undefined, contentType: CONTENT_TYPES.OLD_PINUP, addon: false, wave: 3 },
-    { title: 'Primal Huntress', price: undefined, contentType: CONTENT_TYPES.OLD_PINUP, addon: false, wave: 3 },
-    { title: 'Rawhide Dame', price: undefined, contentType: CONTENT_TYPES.OLD_PINUP, addon: false, wave: 3 },
-    { title: 'Regeneration Suit', price: undefined, contentType: CONTENT_TYPES.OLD_PINUP, addon: false, wave: 3 },
-    { title: 'Silk Assassin', price: undefined, contentType: CONTENT_TYPES.OLD_PINUP, addon: false, wave: 3 },
-    { title: 'Sunstalker Dancer', price: undefined, contentType: CONTENT_TYPES.OLD_PINUP, addon: false, wave: 3 },
-    { title: 'Twilight Witch', price: undefined, contentType: CONTENT_TYPES.OLD_PINUP, addon: false, wave: 3 },
+    { title: 'Pinups of Death 2', price: 115, contentType: CONTENT_TYPES.OLD_PINUP, addon: true, wave: 3 },
     { title: 'Allison the Twilight Knight', price: undefined, contentType: CONTENT_TYPES.OLD_PINUP, addon: false, wave: 3 },
 
     // New Promos
@@ -370,6 +359,10 @@
 
   KdmContentManager.prototype.getAllNewPinups = function() {
     return this.getAllItems().filter(function(item) { return _.isEqual(item.contentType, CONTENT_TYPES.NEW_PINUP); }).sort(itemSort);
+  };
+
+  KdmContentManager.prototype.getAllOldPinups = function() {
+    return this.getAllItems().filter(function(item) { return _.isEqual(item.contentType, CONTENT_TYPES.OLD_PINUP); }).sort(itemSort);
   };
 
   KdmContentManager.prototype.getAllNewPromos = function() {
