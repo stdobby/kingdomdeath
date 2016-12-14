@@ -263,6 +263,7 @@
 
     // New Extras
     { title: "Extra Hardcover 1.5 Core Game Rulebook", price: 40, contentType: CONTENT_TYPES.NEW_EXTRA, addon: true, wave: 3 },
+    { title: "Frogdog T-Shirt", price: 25, contentType: CONTENT_TYPES.NEW_EXTRA, addon: true, wave: 3 },
     { title: "Gambler's Chest", price: 100, contentType: CONTENT_TYPES.NEW_EXTRA, addon: true, wave: 3 },
 
     // Old Extras
