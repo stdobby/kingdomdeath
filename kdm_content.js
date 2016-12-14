@@ -193,7 +193,9 @@
         var titles = ["1.5 Core Game", "Gambler's Chest"]
         var types = ['Expansion', 'Pinup', 'Promo'];
         return items.filter(function(item) {
-          return _.includes(titles, item.title) || _.includes(types, item.contentType.type) || (!item.contentType.new && item.contentType.type === 'Extra');
+          return (_.includes(titles, item.title)
+                  || (_.includes(types, item.contentType.type) && item.title !== 'Role Survivors')
+                  || (!item.contentType.new && item.contentType.type === 'Extra'));
         });
       }
     },
@@ -205,7 +207,9 @@
         var titles = ["1.5 Core Game", "Gambler's Chest"]
         var types = ['Expansion', 'Pinup', 'Promo'];
         return items.filter(function(item) {
-          return _.includes(titles, item.title) || _.includes(types, item.contentType.type) || (!item.contentType.new && item.contentType.type === 'Extra');
+          return (_.includes(titles, item.title)
+                  || (_.includes(types, item.contentType.type) && item.title !== 'Role Survivors')
+                  || (!item.contentType.new && item.contentType.type === 'Extra'));
         });
       }
     },
@@ -217,7 +221,9 @@
         var titles = ["1.5 Core Game", "Gambler's Chest"]
         var types = ['Expansion', 'Pinup', 'Promo'];
         return items.filter(function(item) {
-          return _.includes(titles, item.title) || _.includes(types, item.contentType.type) || (!item.contentType.new && item.contentType.type === 'Extra');
+          return (_.includes(titles, item.title)
+                  || (_.includes(types, item.contentType.type) && item.title !== 'Role Survivors')
+                  || (!item.contentType.new && item.contentType.type === 'Extra'));
         });
       }
     },
@@ -229,7 +235,9 @@
         var titles = ["1.5 Core Game", "Gambler's Chest"]
         var types = ['Expansion', 'Pinup', 'Promo'];
         return items.filter(function(item) {
-          return _.includes(titles, item.title) || _.includes(types, item.contentType.type) || (!item.contentType.new && item.contentType.type === 'Extra');
+          return (_.includes(titles, item.title)
+                  || (_.includes(types, item.contentType.type) && item.title !== 'Role Survivors')
+                  || (!item.contentType.new && item.contentType.type === 'Extra'));
         });
       }
     }

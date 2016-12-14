@@ -136,6 +136,9 @@
     + '</table>'
   );
 
+  const COMBINED_SATAN_LEVEL_TITLE = 'Various Satan Lantern Pledges';
+  const PLEDGE_TITLES_WITH_ROLE_SURVIVORS_IN_EXPANSION = ['Ancient Gold Lantern', COMBINED_SATAN_LEVEL_TITLE];
+
   function KdmComparator(wrapperEl) {
     this.$wrapperEl = $(wrapperEl);
     this.contentManager = new KdmContentManager();
@@ -216,7 +219,7 @@
       var filteredPledges = pledges.filter(function(pledge) {
         return pledge.title.indexOf('Satan') === -1;
       });
-      satansLantern.title = 'Various Satan Lantern Pledges';
+      satansLantern.title = COMBINED_SATAN_LEVEL_TITLE;
       filteredPledges.push(satansLantern);
       return filteredPledges;
     } else {
@@ -230,7 +233,12 @@
     return pledges.map(function(pledge) {
       const applicableItems = pledge.getApplicableItems(this.addons);
       const applicableItemTitles = _.map(applicableItems, 'title');
-      const missingItemTitles = _.difference(requiredItemTitles, applicableItemTitles);
+      var missingItemTitles = _.difference(requiredItemTitles, applicableItemTitles);
+
+      if (_.includes(PLEDGE_TITLES_WITH_ROLE_SURVIVORS_IN_EXPANSION, pledge.title) && _.includes(missingItemTitles, 'Role Survivors')) {
+        missingItemTitles = _.without(missingItemTitles, 'Role Survivors');
+      }
+
       const missingItems = missingItemTitles.map(function(title) { return requiredItemsByTitle[title]; });
       const pledgeCost = pledge.price;
       const addOnCost = _.sumBy(missingItems, function(item) { return item.price; });
