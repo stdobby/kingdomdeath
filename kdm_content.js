@@ -174,6 +174,18 @@
       }
     },
     {
+      title: "Frogdog",
+      gameType: 'update_pack',
+      price: 1000,
+      getApplicableItems: function(items) {
+        var titles = ["1.5 Update Pack", "Gambler's Chest", "Frogdog T-Shirt"]
+        var types = ['Expansion', 'Pinup', 'Promo'];
+        return items.filter(function(item) {
+          return _.includes(titles, item.title) || (item.contentType.new && _.includes(types, item.contentType.type));
+        });
+      }
+    },
+    {
       title: "Black Friday Gambler's Lantern 2nd Face",
       gameType: 'core_game',
       price: 927,
@@ -233,6 +245,20 @@
       price: 1666,
       getApplicableItems: function(items) {
         var titles = ["1.5 Core Game", "Gambler's Chest"]
+        var types = ['Expansion', 'Pinup', 'Promo'];
+        return items.filter(function(item) {
+          return (_.includes(titles, item.title)
+                  || (_.includes(types, item.contentType.type) && item.title !== 'Role Survivors')
+                  || (!item.contentType.new && item.contentType.type === 'Extra'));
+        });
+      }
+    },
+    {
+      title: "God Frogdog",
+      gameType: "core_game",
+      price: 2000,
+      getApplicableItems: function(items) {
+        var titles = ["1.5 Core Game", "Gambler's Chest", "Frogdog T-Shirt"]
         var types = ['Expansion', 'Pinup', 'Promo'];
         return items.filter(function(item) {
           return (_.includes(titles, item.title)
