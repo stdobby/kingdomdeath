@@ -353,7 +353,7 @@
       core_game_monsters: []
     },
     4: {
-      description: "",
+      description: "Unknown at the moment.",
       core_game_monsters: []
     },
     5: {
@@ -361,6 +361,399 @@
       core_game_monsters: []
     }
   };
+
+  const GAMBLERS_CHEST_ROLLS = [{
+    rollNumber: 0,
+    rollResultMin: 8,
+    rollResultMax: 12,
+    title: "Philosophy of Death",
+    type: "Game System",
+    mini: false,
+    updateNumber: 0,
+    contents: []
+  }, {
+    rollNumber: 0,
+    rollResultMin: null,
+    rollResultMax: null,
+    title: "Advanced KD:M Rulebook",
+    type: "Advanced Rulebook",
+    mini: false,
+    updateNumber: 0,
+    contents: [{
+      title: "Advanced KD:M Rulebook",
+      type: "Advanced Rulebook",
+      quantity: 1
+    }]
+  }, {
+    rollNumber: 1,
+    rollResultMin: 66,
+    rollResultMax: 69,
+    title: "Nightmare Adam",
+    type: "Promo",
+    mini: true,
+    updateNumber: 5,
+    contents: [{
+      title: "Nightmare Adam",
+      type: "Miniature",
+      quantity: 1
+    }, {
+      title: "Nightmare Inspiration Fighting Art Card",
+      type: "Fighting Art",
+      quantity: 1
+    }, {
+      title: "Ambitionism Philosophy",
+      type: "Philosophy",
+      quantity: 1
+    }]
+  }, {
+    rollNumber: 2,
+    rollResultMin: 35,
+    rollResultMax: 37,
+    title: "White Fang",
+    type: "Narrative Sculpture",
+    mini: true,
+    updateNumber: 6,
+    contents: [{
+      title: "White Lion - Twilight Sword",
+      type: "Miniature",
+      quantity: 1
+    }, {
+      title: "Unique Base Insert",
+      type: "Base Insert",
+      quantity: 1
+    }]
+  }, {
+    rollNumber: 2,
+    rollResultMin: null,
+    rollResultMax: null,
+    title: "Sci-fi Aya the Survivor",
+    type: "Promo",
+    mini: true,
+    updateNumber: 6,
+    contents: [{
+      title: "Sci-fi Aya",
+      type: "Miniature",
+      quantity: 1
+    }, {
+      title: "Promo Gear Cards",
+      type: "Gear Cards",
+      quantity: 2
+    }, {
+      title: "Art Card",
+      type: "Art Card",
+      quantity: 1
+    }]
+  }, {
+    rollNumber: 3,
+    rollResultMin: 29,
+    rollResultMax: 31,
+    title: "Last Axeman Standing",
+    type: "Narrative Sculpture",
+    mini: true,
+    updateNumber: 7,
+    contents: [{
+      title: "Last Axeman Standing",
+      type: "Miniature",
+      quantity: 1
+    }, {
+      title: "Mighty Bone Axe Rare Gear Card",
+      type: "Gear Card",
+      quantity: 1
+    }]
+  }, {
+    rollNumber: 4,
+    rollResultMin: 17,
+    rollResultMax: 20,
+    title: "Scouts of Death",
+    type: "Game Feature",
+    mini: false,
+    updateNumber: 8,
+    contents: [{
+      title: "Scouts of Death Advanced Rules",
+      type: "Advanced Rulebook Upgrade",
+      quantity: 1
+    }, {
+      title: "Scount of Death",
+      type: "Miniature",
+      quantity: 1
+    }, {
+      title: "Cards",
+      type: "Unknown Cards",
+      quantity: null
+    }]
+  }, {
+    rollNumber: 5,
+    rollResultMin: 85,
+    rollResultMax: 89,
+    title: "Murderer",
+    type: "Narrative Sculpture",
+    mini: true,
+    updateNumber: 10,
+    contents: [{
+      title: "Murderer",
+      type: "Miniature",
+      quantity: 1
+    }, {
+      title: "Homicidal Philosophy",
+      type: "Philosophy",
+      quantity: 1
+    }, {
+      title: "Settlement Event Card",
+      type: "Settlement Event",
+      quantity: 1
+    }, {
+      title: "Secret Fighting Art",
+      type: "Fighting Art",
+      quantity: 1
+    }, {
+      title: "Gear Cards",
+      type: "Gear Card",
+      quantity: 2
+    }]
+  }, {
+    rollNumber: 6,
+    rollResultMin: 90,
+    rollResultMax: 93,
+    title: "Bow Master of Deadrock",
+    type: "Narrative Sculpture",
+    mini: true,
+    updateNumber: 11,
+    contents: [{
+      title: "Bow Master of Deadrock",
+      type: "Miniature",
+      quantity: 1
+    }, {
+      title: "Unique Base Insert",
+      type: "Base Insert",
+      quantity: 1
+    }, {
+      title: "Lucky Cat Fang Knife Rare Gear Card",
+      type: "Gear Card",
+      quantity: 1
+    }]
+  }, {
+    rollNumber: 6,
+    rollResultMin: 90,
+    rollResultMax: 93,
+    title: "The Bloody Sword of Deadrock",
+    type: "Narrative Sculpture",
+    mini: true,
+    updateNumber: 11,
+    contents: [{
+      title: "Bloody Sword of Deadrock",
+      type: "Miniature",
+      quantity: 1
+    }, {
+      title: "Unique Base Insert",
+      type: "Base Insert",
+      quantity: 1
+    }, {
+      title: "Clutch Fighting Art",
+      type: "Fighting Art",
+      quantity: 1
+    }]
+  }, {
+    rollNumber: 7,
+    rollResultMin: 13,
+    rollResultMax: 16,
+    title: "The Romantic Adventurer",
+    type: "Narrative Sculpture",
+    mini: true,
+    updateNumber: 13,
+    contents: [{
+      title: "Male Conviction Romantic",
+      type: "Miniature",
+      quantity: 1
+    }, {
+      title: "Unique Base Insert",
+      type: "Base Insert",
+      quantity: 1
+    }, {
+      title: "Rare Gear Card",
+      type: "Gear Card",
+      quantity: 1
+    }, {
+      title: "Romanticism Philosophy",
+      type: "Philosophy",
+      quantity: 1
+    }]
+  }, {
+    rollNumber: 7,
+    rollResultMin: 70,
+    rollResultMax: 73,
+    title: "The Screaming Hoarder",
+    type: "Narrative Sculpture",
+    mini: true,
+    updateNumber: 13,
+    contents: [{
+      title: "Screaming Hoarder",
+      type: "Miniature",
+      quantity: 1
+    }, {
+      title: "Unique Base Insert",
+      type: "Base Insert",
+      quantity: 1
+    }, {
+      title: "Advanced Disorder",
+      type: "Disorder",
+      quantity: 1
+    }, {
+      title: "Hunt Event",
+      type: "Hunt Event",
+      quantity: 1
+    }]
+  }, {
+    rollNumber: 8,
+    rollResultMin: 1,
+    rollResultMax: 1,
+    title: "Kingdom Death 1-1 Penalty",
+    type: "Penalty",
+    mini: false,
+    updateNumber: 14,
+    contents: []
+  }, {
+    rollNumber: 9,
+    rollResultMin: 2,
+    rollResultMax: 7,
+    title: "Dark Eye",
+    type: "Narrative Sculpture",
+    mini: true,
+    updateNumber: 16,
+    contents: [{
+      title: "Dark Eye",
+      type: "Miniature",
+      quantity: 1
+    }, {
+      title: "Unique Base Insert",
+      type: "Base Insert",
+      quantity: 1
+    }, {
+      title: "Advanced Fighting Art Card",
+      type: "Fighting Art",
+      quantity: 1
+    }]
+  }, {
+    rollNumber: 10,
+    rollResultMin: 24,
+    rollResultMax: 28,
+    title: "Cockroach Queen",
+    type: "Narrative Sculpture",
+    mini: true,
+    updateNumber: 17,
+    contents: [{
+      title: "Cockroach Queen",
+      type: "Miniature",
+      quantity: 1
+    }, {
+      title: "Unique Base Insert",
+      type: "Base Insert",
+      quantity: 1
+    }, {
+      title: "Advanced Disorder",
+      type: "Disorder",
+      quantity: 1
+    }, {
+      title: "Verminism Philosophy",
+      type: "Philosophy",
+      quantity: 1
+    }]
+  }, {
+    rollNumber: 11,
+    rollResultMin: 87,
+    rollResultMax: 87,
+    title: "Murderer Penalty",
+    type: "Penalty",
+    mini: false,
+    updateNumber: 18,
+    contents: []
+  }, {
+    rollNumber: 12,
+    rollResultMin: 41,
+    rollResultMax: 43,
+    title: "Beast Hunter Armor",
+    type: "Narrative Sculpture",
+    mini: true,
+    updateNumber: 19,
+    contents: [{
+      title: "Beast Hunter",
+      type: "Miniature",
+      quantity: 1
+    }, {
+      title: "Armor Kit compatible Male Beast Hunter Helm",
+      type: "Armor Kit Piece",
+      quantity: 1
+    }, {
+      title: "Armor Kit compatible Female Beast Hunter Helm",
+      type: "Armor Kit Piece",
+      quantity: 1
+    }, {
+      title: "Unique Base Insert",
+      type: "Base Insert",
+      quantity: 1
+    }, {
+      title: "Hybride Phoenix & Screaming Antelope Armor Set Card",
+      type: "Armor Set Card",
+      quantity: 1
+    }, {
+      title: "Beast Hunter Helm Rare Gear Card",
+      type: "Gear Card",
+      quantity: 1
+    }]
+  }, {
+    rollNumber: 13,
+    rollResultMin: 55,
+    rollResultMax: 55,
+    title: "Mad & Mighty Striker",
+    type: "Narrative Sculpture",
+    mini: true,
+    updateNumber: 20,
+    contents: [{
+      title: "Mad & Mighty Striker",
+      type: "Miniature",
+      quantity: 1
+    }, {
+      title: "Unique Base Insert",
+      type: "Base Insert",
+      quantity: 1
+    }, {
+      title: "Fighting Art",
+      type: "Fighting Art",
+      quantity: 1
+    }, {
+      title: "Impermanenism Philosophy",
+      type: "Philosophy",
+      quantity: 1
+    }]
+  }, {
+    rollNumber: 14,
+    rollResultMin: 74,
+    rollResultMax: 77,
+    title: "Bone Eater",
+    type: "Narrative Sculpture",
+    mini: true,
+    updateNumber: 21,
+    contents: [{
+      title: "Bone Eater",
+      type: "Miniature",
+      quantity: 1
+    }, {
+      title: "Marrow Hunger Philosophy",
+      type: "Philosophy",
+      quantity: 1
+    }, {
+      title: "Settlement Event",
+      type: "Settlement Event",
+      quantity: 1
+    }, {
+      title: "Secret Fighting Art",
+      type: "Fighting Art",
+      quantity: 1
+    }, {
+      title: "New Bone Gear",
+      type: "Gear Card",
+      quantity: 1
+    }]
+  }];
 
   function KdmContentManager() {
 
@@ -405,6 +798,10 @@
 
   KdmContentManager.prototype.getAllNewCrossovers = function() {
     return this.getAllItems().filter(function(item) { return _.isEqual(item.contentType, CONTENT_TYPES.NEW_CROSSOVER); }).sort(itemSort);
+  };
+
+  KdmContentManager.prototype.getGamblersChestRolls = function() {
+    return _.cloneDeep(GAMBLERS_CHEST_ROLLS);
   };
 
   KdmContentManager.prototype.getCampaignNodes = function() {

@@ -33,6 +33,9 @@
             <li>
               <a href="#nodechart" aria-controls="node-chart" roles="tab" data-toggle="tab">Node Chart</a>
             </li>
+            <li>
+              <a href="#gamblerschest" aria-controls="gamblers-chest" roles="tab" data-toggle="tab">Gambler's Chest</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -47,6 +50,12 @@
           <div class="compare-results"></div>
         </div>
         <div role="tabpanel" class="tab-pane" id="nodechart"></div>
+        <div role="tabpanel" class="tab-pane" id="gamblerschest">
+          <h3>Breakdown</h3>
+          <div class="gamblers-chest-breakdown"></div>
+          <h3>Rolls</h3>
+          <div class="gamblers-chest-rolls"></div>
+        </div>
       </div>
     </div>
 
@@ -58,6 +67,7 @@
     <script src="kdm_calculator.js"></script>
     <script src="kdm_comparator.js"></script>
     <script src="kdm_nodechart.js"></script>
+    <script src="kdm_gamblerschest.js"></script>
     <script>
       $('#navbar a').click(function(e) {
         e.preventDefault();
