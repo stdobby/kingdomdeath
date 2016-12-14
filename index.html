@@ -30,6 +30,9 @@
             <li>
               <a href="#comparator" aria-controls="comparator" role="tab" data-toggle="tab">Comparator</a>
             </li>
+            <li>
+              <a href="#nodechart" aria-controls="node-chart" roles="tab" data-toggle="tab">Node Chart</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -43,6 +46,7 @@
           <h3>Compare Results</h3>
           <div class="compare-results"></div>
         </div>
+        <div role="tabpanel" class="tab-pane" id="nodechart"></div>
       </div>
     </div>
 
@@ -53,6 +57,7 @@
     <script src="kdm_shipping.js"></script>
     <script src="kdm_calculator.js"></script>
     <script src="kdm_comparator.js"></script>
+    <script src="kdm_nodechart.js"></script>
     <script>
       $('#navbar a').click(function(e) {
         e.preventDefault();

@@ -258,7 +258,7 @@
     { title: "Lonely Tree Expansion", price: undefined, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: false, wave: 2 },
     { title: "Manhunter Expansion", price: 35, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2 },
     { title: "Slenderman Expansion", price: undefined, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: false, wave: 2 },
-    { title: "Spidicules Expansion", price: undefined, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: false, wave: 2 },
+    { title: "Spidicules Expansion", price: undefined, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: false, wave: 2, expansionNode: 2 },
     { title: "Sunstalker Expansion", price: undefined, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: false, wave: 2 },
 
     // New Extras
@@ -314,6 +314,12 @@
     { title: "LY3 Candy & Cola", price: 20, contentType: CONTENT_TYPES.NEW_CROSSOVER, addon: true, wave: 3 }
   ];
 
+  const CAMPAIGN_NODE_DESCRIPTIONS = {
+    1: "Expansions in this node represent a monster that can be hunted at the very start of the campaign.",
+    2: "Expansions in this node contain content that can be utilized from as early as Lantern Year 2, and provides a good ramp to mid campaign content.",
+    5: "Expansions in this node are limited to ONE per campaign."
+  };
+
   function KdmContentManager() {
 
   }
@@ -354,6 +360,26 @@
   KdmContentManager.prototype.getAllNewCrossovers = function() {
     return this.getAllItems().filter(function(item) { return _.isEqual(item.contentType, CONTENT_TYPES.NEW_CROSSOVER); }).sort(itemSort);
   };
+
+  KdmContentManager.prototype.getCampaignNodes = function() {
+    const expansionsWithNodes = this.getAllItems().filter(function(item) { return item.expansionNode; });
+    const expansionsByCampaignNode = _.groupBy(expansionsWithNodes, 'expansionNode');
+    return _.map(expansionsByCampaignNode, function(expansions, nodeNumber) {
+      const expansionsByNewness = _.groupBy(expansions, 'contentType.new');
+      const newExpansions = (expansionsByNewness['true'] || []).sort(itemSort);
+      const oldExpansions = (expansionsByNewness['false'] || []).sort(itemSort);
+      return {
+        nodeNumber: nodeNumber,
+        description: CAMPAIGN_NODE_DESCRIPTIONS[nodeNumber],
+        newExpansions: newExpansions,
+        oldExpansions: oldExpansions
+      };
+    }).sort(sortCampaignNodesByNodeNumber);
+  };
+
+  function sortCampaignNodesByNodeNumber(a, b) {
+    return a.nodeNumber - b.nodeNumber;
+  }
 
   function itemSort(a, b) {
     return a.title.localeCompare(b.title);
