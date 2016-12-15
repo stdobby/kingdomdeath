@@ -285,7 +285,7 @@
     { title: "Lion Knight Expansion", price: 35, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2 },
     { title: "Lonely Tree Expansion", price: undefined, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: false, wave: 2 },
     { title: "Manhunter Expansion", price: 35, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2 },
-    { title: "Slenderman Expansion", price: 40, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2 },
+    { title: "Slenderman Expansion", price: 40, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2, expansionNode: 'NEMESIS_2', speculated: true },
     { title: "Spidicules Expansion", price: undefined, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: false, wave: 2, expansionNode: 'NODE_2', speculated: true },
     { title: "Sunstalker Expansion", price: undefined, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: false, wave: 2 },
 
@@ -357,7 +357,8 @@
       title: "Nemesis Node 1",
       description: "Expansions in this node will visit and attack your settlement early in the game.",
       lantern_year: 5,
-      core_game_monsters: []
+      estimate: true,
+      core_game_monsters: ["Butcher (speculated)"]
     },
     'NODE_3': {
       node_order: 4,
@@ -379,6 +380,20 @@
       description: "Expansions in this node are limited to ONE per campaign.",
       lantern_year: null,
       core_game_monsters: []
+    },
+    'NEMESIS_2': {
+      node_order: 7,
+      title: "Nemesis Node 2",
+      description: "Unknown",
+      lantern_year: null,
+      core_game_monsters: ["King's Man (speculated)"]
+    },
+    'NEMESIS_3': {
+      node_order: 8,
+      title: "Nemesis Node 3",
+      description: "Unknown",
+      lantern_year: null,
+      core_game_monsters: ["The Hand (speculated)"]
     }
   };
 
@@ -873,6 +888,7 @@
         title: campaignNode.title,
         description: campaignNode.description,
         lanternYear: campaignNode.lantern_year,
+        estimate: campaignNode.estimate,
         newExpansions: newExpansions,
         oldExpansions: oldExpansions,
         coreMonsters: campaignNode.core_game_monsters
