@@ -96,6 +96,12 @@
     +         '<td>$<%= order.total_cost %></td>'
     +       '<% }) %>'
     +     '</tr>'
+    +     '<tr class="cost-difference-row">'
+    +       '<th>Cost Difference from Cheapest</th>'
+    +       '<% orders.forEach(function(order) { %>'
+    +         '<td>+$<%= order.cost_difference %></td>'
+    +       '<% }) %>'
+    +     '</tr>'
     +     '<tr class="table-section-divider info">'
     +       '<td colspan="<%= orders.length + 1 %>">Pledge Information</td>'
     +     '</tr>'
@@ -230,7 +236,7 @@
   KdmComparator.prototype.getPotentialOrders = function(pledges, requiredItems) {
     const requiredItemTitles = _.map(requiredItems, 'title');
     const requiredItemsByTitle = _.keyBy(requiredItems, 'title');
-    return pledges.map(function(pledge) {
+    const potentialOrders = pledges.map(function(pledge) {
       const applicableItems = pledge.getApplicableItems(this.addons);
       const applicableItemTitles = _.map(applicableItems, 'title');
       var missingItemTitles = _.difference(requiredItemTitles, applicableItemTitles);
@@ -254,6 +260,13 @@
     }, this).sort(function(a, b) {
       return a.total_cost - b.total_cost;
     });
+    const lowest_cost = (_.find(potentialOrders) || {total_cost: 0}).total_cost;
+
+    potentialOrders.forEach(function(potentialOrder) {
+      potentialOrder.cost_difference = potentialOrder.total_cost - lowest_cost;
+    });
+
+    return potentialOrders;
   };
 
   KdmComparator.prototype.renderPotentialOrders = function(potentialOrders) {

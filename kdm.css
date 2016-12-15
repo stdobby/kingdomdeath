@@ -110,6 +110,7 @@ label.checkbox-inline.checked {
   width: 25px;
 }
 
+.cost-difference-row td,
 #nodechart th {
   text-align: center;
 }
