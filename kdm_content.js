@@ -159,7 +159,7 @@
       gameType: 'update_pack',
       price: 777,
       getApplicableItems: function(items) {
-        var titles = ["1.5 Update Pack", "Gambler's Chest"];
+        var titles = ["1.5 Update Pack", "Gambler's Chest", "Gambler's T-Shirt"];
         var types = ['Expansion', 'Pinup', 'Promo'];
         return items.filter(function(item) {
           return _.includes(titles, item.title) || (item.contentType.new && _.includes(types, item.contentType.type));
@@ -183,7 +183,7 @@
       gameType: 'core_game',
       price: 927,
       getApplicableItems: function(items) {
-        var titles = ["1.5 Core Game", "Gambler's Chest"];
+        var titles = ["1.5 Core Game", "Gambler's Chest", "Gambler's T-Shirt"];
         var types = ['Expansion', 'Pinup', 'Promo'];
         return items.filter(function(item) {
           return _.includes(titles, item.title) || (item.contentType.new && _.includes(types, item.contentType.type));
@@ -293,6 +293,7 @@
     { title: "Extra Hardcover 1.5 Core Game Rulebook", price: 40, contentType: CONTENT_TYPES.NEW_EXTRA, addon: true, wave: 3 },
     { title: "Frogdog T-Shirt", price: 25, contentType: CONTENT_TYPES.NEW_EXTRA, addon: true, wave: 3 },
     { title: "Gambler's Chest", price: 100, contentType: CONTENT_TYPES.NEW_EXTRA, addon: true, wave: 3 },
+    { title: "Gambler's T-Shirt", price: undefined, contentType: CONTENT_TYPES.NEW_EXTRA, addon: false, wave: 3 },
     { title: "Satan T-Shirt", price: undefined, contentType: CONTENT_TYPES.NEW_EXTRA, addon: false, wave: 3 },
 
     // Old Extras
