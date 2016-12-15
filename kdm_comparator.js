@@ -251,7 +251,9 @@
         total_cost: totalCost,
         add_ons: missingItems
       };
-    }, this);
+    }, this).sort(function(a, b) {
+      return a.total_cost - b.total_cost;
+    });
   };
 
   KdmComparator.prototype.renderPotentialOrders = function(potentialOrders) {
