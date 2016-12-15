@@ -109,3 +109,7 @@ label.checkbox-inline.checked {
   text-align: center;
   width: 25px;
 }
+
+#nodechart th {
+  text-align: center;
+}

@@ -107,19 +107,6 @@
       }
     },
     {
-      title: "Retail Lantern",
-      gameType: 'core_game',
-      price: 1200,
-      getApplicableItems: function(items) {
-        var coreGame = _.find(items, function(item) { return item.title === "1.5 Core Game"; });
-        var items = [];
-        for (var i = 0; i < 6; i++) {
-          items.push(coreGame);
-        }
-        return items;
-      }
-    },
-    {
       title: "Black Friday Lantern Upgrade",
       gameType: 'update_pack',
       price: 50,
@@ -275,24 +262,25 @@
     { title: "1.5 Update Pack", price: undefined, contentType: CONTENT_TYPES.MAIN_COMPONENT, addon: false, wave: 1 },
 
     // New Expansions
-    { title: "Frogdog Expansion", price: 50, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 1 },
-    { title: "Nightmare Ram Expansion", price: 40, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 3, speculated: true },
-    { title: "Oblivion Mosquito Expansion", price: 50, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 2 },
-    { title: "Screaming God Expansion", price: 50, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 5 },
+    { title: "Frogdog Expansion", price: 50, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 'NODE_1' },
+    { title: "Nightmare Ram Expansion", price: 40, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 'NODE_3', speculated: true },
+    { title: "Oblivion Mosquito Expansion", price: 50, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 'NODE_2' },
+    { title: "Pariah Expansion", price: 40, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 'NEMESIS_1' },
+    { title: "Screaming God Expansion", price: 50, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 'NODE_5' },
     { title: "The First Hero Expansion", price: 35, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4 },
 
     // Old Expansions
     { title: "Dragon King Expansion", price: 75, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2 },
     { title: "Dung Beetle Knight Expansion", price: 30, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2 },
     { title: "Flower Knight Expansion", price: 40, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2 },
-    { title: "Gorm Expansion", price: 50, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2, expansionNode: 1 },
+    { title: "Gorm Expansion", price: 50, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2, expansionNode: 'NODE_1' },
     { title: "Green Knight Armor Expansion", price: undefined, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: false, wave: 2 },
     { title: "Lion God Expansion", price: undefined, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: false, wave: 2 },
     { title: "Lion Knight Expansion", price: 35, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2 },
     { title: "Lonely Tree Expansion", price: undefined, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: false, wave: 2 },
     { title: "Manhunter Expansion", price: 35, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2 },
-    { title: "Slenderman Expansion", price: undefined, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: false, wave: 2 },
-    { title: "Spidicules Expansion", price: undefined, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: false, wave: 2, expansionNode: 2, speculated: true },
+    { title: "Slenderman Expansion", price: 40, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2 },
+    { title: "Spidicules Expansion", price: undefined, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: false, wave: 2, expansionNode: 'NODE_2', speculated: true },
     { title: "Sunstalker Expansion", price: undefined, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: false, wave: 2 },
 
     // New Extras
@@ -321,6 +309,7 @@
     { title: "Nightmare Ram Armor & Ramette", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
 
     // Old Pinups
+    { title: 'Pinups of Death 1', price: undefined, contentType: CONTENT_TYPES.OLD_PINUP, addon: false, wave: 3 },
     { title: 'Pinups of Death 2', price: 115, contentType: CONTENT_TYPES.OLD_PINUP, addon: true, wave: 3 },
     { title: 'Allison the Twilight Knight', price: undefined, contentType: CONTENT_TYPES.OLD_PINUP, addon: false, wave: 3 },
 
@@ -340,24 +329,46 @@
   ];
 
   const CAMPAIGN_NODES = {
-    1: {
+    'NODE_1': {
+      node_order: 1,
+      title: "Node 1",
       description: "Expansions in this node represent a monster that can be hunted at the very start of the campaign.",
+      lantern_year: 1,
       core_game_monsters: ["White Lion"]
     },
-    2: {
+    'NODE_2': {
+      node_order: 2,
+      title: "Node 2",
       description: "Expansions in this node contain content that can be utilized from as early as Lantern Year 2, and provides a good ramp to mid campaign content.",
+      lantern_year: 2,
       core_game_monsters: ["Screaming Antelope"]
     },
-    3: {
-      description: "Unknown at the moment.",
+    'NEMESIS_1': {
+      node_order: 3,
+      title: "Nemesis Node 1",
+      description: "Expansions in this node will visit and attack your settlement early in the game.",
+      lantern_year: 5,
       core_game_monsters: []
     },
-    4: {
+    'NODE_3': {
+      node_order: 4,
+      title: "Node 3",
       description: "Unknown at the moment.",
+      lantern_year: null,
       core_game_monsters: []
     },
-    5: {
+    'NODE_4': {
+      node_order: 5,
+      title: "Node 4",
+      description: "Unknown at the moment.",
+      lantern_year: null,
+      core_game_monsters: []
+    },
+    'NODE_5': {
+      node_order: 6,
+      title: "Node 5",
       description: "Expansions in this node are limited to ONE per campaign.",
+      lantern_year: null,
       core_game_monsters: []
     }
   };
@@ -758,6 +769,31 @@
       type: "Gear Card",
       quantity: 1
     }]
+  }, {
+    rollNumber: 15,
+    rollResultMin: 50,
+    rollResultMax: 53,
+    title: "Bright Knives",
+    type: "Narrative Sculpture",
+    mini: true,
+    updateNumber: 23,
+    contents: [{
+      title: "Bright Knives",
+      type: "Miniature",
+      quantity: 1
+    }, {
+      title: "Unique Base Insert",
+      type: "Base Insert",
+      quantity: 1
+    }, {
+      title: "Fighting Art",
+      type: "Fighting Art",
+      quantity: 1
+    }, {
+      title: "Modified Rawhide Headband",
+      type: "Gear Card",
+      quantity: 1
+    }]
   }];
 
   function KdmContentManager() {
@@ -819,7 +855,10 @@
       const campaignNode = CAMPAIGN_NODES[nodeNumber];
       return {
         nodeNumber: nodeNumber,
+        nodeOrder: campaignNode.node_order,
+        title: campaignNode.title,
         description: campaignNode.description,
+        lanternYear: campaignNode.lantern_year,
         newExpansions: newExpansions,
         oldExpansions: oldExpansions,
         coreMonsters: campaignNode.core_game_monsters
@@ -828,7 +867,7 @@
   };
 
   function sortCampaignNodesByNodeNumber(a, b) {
-    return a.nodeNumber - b.nodeNumber;
+    return a.nodeOrder - b.nodeOrder;
   }
 
   function itemSort(a, b) {
