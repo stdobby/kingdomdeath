@@ -163,6 +163,7 @@
   function KdmComparator(wrapperEl) {
     this.$wrapperEl = $(wrapperEl);
     this.contentManager = new KdmContentManager();
+    this.allItems = this.contentManager.getAllItems();
     this.addons = this.contentManager.getAddOns();
     this.newExpansions = this.contentManager.getAllNewExpansions().filter(function(expansion) { return expansion.addon; });
     this.oldExpansions = this.contentManager.getAllOldExpansions().filter(function(expansion) { return expansion.addon; });
@@ -208,7 +209,7 @@
   };
 
   KdmComparator.prototype.getPotentialPledgesForGameType = function() {
-    var gameType = this.$wrapperEl.find('select[data-type=gameType]').val();
+    var gameType = this.getSelectedGameType();
     var pledges = this.contentManager.getPledgesForGameType(gameType);
 
     return this.combineSatanLevelPledges(pledges);
@@ -224,8 +225,17 @@
         requiredItems.unshift(gamblersChest);
       }
     }
+    var gameType = this.getSelectedGameType();
+    var gameTypeItem = this.contentManager.getItemForGameType(gameType);
+    if (gameTypeItem) {
+      requiredItems.unshift(gameTypeItem);
+    }
 
     return requiredItems;
+  };
+
+  KdmComparator.prototype.getSelectedGameType = function() {
+    return this.$wrapperEl.find('select[data-type=gameType]').val();
   };
 
   KdmComparator.prototype.getFormValues = function(selector) {
@@ -250,10 +260,10 @@
 
   KdmComparator.prototype.getPotentialOrders = function(pledges, requiredItems) {
     const requiredItemTitles = _.map(requiredItems, 'title');
-    const allItemTitles = _.map(this.addons, 'title');
-    const itemsByTitle = _.keyBy(this.addons, 'title');
+    const allItemTitles = _.map(this.allItems, 'title');
+    const allItemsByTitle = _.keyBy(this.allItems, 'title');
     const potentialOrders = pledges.map(function(pledge) {
-      const applicableItems = pledge.getApplicableItems(this.addons);
+      const applicableItems = pledge.getApplicableItems(this.allItems);
       const applicableItemTitles = _.map(applicableItems, 'title');
       var missingItemTitles = _.difference(requiredItemTitles, applicableItemTitles);
 
@@ -261,8 +271,8 @@
         missingItemTitles = _.without(missingItemTitles, 'Role Survivors');
       }
 
-      const missingItems = missingItemTitles.map(function(title) { return itemsByTitle[title]; });
-      const extraItems = _.difference(applicableItemTitles, requiredItemTitles).map(function(title) { return itemsByTitle[title]; });
+      const missingItems = missingItemTitles.map(function(title) { return allItemsByTitle[title]; });
+      const extraItems = _.difference(applicableItemTitles, requiredItemTitles).map(function(title) { return allItemsByTitle[title]; });
       const pledgeCost = pledge.price;
       const addOnCost = _.sumBy(missingItems, function(item) { return item.price; });
       const totalCost = pledgeCost + addOnCost;
@@ -273,7 +283,7 @@
         add_on_cost: addOnCost,
         total_cost: totalCost,
         add_ons: missingItems,
-        extras: extraItems
+        extras: extraItems.sort(itemSort)
       };
     }, this).sort(function(a, b) {
       return a.total_cost - b.total_cost;

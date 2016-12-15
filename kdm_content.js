@@ -44,6 +44,12 @@
     }
   };
 
+  const GAME_TYPES = {
+    'none': null,
+    'update_pack': '1.5 Update Pack',
+    'core_game': '1.5 Core Game'
+  };
+
   const PLEDGES = [
     {
       title: "Add-On's Only",
@@ -807,6 +813,11 @@
 
   KdmContentManager.prototype.getPledgesForGameType = function(gameType) {
     return this.getPledges().filter(function(pledge) { return pledge.gameType === gameType; });
+  };
+
+  KdmContentManager.prototype.getItemForGameType = function(gameType) {
+    var itemTitle = GAME_TYPES[gameType];
+    return _.find(this.getAllItems(), function(item) { return item.title === itemTitle; });
   };
 
   KdmContentManager.prototype.getAllItems = function() {
