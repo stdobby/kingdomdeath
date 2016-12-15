@@ -103,3 +103,9 @@ label.checkbox-inline.checked {
   text-align: center;
   width: 50px;
 }
+
+.gamblers-chest-breakdown tr th:first-of-type,
+.gamblers-chest-breakdown tr td:first-of-type {
+  text-align: center;
+  width: 25px;
+}

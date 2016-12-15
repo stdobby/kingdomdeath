@@ -370,7 +370,11 @@
     type: "Game System",
     mini: false,
     updateNumber: 0,
-    contents: []
+    contents: [{
+      title: "Philosophy of Death",
+      type: "Advanced Rulebook Upgrade",
+      quantity: 1
+    }]
   }, {
     rollNumber: 0,
     rollResultMin: null,
@@ -436,7 +440,7 @@
       quantity: 1
     }, {
       title: "Promo Gear Cards",
-      type: "Gear Cards",
+      type: "Gear Card",
       quantity: 2
     }, {
       title: "Art Card",
@@ -473,13 +477,14 @@
       type: "Advanced Rulebook Upgrade",
       quantity: 1
     }, {
-      title: "Scount of Death",
+      title: "Scout of Death",
       type: "Miniature",
       quantity: 1
     }, {
       title: "Cards",
       type: "Unknown Cards",
-      quantity: null
+      quantity: 50,
+      estimate: true
     }]
   }, {
     rollNumber: 5,

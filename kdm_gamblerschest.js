@@ -21,7 +21,7 @@
     +         '<td>'
     +           '<ul>'
     +             '<% roll.contents.forEach(function(content) { %>'
-    +             '<li><%= content.title %> (<%= content.type %>) x <%= content.quantity ? content.quantity : "???" %></li>'
+    +             '<li><%= content.title %> (<%= content.type %>) x <%= content.quantity ? content.quantity + (content.estimate ? "+" : "") : "???" %></li>'
     +             '<% }) %>'
     +           '</ul>'
     +         '</td>'
@@ -108,17 +108,18 @@
     const contentTypes = _.map(allContentsByType, function(contents, type) {
       const contentsWithQuantity = contents.filter(function(content) { return content.quantity; });
       const totalQuantity = _.sumBy(contentsWithQuantity, 'quantity') || '???';
+      const estimate = contents.some(function(content) { return content.estimate; });
       const contentTitles = _.map(contents, function(content) {
         return content.title + ' (' + content.rollTitle + ')';
       }).sort();
       return {
         type: type,
-        quantity: totalQuantity,
+        quantity: totalQuantity + (estimate ? '+' : ''),
         items: contentTitles
       };
     });
     this.$wrapperEl.find('.gamblers-chest-breakdown').html(breakdownTemplate({
-      contentTypes: contentTypes
+      contentTypes: _.sortBy(contentTypes, 'type')
     }));
   };
 
