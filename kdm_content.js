@@ -74,7 +74,7 @@
       gameType: 'update_pack',
       price: 195,
       getApplicableItems: function(items) {
-        var titles = ["1.5 Update Pack", "Gambler's Chest", "The First Hero Expansion"]
+        var titles = ["1.5 Update Pack", "Gambler's Chest", "The First Hero Expansion"];
         return items.filter(function(item) {
           return _.includes(titles, item.title);
         });
@@ -95,7 +95,7 @@
       gameType: 'core_game',
       price: 350,
       getApplicableItems: function(items) {
-        var titles = ["1.5 Core Game", "Gambler's Chest"]
+        var titles = ["1.5 Core Game", "Gambler's Chest"];
         return items.filter(function(item) {
           return _.includes(titles, item.title);
         });
@@ -106,7 +106,7 @@
       gameType: 'core_game',
       price: 750,
       getApplicableItems: function(items) {
-        var titles = ["1.5 Core Game", "Gambler's Chest"]
+        var titles = ["1.5 Core Game", "Gambler's Chest"];
         return items.filter(function(item) {
           return _.includes(titles, item.title) || (item.contentType.type === 'Expansion' && !item.contentType.new);
         });
@@ -127,7 +127,7 @@
       gameType: 'update_pack',
       price: 185,
       getApplicableItems: function(items) {
-        var titles = ["1.5 Update Pack", "Gambler's Chest", "The First Hero Expansion"]
+        var titles = ["1.5 Update Pack", "Gambler's Chest", "The First Hero Expansion"];
         return items.filter(function(item) {
           return _.includes(titles, item.title);
         });
@@ -148,7 +148,7 @@
       gameType: 'core_game',
       price: 300,
       getApplicableItems: function(items) {
-        var titles = ["1.5 Core Game", "Gambler's Chest"]
+        var titles = ["1.5 Core Game", "Gambler's Chest"];
         return items.filter(function(item) {
           return _.includes(titles, item.title);
         });
@@ -159,7 +159,7 @@
       gameType: 'update_pack',
       price: 777,
       getApplicableItems: function(items) {
-        var titles = ["1.5 Update Pack", "Gambler's Chest"]
+        var titles = ["1.5 Update Pack", "Gambler's Chest"];
         var types = ['Expansion', 'Pinup', 'Promo'];
         return items.filter(function(item) {
           return _.includes(titles, item.title) || (item.contentType.new && _.includes(types, item.contentType.type));
@@ -171,7 +171,7 @@
       gameType: 'update_pack',
       price: 1000,
       getApplicableItems: function(items) {
-        var titles = ["1.5 Update Pack", "Gambler's Chest", "Frogdog T-Shirt"]
+        var titles = ["1.5 Update Pack", "Gambler's Chest", "Frogdog T-Shirt"];
         var types = ['Expansion', 'Pinup', 'Promo'];
         return items.filter(function(item) {
           return _.includes(titles, item.title) || (item.contentType.new && _.includes(types, item.contentType.type));
@@ -183,7 +183,7 @@
       gameType: 'core_game',
       price: 927,
       getApplicableItems: function(items) {
-        var titles = ["1.5 Core Game", "Gambler's Chest"]
+        var titles = ["1.5 Core Game", "Gambler's Chest"];
         var types = ['Expansion', 'Pinup', 'Promo'];
         return items.filter(function(item) {
           return _.includes(titles, item.title) || (item.contentType.new && _.includes(types, item.contentType.type));
@@ -195,7 +195,7 @@
       gameType: 'core_game',
       price: 1666,
       getApplicableItems: function(items) {
-        var titles = ["1.5 Core Game", "Gambler's Chest"]
+        var titles = ["1.5 Core Game", "Gambler's Chest", "Satan T-Shirt"];
         var types = ['Expansion', 'Pinup', 'Promo'];
         return items.filter(function(item) {
           return (_.includes(titles, item.title)
@@ -209,7 +209,7 @@
       gameType: 'core_game',
       price: 1666,
       getApplicableItems: function(items) {
-        var titles = ["1.5 Core Game", "Gambler's Chest"]
+        var titles = ["1.5 Core Game", "Gambler's Chest", "Satan T-Shirt"];
         var types = ['Expansion', 'Pinup', 'Promo'];
         return items.filter(function(item) {
           return (_.includes(titles, item.title)
@@ -223,7 +223,7 @@
       gameType: 'core_game',
       price: 1666,
       getApplicableItems: function(items) {
-        var titles = ["1.5 Core Game", "Gambler's Chest"]
+        var titles = ["1.5 Core Game", "Gambler's Chest", "Satan T-Shirt"];
         var types = ['Expansion', 'Pinup', 'Promo'];
         return items.filter(function(item) {
           return (_.includes(titles, item.title)
@@ -237,7 +237,7 @@
       gameType: 'core_game',
       price: 1666,
       getApplicableItems: function(items) {
-        var titles = ["1.5 Core Game", "Gambler's Chest"]
+        var titles = ["1.5 Core Game", "Gambler's Chest", "Satan T-Shirt"];
         var types = ['Expansion', 'Pinup', 'Promo'];
         return items.filter(function(item) {
           return (_.includes(titles, item.title)
@@ -251,7 +251,7 @@
       gameType: "core_game",
       price: 2000,
       getApplicableItems: function(items) {
-        var titles = ["1.5 Core Game", "Gambler's Chest", "Frogdog T-Shirt"]
+        var titles = ["1.5 Core Game", "Gambler's Chest", "Frogdog T-Shirt"];
         var types = ['Expansion', 'Pinup', 'Promo'];
         return items.filter(function(item) {
           return (_.includes(titles, item.title)
@@ -293,6 +293,7 @@
     { title: "Extra Hardcover 1.5 Core Game Rulebook", price: 40, contentType: CONTENT_TYPES.NEW_EXTRA, addon: true, wave: 3 },
     { title: "Frogdog T-Shirt", price: 25, contentType: CONTENT_TYPES.NEW_EXTRA, addon: true, wave: 3 },
     { title: "Gambler's Chest", price: 100, contentType: CONTENT_TYPES.NEW_EXTRA, addon: true, wave: 3 },
+    { title: "Satan T-Shirt", price: undefined, contentType: CONTENT_TYPES.NEW_EXTRA, addon: false, wave: 3 },
 
     // Old Extras
     { title: 'Anna & Adam Explorers', price: undefined, contentType: CONTENT_TYPES.OLD_EXTRA, addon: false, wave: 3 },
