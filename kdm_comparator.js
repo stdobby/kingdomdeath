@@ -138,12 +138,27 @@
     +         '<td>$<%= order.add_on_cost %></td>'
     +       '<% }) %>'
     +     '</tr>'
+    +     '<tr class="table-section-divider info">'
+    +       '<td colspan="<%= orders.length + 1 %>">Other Items You Receive</td>'
+    +     '</tr>'
+    +     '<tr class="extras-row">'
+    +       '<th></th>'
+    +       '<% orders.forEach(function(order) { %>'
+    +         '<td>'
+    +           '<ul>'
+    +             '<% order.extras.forEach(function(extra) { %>'
+    +               '<li><%= extra.title %></li>'
+    +             '<% }) %>'
+    +           '</ul>'
+    +         '</td>'
+    +       '<% }) %>'
+    +     '</tr>'
     +   '</tbody>'
     + '</table>'
   );
 
   const COMBINED_SATAN_LEVEL_TITLE = 'Various Satan Lantern Pledges';
-  const PLEDGE_TITLES_WITH_ROLE_SURVIVORS_IN_EXPANSION = ['Ancient Gold Lantern', COMBINED_SATAN_LEVEL_TITLE];
+  const PLEDGE_TITLES_WITH_ROLE_SURVIVORS_IN_EXPANSION = ['Ancient Gold Lantern', COMBINED_SATAN_LEVEL_TITLE, 'God Frogdog'];
 
   function KdmComparator(wrapperEl) {
     this.$wrapperEl = $(wrapperEl);
@@ -235,7 +250,8 @@
 
   KdmComparator.prototype.getPotentialOrders = function(pledges, requiredItems) {
     const requiredItemTitles = _.map(requiredItems, 'title');
-    const requiredItemsByTitle = _.keyBy(requiredItems, 'title');
+    const allItemTitles = _.map(this.addons, 'title');
+    const itemsByTitle = _.keyBy(this.addons, 'title');
     const potentialOrders = pledges.map(function(pledge) {
       const applicableItems = pledge.getApplicableItems(this.addons);
       const applicableItemTitles = _.map(applicableItems, 'title');
@@ -245,7 +261,8 @@
         missingItemTitles = _.without(missingItemTitles, 'Role Survivors');
       }
 
-      const missingItems = missingItemTitles.map(function(title) { return requiredItemsByTitle[title]; });
+      const missingItems = missingItemTitles.map(function(title) { return itemsByTitle[title]; });
+      const extraItems = _.difference(applicableItemTitles, requiredItemTitles).map(function(title) { return itemsByTitle[title]; });
       const pledgeCost = pledge.price;
       const addOnCost = _.sumBy(missingItems, function(item) { return item.price; });
       const totalCost = pledgeCost + addOnCost;
@@ -255,7 +272,8 @@
         pledge_level_cost: pledgeCost,
         add_on_cost: addOnCost,
         total_cost: totalCost,
-        add_ons: missingItems
+        add_ons: missingItems,
+        extras: extraItems
       };
     }, this).sort(function(a, b) {
       return a.total_cost - b.total_cost;

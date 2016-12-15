@@ -80,12 +80,14 @@ label.checkbox-inline.checked {
   text-align: center;
 }
 
-.add-ons-row td {
+.add-ons-row td,
+.extras-row td {
   font-size: 0.7em;
   text-align: left;
 }
 
-.add-ons-row ul {
+.add-ons-row ul,
+.extras-row ul {
   margin: 0;
   padding: 0 0 0 7px;
 }
