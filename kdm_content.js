@@ -320,13 +320,14 @@
     { title: 'Pinups of Death 1', price: undefined, contentType: CONTENT_TYPES.OLD_PINUP, addon: false, wave: 3 },
     { title: 'Pinups of Death 2', price: 115, contentType: CONTENT_TYPES.OLD_PINUP, addon: true, wave: 3 },
     { title: 'Allison the Twilight Knight', price: undefined, contentType: CONTENT_TYPES.OLD_PINUP, addon: false, wave: 3 },
+    { title: 'Allison, Twilight Knight Reversal', price: undefined, contentType: CONTENT_TYPES.OLD_PINUP, addon: false, wave: 3 },
 
     // New Promos
     { title: "Role Survivors", price: 25, contentType: CONTENT_TYPES.NEW_PROMO, addon: true, wave: 3 },
 
     // Old Promos
     { title: 'Beyond the Wall', price: undefined, contentType: CONTENT_TYPES.OLD_PROMO, addon: false, wave: 3 },
-    { title: 'Holiday Nico Speaker', price: undefined, contentType: CONTENT_TYPES.OLD_PROMO, addon: false, wave: 3 },
+    { title: 'Holiday White Speaker Nico', price: undefined, contentType: CONTENT_TYPES.OLD_PROMO, addon: false, wave: 3 },
     { title: 'Messenger of Courage', price: undefined, contentType: CONTENT_TYPES.OLD_PROMO, addon: false, wave: 3 },
     { title: 'Messenger of First Story', price: undefined, contentType: CONTENT_TYPES.OLD_PROMO, addon: false, wave: 3 },
     { title: 'Messenger of Humanity', price: undefined, contentType: CONTENT_TYPES.OLD_PROMO, addon: false, wave: 3 },
