@@ -3,6 +3,7 @@
 
   const pageTemplate = _.template(
       '<h3>Campaign Nodes</h3>'
+    + '<div class="table-responsive">'
     + '<table class="table table-bordered table-condensed">'
     +  '<thead>'
     +   '<tr>'
@@ -13,7 +14,7 @@
     +   '</tr>'
     +  '</thead>'
     +  '<tbody>'
-    +   '<tr>'
+    +   '<tr class="hidden-xs">'
     +     '<th>Description</th>'
     +     '<% nodes.forEach(function(node) { %>'
     +       '<td><%= node.description %></td>'
@@ -63,31 +64,6 @@
     +   '</tr>'
     +  '</tbody>'
     + '</table>'
-  );
-
-  const nodeTemplate = _.template(
-      '<div class="campaign-node">'
-    +  '<h3>Campaign Node #<%= nodeNumber %></h3>'
-    +  '<div class="campaign-node-description">'
-    +    '<h4>Description</h4>'
-    +    '<span><%= description %></span>'
-    +  '</div>'
-    +  '<div class="campaign-node-new-expansions">'
-    +    '<h4>New Expansions</h4>'
-    +    '<ul>'
-    +      '<% newExpansions.forEach(function(expansion) { %>'
-    +        '<li><%= expansion.title %></li>'
-    +      '<% }) %>'
-    +    '</ul>'
-    +  '</div>'
-    +  '<div class="campaign-node-old-expansions">'
-    +    '<h4>Old Expansions (speculated!)</h4>'
-    +    '<ul>'
-    +      '<% oldExpansions.forEach(function(expansion) { %>'
-    +        '<li><%= expansion.title %></li>'
-    +      '<% }) %>'
-    +    '</ul>'
-    +  '</div>'
     + '</div>'
   );
 
@@ -103,8 +79,7 @@
       nodes: campaignNodes,
       rows: [{
         columns: campaignNodes
-      }],
-      nodeTemplate: nodeTemplate
+      }]
     }));
   };
 
