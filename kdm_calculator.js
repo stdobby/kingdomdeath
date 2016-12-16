@@ -97,6 +97,13 @@
     +    '<p id="wave5" class="form-control-static">$0</p>'
     +   '</div>'
     +  '</div>'
+    +  '<hr>'
+    +  '<div class="form-group">'
+    +   '<label for="shippingSubtotal" class="total-label control-label col-md-8">Shipping Subtotal</label>'
+    +   '<div class="col-md-4">'
+    +    '<p id="shippingSubtotal" class="form-control-static">$0</p>'
+    +   '</div>'
+    +  '</div>'
     +  '<div class="form-group">'
     +   '<label for="total" class="total-label control-label col-md-8">Total</label>'
     +   '<div class="col-md-4">'
@@ -250,14 +257,17 @@
     var cart = self.getCart();
     var waveTotals = self.shippingCalculator.calculateShippingForRegion(cart.region, cart.orderItems);
     var total = cart.subtotal;
+    var shippingSubtotal = 0;
 
     ['1', '2', '3', '4', '5'].forEach(function(wave) {
       var waveTotal = waveTotals[wave] || 0;
       self.$wrapperEl.find('#wave' + wave).html('$' + waveTotal);
       total += waveTotal;
+      shippingSubtotal += waveTotal;
     });
 
     self.$wrapperEl.find('#subtotal').html('$' + cart.subtotal);
+    self.$wrapperEl.find('#shippingSubtotal').html('$' + shippingSubtotal);
     self.$wrapperEl.find('#total').html('$' + total);
   };
 
