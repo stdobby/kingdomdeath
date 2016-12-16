@@ -325,6 +325,7 @@
 
     // New Promos
     { title: "Role Survivors", price: 25, contentType: CONTENT_TYPES.NEW_PROMO, addon: true, wave: 3 },
+    { title: "Super Survivors", price: 40, contentType: CONTENT_TYPES.NEW_PROMO, addon: true, wave: 3 },
 
     // Old Promos
     { title: 'Beyond the Wall', price: undefined, contentType: CONTENT_TYPES.OLD_PROMO, addon: false, wave: 3 },
@@ -816,6 +817,31 @@
       quantity: 1
     }, {
       title: "Modified Rawhide Headband",
+      type: "Gear Card",
+      quantity: 1
+    }]
+  }, {
+    rollNumber: 16,
+    rollResultMin: 21,
+    rollResultMax: 23,
+    title: "Father & Son",
+    type: "Narrative Sculpture",
+    mini: true,
+    updateNumber: 25,
+    contents: [{
+      title: "Father & Son",
+      type: "Minature",
+      quantity: 1
+    }, {
+      title: "Unique Base Insert",
+      type: "Base Insert",
+      quantity: 1
+    }, {
+      title: "Fighting Art (Protect the Young Required)",
+      type: "Fighting Art",
+      quantity: 1
+    }, {
+      title: "Gear Card (Protect the Young Required)",
       type: "Gear Card",
       quantity: 1
     }]
