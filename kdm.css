@@ -116,3 +116,8 @@ label.checkbox-inline.checked {
 #nodechart th {
   text-align: center;
 }
+
+#gamblerschest td,
+#gamblerschest th {
+  font-size: 0.8em;
+}
