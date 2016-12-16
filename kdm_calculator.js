@@ -125,16 +125,16 @@
     +     '<td colspan="3"><%= wave.meta.title %></td>'
     +    '</tr>'
     +    '<tr class="wave-table-header active">'
-    +     '<td>Quantity</td>'
+    +     '<td><span class="hidden-xs">Quantity</span><span class="visible-xs">Qty.</span></td>'
     +     '<td>Item</td>'
-    +     '<td>Type</td>'
+    +     '<td class="hidden-xs">Type</td>'
     +    '</tr>'
     +    '<% if (wave.items.length > 0) { %>'
     +     '<% wave.items.forEach(function(item) { %>'
     +      '<tr>'
     +       '<td><%= item.quantity %></td>'
     +       '<td><%= item.title %></td>'
-    +       '<td><%= item.contentType.type %></td>'
+    +       '<td class="hidden-xs"><%= item.contentType.type %></td>'
     +      '</tr>'
     +     '<% }) %>'
     +    '<% } else { %>'
@@ -342,31 +342,31 @@
     var waves = [{
         wave: 1,
         meta: {
-          title: 'Wave 1 - Summer 2017 - 1.5 Core Game / Update Pack'
+          title: 'Wave 1 - Summer 2017<span class="hidden-xs"> - 1.5 Core Game / Update Pack</span>'
         },
         items: []
       }, {
         wave: 2,
         meta: {
-          title: 'Wave 2 - Winter 2017 - Old Expansions'
+          title: 'Wave 2 - Winter 2017<span class="hidden-xs"> - Old Expansions</span>'
         },
         items: []
       }, {
         wave: 3,
         meta: {
-          title: 'Wave 3 - Spring 2018 - Gambler\'s Box, Promos, and Cross-Over Figures'
+          title: 'Wave 3 - Spring 2018<span class="hidden-xs"> - Gambler\'s Box, Promos, and Cross-Over Figures</span>'
         },
         items: []
       }, {
         wave: 4,
         meta: {
-          title: 'Wave 4 - Spring 2019 - New Expansions'
+          title: 'Wave 4 - Spring 2019<span class="hidden-xs"> - New Expansions</span>'
         },
         items: []
       }, {
         wave: 5,
         meta: {
-          title: 'Wave 5 - Winter 2020 - ???'
+          title: 'Wave 5 - Winter 2020<span class="hidden-xs"> - ???</span>'
         },
         items: []
       }];
