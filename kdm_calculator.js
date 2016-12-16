@@ -68,31 +68,31 @@
     +   '</div>'
     +  '</div>'
     +  '<div class="form-group">'
-    +   '<label for="wave1" class="total-label control-label col-md-8">Wave 1 (2017)</label>'
+    +   '<label for="wave1" class="total-label control-label col-md-8">Wave 1 (2017 - <span>0 items</span>)</label>'
     +   '<div class="col-md-4">'
     +    '<p id="wave1" class="form-control-static">$0</p>'
     +   '</div>'
     +  '</div>'
     +  '<div class="form-group">'
-    +   '<label for="wave2" class="total-label control-label col-md-8">Wave 2 (2017)</label>'
+    +   '<label for="wave2" class="total-label control-label col-md-8">Wave 2 (2017 - <span>0 items</span>)</label>'
     +   '<div class="col-md-4">'
     +    '<p id="wave2" class="form-control-static">$0</p>'
     +   '</div>'
     +  '</div>'
     +  '<div class="form-group">'
-    +   '<label for="wave3" class="total-label control-label col-md-8">Wave 3 (2018)</label>'
+    +   '<label for="wave3" class="total-label control-label col-md-8">Wave 3 (2018 - <span>0 items</span>)</label>'
     +   '<div class="col-md-4">'
     +    '<p id="wave3" class="form-control-static">$0</p>'
     +   '</div>'
     +  '</div>'
     +  '<div class="form-group">'
-    +   '<label for="wave4" class="total-label control-label col-md-8">Wave 4 (2019)</label>'
+    +   '<label for="wave4" class="total-label control-label col-md-8">Wave 4 (2019 - <span>0 items</span>)</label>'
     +   '<div class="col-md-4">'
     +    '<p id="wave4" class="form-control-static">$0</p>'
     +   '</div>'
     +  '</div>'
     +  '<div class="form-group">'
-    +   '<label for="wave5" class="total-label control-label col-md-8">Wave 5 (2020)</label>'
+    +   '<label for="wave5" class="total-label control-label col-md-8">Wave 5 (2020 - <span>0 items</span>)</label>'
     +   '<div class="col-md-4">'
     +    '<p id="wave5" class="form-control-static">$0</p>'
     +   '</div>'
@@ -258,9 +258,12 @@
     var waveTotals = self.shippingCalculator.calculateShippingForRegion(cart.region, cart.orderItems);
     var total = cart.subtotal;
     var shippingSubtotal = 0;
+    var countsByWave = _.countBy(cart.orderItems, 'wave');
 
     ['1', '2', '3', '4', '5'].forEach(function(wave) {
       var waveTotal = waveTotals[wave] || 0;
+      var numberOfItems = countsByWave[wave] || 0;
+      self.$wrapperEl.find('label[for=wave' + wave + '] span').html(numberOfItems + ' item' + (numberOfItems === 1 ? '' : 's'));
       self.$wrapperEl.find('#wave' + wave).html('$' + waveTotal);
       total += waveTotal;
       shippingSubtotal += waveTotal;
