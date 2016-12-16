@@ -93,7 +93,7 @@
     +     '<tr class="total-cost-row">'
     +       '<th>Total Cost</th>'
     +       '<% orders.forEach(function(order) { %>'
-    +         '<td>$<%= order.total_cost %></td>'
+    +         '<th>$<%= order.total_cost %></th>'
     +       '<% }) %>'
     +     '</tr>'
     +     '<tr class="cost-difference-row">'

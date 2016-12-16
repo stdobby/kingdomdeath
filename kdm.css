@@ -16,22 +16,6 @@ h3 {
   font-weight: bold;
 }
 
-.wave-section-header td {
-  font-weight: bold;
-}
-
-.wave-table-header td {
-  font-weight: bold;
-}
-
-.no-content {
-  text-align: center;
-}
-
-.update-box {
-  text-align: center;
-}
-
 .question-content-type {
   text-decoration: underline;
 }
@@ -62,19 +46,6 @@ label.checkbox-inline.checked {
   width: 40%;
 }
 
-.compare-results td,
-.compare-results th,
-#nodechart td,
-#nodechart th {
-  font-size: 0.8em;
-}
-
-.total-cost-row td {
-  font-size: 0.9em;
-  font-weight: bold;
-  text-align: center;
-}
-
 .table-section-divider td {
   font-variant: small-caps;
   text-align: center;
@@ -101,23 +72,15 @@ label.checkbox-inline.checked {
   padding: 0 0 0 15px;
 }
 
-.shipping-breakdown tr td:first-of-type {
-  text-align: center;
-  width: 50px;
-}
-
-.gamblers-chest-breakdown tr th:first-of-type,
-.gamblers-chest-breakdown tr td:first-of-type {
-  text-align: center;
+.slim-column {
   width: 25px;
 }
 
-.cost-difference-row td,
-#nodechart th {
-  text-align: center;
+.table td,
+.table th {
+  font-size: 0.8em;
 }
 
-#gamblerschest td,
-#gamblerschest th {
-  font-size: 0.8em;
+.table th {
+  text-align: center;
 }
