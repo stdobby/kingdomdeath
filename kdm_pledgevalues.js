@@ -103,9 +103,9 @@
       const newContent = item.contentType.new;
       const type = item.contentType.type;
 
-      if (type === '1.5 Core Game') {
+      if (item.title === '1.5 Core Game') {
         item.displayType = 'Core Game';
-      } else if (type === '1.5 Update Pack') {
+      } else if (item.title === '1.5 Update Pack') {
         item.displayType = 'Core Update';
       } else {
         item.displayType = (newContent ? 'New ' : 'Old ') + type;
