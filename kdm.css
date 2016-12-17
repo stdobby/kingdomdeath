@@ -84,3 +84,20 @@ label.checkbox-inline.checked {
 .table th {
   text-align: center;
 }
+
+dt {
+  clear: left;
+  float: left;
+  font-weight: bold;
+  text-align: right;
+  width: 125px;
+}
+
+dt:after {
+  content: ':';
+}
+
+dd {
+  margin: 0 0 0 135px;
+  padding: 0 0 0.5em 0;
+}

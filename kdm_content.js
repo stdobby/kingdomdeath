@@ -264,8 +264,8 @@
 
   const ITEMS = [
     // Main Component
-    { title: "1.5 Core Game", price: undefined, contentType: CONTENT_TYPES.MAIN_COMPONENT, addon: false, wave: 1 },
-    { title: "1.5 Update Pack", price: undefined, contentType: CONTENT_TYPES.MAIN_COMPONENT, addon: false, wave: 1 },
+    { title: "1.5 Core Game", price: 250, contentType: CONTENT_TYPES.MAIN_COMPONENT, addon: false, wave: 1 },
+    { title: "1.5 Update Pack", price: 60, contentType: CONTENT_TYPES.MAIN_COMPONENT, addon: false, wave: 1 },
 
     // New Expansions
     { title: "Frogdog Expansion", price: 50, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 'NODE_1' },
