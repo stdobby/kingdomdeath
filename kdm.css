@@ -101,3 +101,7 @@ dd {
   margin: 0 0 0 135px;
   padding: 0 0 0.5em 0;
 }
+
+#nodechart th {
+  width: 12.5%;
+}
