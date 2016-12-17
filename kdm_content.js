@@ -269,6 +269,7 @@
 
     // New Expansions
     { title: "Frogdog Expansion", price: 50, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 'NODE_1' },
+    { title: "Gryphon Expansion", price: 75, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 'NODE_4' },
     { title: "Nightmare Ram Expansion", price: 40, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 'NODE_3', speculated: true },
     { title: "Oblivion Mosquito Expansion", price: 50, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 'NODE_2' },
     { title: "Pariah Expansion", price: 40, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 'NEMESIS_1' },
@@ -283,11 +284,11 @@
     { title: "Green Knight Armor Expansion", price: undefined, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: false, wave: 2 },
     { title: "Lion God Expansion", price: undefined, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: false, wave: 2 },
     { title: "Lion Knight Expansion", price: 35, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2 },
-    { title: "Lonely Tree Expansion", price: undefined, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: false, wave: 2 },
+    { title: "Lonely Tree Expansion", price: 40, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2 },
     { title: "Manhunter Expansion", price: 35, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2 },
     { title: "Slenderman Expansion", price: 40, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2, expansionNode: 'NEMESIS_2', speculated: true },
     { title: "Spidicules Expansion", price: undefined, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: false, wave: 2, expansionNode: 'NODE_2', speculated: true },
-    { title: "Sunstalker Expansion", price: undefined, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: false, wave: 2 },
+    { title: "Sunstalker Expansion", price: 60, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2 },
 
     // New Extras
     { title: "Extra Hardcover 1.5 Core Game Rulebook", price: 40, contentType: CONTENT_TYPES.NEW_EXTRA, addon: true, wave: 3 },
@@ -311,6 +312,7 @@
     { title: "Dung Beetle Knight", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Frogdog Armor", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Gold Smoke Knight Armor", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
+    { title: "Kingsman", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Male Dung Beetle Dancer", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Male Twilight Knight", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Screaming God Armor", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
@@ -344,21 +346,24 @@
       node_order: 1,
       title: "Node 1",
       description: "Expansions in this node represent a monster that can be hunted at the very start of the campaign.",
-      lantern_year: 1,
+      lantern_year_min: 1,
+      lantern_year_max: 1,
       core_game_monsters: ["White Lion"]
     },
     'NODE_2': {
       node_order: 2,
       title: "Node 2",
       description: "Expansions in this node contain content that can be utilized from as early as Lantern Year 2, and provides a good ramp to mid campaign content.",
-      lantern_year: 2,
+      lantern_year_min: 2,
+      lantern_year_max: 2,
       core_game_monsters: ["Screaming Antelope"]
     },
     'NEMESIS_1': {
       node_order: 3,
       title: "Nemesis Node 1",
       description: "Expansions in this node will visit and attack your settlement early in the game.",
-      lantern_year: 5,
+      lantern_year_min: 5,
+      lantern_year_max: 5,
       estimate: true,
       core_game_monsters: ["Butcher (speculated)"]
     },
@@ -372,8 +377,10 @@
     'NODE_4': {
       node_order: 5,
       title: "Node 4",
-      description: "Unknown at the moment.",
-      lantern_year: null,
+      description: "Introduces a very powerful monster that provides you with some top tier gear!  Node 4 monsters are very challenging and although they may appear early in the campaign, a under-prepared settlement will have a very hard time tackling them.",
+      lantern_year_min: 8,
+      lantern_year_max: 16,
+      estimate: true,
       core_game_monsters: []
     },
     'NODE_5': {
@@ -845,6 +852,32 @@
       type: "Gear Card",
       quantity: 1
     }]
+  }, {
+    rollNumber: 17,
+    rollResultMin: 9,
+    rollResultMax: 9,
+    rebased: true,
+    title: "Cursed Spear",
+    type: "Narrative Sculpture",
+    mini: true,
+    updateNumber: 26,
+    contents: [{
+      title: "Cursed Spear",
+      type: "Minature",
+      quantity: 1
+    }, {
+      title: "Unique Base Insert",
+      type: "Base Insert",
+      quantity: 1
+    }, {
+      title: "King's Rule Philosophy",
+      type: "Philosophy",
+      quantity: 1
+    }, {
+      title: "Regal Armor",
+      type: "Gear Card",
+      quantity: 1
+    }]
   }];
 
   function KdmContentManager() {
@@ -909,12 +942,13 @@
       const newExpansions = (expansionsByNewness['true'] || []).sort(itemSort);
       const oldExpansions = (expansionsByNewness['false'] || []).sort(itemSort);
       const campaignNode = CAMPAIGN_NODES[nodeNumber];
+      const lanternYear = convertLanternYear(campaignNode);
       return {
         nodeNumber: nodeNumber,
         nodeOrder: campaignNode.node_order,
         title: campaignNode.title,
         description: campaignNode.description,
-        lanternYear: campaignNode.lantern_year,
+        lanternYear: lanternYear,
         estimate: campaignNode.estimate,
         newExpansions: newExpansions,
         oldExpansions: oldExpansions,
@@ -922,6 +956,14 @@
       };
     }).sort(sortCampaignNodesByNodeNumber);
   };
+
+  function convertLanternYear(campaignNode) {
+    if (campaignNode.lantern_year_min === campaignNode.lantern_year_max) {
+      return campaignNode.lantern_year_min;
+    } else {
+      return campaignNode.lantern_year_min + ' - ' + campaignNode.lantern_year_max
+    }
+  }
 
   function sortCampaignNodesByNodeNumber(a, b) {
     return a.nodeOrder - b.nodeOrder;
