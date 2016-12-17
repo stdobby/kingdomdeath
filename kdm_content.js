@@ -277,18 +277,18 @@
     { title: "The First Hero Expansion", price: 35, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4 },
 
     // Old Expansions
-    { title: "Dragon King Expansion", price: 75, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2 },
-    { title: "Dung Beetle Knight Expansion", price: 30, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2 },
-    { title: "Flower Knight Expansion", price: 40, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2 },
+    { title: "Dragon King Expansion", price: 75, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2, expansionNode: 'NODE_4', speculated: true },
+    { title: "Dung Beetle Knight Expansion", price: 30, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2, expansionNode: 'NODE_4', speculated: true },
+    { title: "Flower Knight Expansion", price: 40, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2, expansionNode: 'NODE_3', speculated: true },
     { title: "Gorm Expansion", price: 50, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2, expansionNode: 'NODE_1' },
     { title: "Green Knight Armor Expansion", price: undefined, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: false, wave: 2 },
-    { title: "Lion God Expansion", price: undefined, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: false, wave: 2 },
-    { title: "Lion Knight Expansion", price: 35, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2 },
+    { title: "Lion God Expansion", price: undefined, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: false, wave: 2, expansionNode: 'NODE_5', speculated: true },
+    { title: "Lion Knight Expansion", price: 35, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2, expansionNode: 'NEMESIS_2', speculated: true },
     { title: "Lonely Tree Expansion", price: 40, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2 },
-    { title: "Manhunter Expansion", price: 35, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2 },
+    { title: "Manhunter Expansion", price: 35, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2, expansionNode: 'NEMESIS_1', speculated: true },
     { title: "Slenderman Expansion", price: 40, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2, expansionNode: 'NEMESIS_2', speculated: true },
     { title: "Spidicules Expansion", price: undefined, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: false, wave: 2, expansionNode: 'NODE_2', speculated: true },
-    { title: "Sunstalker Expansion", price: 60, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2 },
+    { title: "Sunstalker Expansion", price: 60, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2, expansionNode: 'NODE_4', speculated: true },
 
     // New Extras
     { title: "Extra Hardcover 1.5 Core Game Rulebook", price: 40, contentType: CONTENT_TYPES.NEW_EXTRA, addon: true, wave: 3 },
@@ -362,7 +362,7 @@
       node_order: 3,
       title: "Nemesis Node 1",
       description: "Expansions in this node will visit and attack your settlement early in the game.",
-      lantern_year_min: 5,
+      lantern_year_min: 4,
       lantern_year_max: 5,
       estimate: true,
       core_game_monsters: ["Butcher (speculated)"]
@@ -371,11 +371,13 @@
       node_order: 4,
       title: "Node 3",
       description: "Unknown at the moment.",
-      lantern_year: null,
-      core_game_monsters: []
+      lantern_year_min: 5,
+      lantern_year_max: 7,
+      estimate: true,
+      core_game_monsters: ["Phoenix (speculated)"]
     },
     'NODE_4': {
-      node_order: 5,
+      node_order: 6,
       title: "Node 4",
       description: "Introduces a very powerful monster that provides you with some top tier gear!  Node 4 monsters are very challenging and although they may appear early in the campaign, a under-prepared settlement will have a very hard time tackling them.",
       lantern_year_min: 8,
@@ -384,24 +386,29 @@
       core_game_monsters: []
     },
     'NODE_5': {
-      node_order: 6,
+      node_order: 7,
       title: "Node 5",
       description: "Expansions in this node are limited to ONE per campaign.",
-      lantern_year: null,
+      lantern_year_min: 13,
+      lantern_year_max: 13,
+      estimate: true,
       core_game_monsters: []
     },
     'NEMESIS_2': {
-      node_order: 7,
+      node_order: 5,
       title: "Nemesis Node 2",
       description: "Unknown",
-      lantern_year: null,
+      lantern_year_min: 6,
+      lantern_year_max: 6,
+      estimate: true,
       core_game_monsters: ["King's Man (speculated)"]
     },
     'NEMESIS_3': {
       node_order: 8,
       title: "Nemesis Node 3",
       description: "Unknown",
-      lantern_year: null,
+      lantern_year_min: null,
+      lantern_year_max: null,
       core_game_monsters: ["The Hand (speculated)"]
     }
   };
