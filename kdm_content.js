@@ -268,6 +268,7 @@
     { title: "1.5 Update Pack", price: 60, contentType: CONTENT_TYPES.MAIN_COMPONENT, addon: false, wave: 1 },
 
     // New Expansions
+    { title: "Black Knight Expansion", price: 50, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 'NODE_3' },
     { title: "Frogdog Expansion", price: 50, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 'NODE_1' },
     { title: "Gryphon Expansion", price: 75, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 'NODE_4' },
     { title: "Nightmare Ram Expansion", price: 40, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 'NODE_3', speculated: true },
@@ -306,6 +307,7 @@
     { title: 'Twilight Knight', price: undefined, contentType: CONTENT_TYPES.OLD_EXTRA, addon: false, wave: 3 },
 
     // New Pinups
+    { title: "Black Knight Armor", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Disciple of the Witch", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Dung Ball", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Dung Beetle Dancer", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
@@ -370,7 +372,7 @@
     'NODE_3': {
       node_order: 4,
       title: "Node 3",
-      description: "Unknown at the moment.",
+      description: "A campaign with experienced players might include two node 3's, provided they don't waste too much campaign time hunting too many low level monsters or losing against too many high level ones.",
       lantern_year_min: 5,
       lantern_year_max: 7,
       estimate: true,
@@ -747,7 +749,7 @@
       type: "Base Insert",
       quantity: 1
     }, {
-      title: "Hybride Phoenix & Screaming Antelope Armor Set Card",
+      title: "Hybrid Phoenix & Screaming Antelope Armor Set Card",
       type: "Armor Set Card",
       quantity: 1
     }, {
@@ -883,6 +885,40 @@
     }, {
       title: "Regal Armor",
       type: "Gear Card",
+      quantity: 1
+    }]
+  }, {
+    rollNumber: 18,
+    rollResultMin: 5,
+    rollResultMax: 6,
+    rebased: true,
+    title: "Sprinter Armor",
+    type: "Narrative Sculpture",
+    mini: true,
+    updateNumber: 27,
+    contents: [{
+      title: "Sprinter Armor",
+      type: "Miniature",
+      quantity: 1
+    }, {
+      title: "Unique Base Insert",
+      type: "Base Insert",
+      quantity: 1
+    }, {
+      title: "Hybrid White Lion & Screaming Antelope Armor Set Card",
+      type: "Armor Set Card",
+      quantity: 1
+    }, {
+      title: "Sprinter Armor Helm Gear Card",
+      type: "Gear Card",
+      quantity: 1
+    }, {
+      title: "Male Sprinter Armor Head",
+      type: "Armor Kit Piece",
+      quantity: 1
+    }, {
+      title: "Female Sprinter Armor Head",
+      type: "Armor Kit Piece",
       quantity: 1
     }]
   }];
