@@ -15,9 +15,9 @@
     +         '<% pledges.forEach(function(pledge) { %>'
     +           '<tr>'
     +             '<td><%= pledge.title %></td>'
-    +             '<td class="<%= pledge.pledgeClassName %>">$<%= pledge.price %></td>'
+    +             '<td>$<%= pledge.price %></td>'
     +             '<td class="<%= pledge.gamersClassName %>">$<%= pledge.gamersValue %></td>'
-    +             '<td>$<%= pledge.kickstarterValue %></td>'
+    +             '<td class="<%= pledge.kickstarterClassName %>">$<%= pledge.kickstarterValue %></td>'
     +           '</tr>'
     +         '<% }) %>'
     +       '</tbody>'
@@ -93,7 +93,7 @@
       const applicableItems = pledge.getApplicableItems(allItems);
       pledge.applicableItems = this.transformItems(applicableItems);
       pledge.kickstarterValue = _.sumBy(pledge.applicableItems, function(item) { return item.price || 0; });
-      pledge.pledgeClassName = (pledge.kickstarterValue >= pledge.price ? 'success' : '');
+      pledge.kickstarterClassName = (pledge.kickstarterValue >= pledge.price ? 'success' : '');
       pledge.gamersValue = _.sumBy(pledge.applicableItems, function(item) { return item.gamersContent ? item.price : 0; });
       pledge.gamersClassName = (pledge.gamersValue >= pledge.price ? 'success' : '');
       return pledge;
