@@ -274,6 +274,7 @@
     { title: "Nightmare Ram Expansion", price: 40, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 'NODE_3', speculated: true },
     { title: "Oblivion Mosquito Expansion", price: 50, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 'NODE_2' },
     { title: "Pariah Expansion", price: 40, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 'NEMESIS_1' },
+    { title: "Red Witches Expansion", price: 40, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4 },
     { title: "Screaming God Expansion", price: 50, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 'NODE_5' },
     { title: "The First Hero Expansion", price: 35, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4 },
 
@@ -316,13 +317,14 @@
     { title: "Gold Smoke Knight Armor", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Kingsman", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Male Dung Beetle Dancer", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
-    { title: "Male Twilight Knight", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
-    { title: "Screaming God Armor", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
+    { title: "Male Nightmare Ram Armor", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Male Screaming God Armor", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
+    { title: "Male Twilight Knight", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Nightmare Ram Armor & Ramette", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
+    { title: "Screaming God Armor", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
 
     // Old Pinups
-    { title: 'Pinups of Death 1', price: undefined, contentType: CONTENT_TYPES.OLD_PINUP, addon: false, wave: 3 },
+    { title: 'Pinups of Death 1', price: 100, contentType: CONTENT_TYPES.OLD_PINUP, addon: true, wave: 3 },
     { title: 'Pinups of Death 2', price: 115, contentType: CONTENT_TYPES.OLD_PINUP, addon: true, wave: 3 },
     { title: 'Allison the Twilight Knight', price: undefined, contentType: CONTENT_TYPES.OLD_PINUP, addon: false, wave: 3 },
     { title: 'Allison, Twilight Knight Reversal', price: undefined, contentType: CONTENT_TYPES.OLD_PINUP, addon: false, wave: 3 },
@@ -392,7 +394,7 @@
       title: "Node 5",
       description: "Expansions in this node are limited to ONE per campaign.",
       lantern_year_min: 13,
-      lantern_year_max: 13,
+      lantern_year_max: 20,
       estimate: true,
       core_game_monsters: []
     },
@@ -919,6 +921,36 @@
     }, {
       title: "Female Sprinter Armor Head",
       type: "Armor Kit Piece",
+      quantity: 1
+    }]
+  }, {
+    rollNumber: 19,
+    rollResultMin: 10,
+    rollResultMax: 10,
+    rebased: true,
+    title: "Honorable Berserker",
+    type: "Narrative Sculpture",
+    mini: true,
+    updateNumber: 28,
+    contents: [{
+      title: "Honorable Berserker",
+      type: "Miniature",
+      quantity: 1
+    }, {
+      title: "Unique Base Insert",
+      type: "Base Insert",
+      quantity: 1
+    }, {
+      title: "Fighting Art",
+      type: "Fighting Art",
+      quantity: 1
+    }, {
+      title: "Monster Trophy Gear Card",
+      type: "Gear Card",
+      quantity: 1
+    }, {
+      title: "Personal Oath Disorder",
+      type: "Disorder",
       quantity: 1
     }]
   }];

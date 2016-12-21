@@ -5,7 +5,7 @@
       '<table class="table table-bordered table-condensed">'
     +   '<thead>'
     +     '<tr>'
-    +       '<th class="slim-column">Chest Numbers</th>'
+    +       '<th class="slim-column">Roll</th>'
     +       '<th>Item</th>'
     +       '<th>Type</th>'
     +       '<th class="hidden-xs">Content</th>'
@@ -15,7 +15,7 @@
     +   '<tbody>'
     +     '<% rolls.forEach(function(roll) { %>'
     +       '<tr>'
-    +         '<td class="text-center slim-column"><%= roll.chestRange %></td>'
+    +         '<td class="text-center slim-column"><%= roll.rollNumber %></td>'
     +         '<td><%= roll.title %></td>'
     +         '<td><%= roll.type %></td>'
     +         '<td class="hidden-xs">'
@@ -73,18 +73,8 @@
   KdmGamblersChest.prototype.initializeRolls = function() {
     const sortedRolls = _.sortBy(this.rolls, 'rollResultMin');
     const convertedRolls = sortedRolls.map(function(roll) {
-      var chestRange = null;
-      if (roll.rollResultMin) {
-        if (roll.rollResultMin === roll.rollResultMax) {
-          chestRange = roll.rollResultMin;
-        } else {
-          chestRange = roll.rollResultMin + ' - ' + roll.rollResultMax;
-        }
-      } else {
-        chestRange = '-';
-      }
       return {
-        chestRange: chestRange,
+        rollNumber: roll.rollNumber,
         title: roll.title,
         type: roll.type,
         contents: _.sortBy(roll.contents, 'title'),
@@ -92,7 +82,7 @@
       };
     });
     this.$wrapperEl.find('.gamblers-chest-rolls').html(rollsTemplate({
-      rolls: convertedRolls
+      rolls: _.sortBy(convertedRolls, 'rollNumber')
     }));
   };
 
