@@ -75,6 +75,16 @@
     +    '</div>'
     +  '</div>'
     +  '<div class="form-group">'
+    +    '<label for="old_promos" class="control-label col-md-4">The <span class="question-content-type">old promos</span> I would like are</label>'
+    +    '<div class="col-md-8 checkbox-columns">'
+    +      '<% oldPromos.forEach(function(promo) { %>'
+    +        '<label class="checkbox-inline" for="<%= promo.title %>">'
+    +          '<input type="checkbox" name="old_promos" id="<%= promo.title %>" value="<%= promo.title %>"><%= promo.title %>'
+    +        '</label>'
+    +      '<% }) %>'
+    +    '</div>'
+    +  '</div>'
+    +  '<div class="form-group">'
     +    '<label for="new_crossovers" class="control-label col-md-4">The <span class="question-content-type">new crossovers</span> I would like are</label>'
     +    '<div class="col-md-8 checkbox-columns">'
     +      '<% newCrossovers.forEach(function(crossover) { %>'
@@ -157,7 +167,7 @@
     + '</table>'
   );
 
-  const COMBINED_SATAN_LEVEL_TITLE = 'Various Satan Lantern Pledges';
+  const COMBINED_SATAN_LEVEL_TITLE = 'All Satan Lantern Pledges';
   const PLEDGE_TITLES_WITH_ROLE_SURVIVORS_IN_EXPANSION = ['Ancient Gold Lantern', COMBINED_SATAN_LEVEL_TITLE, 'God Frogdog'];
 
   function KdmComparator(wrapperEl) {
@@ -170,6 +180,7 @@
     this.newPinups = this.contentManager.getAllNewPinups().filter(function(pinup) { return pinup.addon; });
     this.oldPinups = this.contentManager.getAllOldPinups().filter(function(pinup) { return pinup.addon; });
     this.newPromos = this.contentManager.getAllNewPromos().filter(function(promo) { return promo.addon; });
+    this.oldPromos = this.contentManager.getAllOldPromos().filter(function(promo) { return promo.addon; });
     this.newCrossovers = this.contentManager.getAllNewCrossovers().filter(function(crossover) { return crossover.addon; });
   }
 
@@ -186,6 +197,7 @@
       newPinups: this.newPinups,
       oldPinups: this.oldPinups,
       newPromos: this.newPromos,
+      oldPromos: this.oldPromos,
       newCrossovers: this.newCrossovers
     }));
   };

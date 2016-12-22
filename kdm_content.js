@@ -269,6 +269,7 @@
 
     // New Expansions
     { title: "Black Knight Expansion", price: 50, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 'NODE_3' },
+    { title: "Death Armor Expansion", price: 20, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4 },
     { title: "Frogdog Expansion", price: 50, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 'NODE_1' },
     { title: "Gryphon Expansion", price: 75, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 'NODE_4' },
     { title: "Nightmare Ram Expansion", price: 40, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 'NODE_3', speculated: true },
@@ -301,11 +302,7 @@
 
     // Old Extras
     { title: 'Anna & Adam Explorers', price: undefined, contentType: CONTENT_TYPES.OLD_EXTRA, addon: false, wave: 3 },
-    { title: 'Aya the Survivor', price: undefined, contentType: CONTENT_TYPES.OLD_EXTRA, addon: false, wave: 3 },
-    { title: 'Paul the Survivor', price: undefined, contentType: CONTENT_TYPES.OLD_EXTRA, addon: false, wave: 3 },
     { title: "Satan", price: 25, contentType: CONTENT_TYPES.OLD_EXTRA, addon: true, wave: 3 },
-    { title: 'Snow the Savior', price: undefined, contentType: CONTENT_TYPES.OLD_EXTRA, addon: false, wave: 3 },
-    { title: 'Twilight Knight', price: undefined, contentType: CONTENT_TYPES.OLD_EXTRA, addon: false, wave: 3 },
 
     // New Pinups
     { title: "Black Knight Armor", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
@@ -313,6 +310,7 @@
     { title: "Dung Ball", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Dung Beetle Dancer", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Dung Beetle Knight", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
+    { title: "Faceless Survivor", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Frogdog Armor", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Gold Smoke Knight Armor", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Kingsman", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
@@ -326,20 +324,17 @@
     // Old Pinups
     { title: 'Pinups of Death 1', price: 100, contentType: CONTENT_TYPES.OLD_PINUP, addon: true, wave: 3 },
     { title: 'Pinups of Death 2', price: 115, contentType: CONTENT_TYPES.OLD_PINUP, addon: true, wave: 3 },
-    { title: 'Allison the Twilight Knight', price: undefined, contentType: CONTENT_TYPES.OLD_PINUP, addon: false, wave: 3 },
-    { title: 'Allison, Twilight Knight Reversal', price: undefined, contentType: CONTENT_TYPES.OLD_PINUP, addon: false, wave: 3 },
 
     // New Promos
     { title: "Role Survivors", price: 25, contentType: CONTENT_TYPES.NEW_PROMO, addon: true, wave: 3 },
     { title: "Super Survivors", price: 40, contentType: CONTENT_TYPES.NEW_PROMO, addon: true, wave: 3 },
 
     // Old Promos
-    { title: 'Beyond the Wall', price: undefined, contentType: CONTENT_TYPES.OLD_PROMO, addon: false, wave: 3 },
-    { title: 'Holiday White Speaker Nico', price: undefined, contentType: CONTENT_TYPES.OLD_PROMO, addon: false, wave: 3 },
     { title: 'Messenger of Courage', price: undefined, contentType: CONTENT_TYPES.OLD_PROMO, addon: false, wave: 3 },
     { title: 'Messenger of First Story', price: undefined, contentType: CONTENT_TYPES.OLD_PROMO, addon: false, wave: 3 },
     { title: 'Messenger of Humanity', price: undefined, contentType: CONTENT_TYPES.OLD_PROMO, addon: false, wave: 3 },
     { title: 'Messenger of Spiral Path', price: undefined, contentType: CONTENT_TYPES.OLD_PROMO, addon: false, wave: 3 },
+    { title: "Promos of Death", price: 125, contentType: CONTENT_TYPES.OLD_PROMO, addon: true, wave: 3 },
 
     // New Crossovers
     { title: "LY3 Candy & Cola", price: 20, contentType: CONTENT_TYPES.NEW_CROSSOVER, addon: true, wave: 3 }
@@ -848,7 +843,7 @@
     updateNumber: 25,
     contents: [{
       title: "Father & Son",
-      type: "Minature",
+      type: "Miniature",
       quantity: 1
     }, {
       title: "Unique Base Insert",
@@ -874,7 +869,7 @@
     updateNumber: 26,
     contents: [{
       title: "Cursed Spear",
-      type: "Minature",
+      type: "Miniature",
       quantity: 1
     }, {
       title: "Unique Base Insert",
@@ -953,6 +948,28 @@
       type: "Disorder",
       quantity: 1
     }]
+  }, {
+    rollNumber: 20,
+    rollResultMin: 18,
+    rollResultMax: 18,
+    rebased: true,
+    title: "Female Scout of Death",
+    type: "Narrative Sculpture",
+    mini: true,
+    updateNumber: 29,
+    contents: [{
+      title: "Female Scout of Death",
+      type: "Miniature",
+      quantity: 1
+    }, {
+      title: "Scout Upgrade Assets",
+      type: "Game Assets",
+      quantity: 1
+    }, {
+      title: "Scout Upgrade",
+      type: "Advanced Rulebook Upgrade",
+      quantity: 1
+    }]
   }];
 
   function KdmContentManager() {
@@ -999,6 +1016,10 @@
 
   KdmContentManager.prototype.getAllNewPromos = function() {
     return this.getAllItems().filter(function(item) { return _.isEqual(item.contentType, CONTENT_TYPES.NEW_PROMO); }).sort(itemSort);
+  };
+
+  KdmContentManager.prototype.getAllOldPromos = function() {
+    return this.getAllItems().filter(function(item) { return _.isEqual(item.contentType, CONTENT_TYPES.OLD_PROMO); }).sort(itemSort);
   };
 
   KdmContentManager.prototype.getAllNewCrossovers = function() {
