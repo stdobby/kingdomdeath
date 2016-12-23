@@ -269,6 +269,7 @@
 
     // New Expansions
     { title: "Black Knight Expansion", price: 50, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 'NODE_3' },
+    { title: "Campaigns of Death", price: 40, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4 },
     { title: "Death Armor Expansion", price: 20, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4 },
     { title: "Frogdog Expansion", price: 50, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 'NODE_1' },
     { title: "Gryphon Expansion", price: 75, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 'NODE_4' },
@@ -290,7 +291,7 @@
     { title: "Lonely Tree Expansion", price: 40, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2 },
     { title: "Manhunter Expansion", price: 35, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2, expansionNode: 'NEMESIS_1', speculated: true },
     { title: "Slenderman Expansion", price: 40, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2, expansionNode: 'NEMESIS_2', speculated: true },
-    { title: "Spidicules Expansion", price: undefined, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: false, wave: 2, expansionNode: 'NODE_2', speculated: true },
+    { title: "Spidicules Expansion", price: 60, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2, expansionNode: 'NODE_2', speculated: true },
     { title: "Sunstalker Expansion", price: 60, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2, expansionNode: 'NODE_4', speculated: true },
 
     // New Extras
@@ -319,6 +320,7 @@
     { title: "Male Screaming God Armor", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Male Twilight Knight", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Nightmare Ram Armor & Ramette", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
+    { title: "Pond Scum Armor", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Screaming God Armor", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
 
     // Old Pinups
@@ -330,10 +332,7 @@
     { title: "Super Survivors", price: 40, contentType: CONTENT_TYPES.NEW_PROMO, addon: true, wave: 3 },
 
     // Old Promos
-    { title: 'Messenger of Courage', price: undefined, contentType: CONTENT_TYPES.OLD_PROMO, addon: false, wave: 3 },
-    { title: 'Messenger of First Story', price: undefined, contentType: CONTENT_TYPES.OLD_PROMO, addon: false, wave: 3 },
-    { title: 'Messenger of Humanity', price: undefined, contentType: CONTENT_TYPES.OLD_PROMO, addon: false, wave: 3 },
-    { title: 'Messenger of Spiral Path', price: undefined, contentType: CONTENT_TYPES.OLD_PROMO, addon: false, wave: 3 },
+    { title: "False Messengers", price: 60, contentType: CONTENT_TYPES.OLD_PROMO, addon: true, wave: 3 },
     { title: "Promos of Death", price: 125, contentType: CONTENT_TYPES.OLD_PROMO, addon: true, wave: 3 },
 
     // New Crossovers
@@ -969,6 +968,25 @@
       title: "Scout Upgrade",
       type: "Advanced Rulebook Upgrade",
       quantity: 1
+    }]
+  }, {
+    rollNumber: 21,
+    rollResultMin: 11,
+    rollResultMax: 11,
+    rebased: true,
+    title: "Romantic Leyline Walker",
+    type: "Narrative Sculpture",
+    mini: true,
+    updateNumber: 30,
+    contents: [{
+      title: "Romantic Leyline Walker",
+      type: "Miniature",
+      quantity: 1
+    }, {
+      title: "Romantic Only Gear",
+      type: "Gear Card",
+      quantity: 1,
+      estimate: true
     }]
   }];
 
