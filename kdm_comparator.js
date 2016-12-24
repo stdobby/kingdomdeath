@@ -94,6 +94,16 @@
     +      '<% }) %>'
     +    '</div>'
     +  '</div>'
+    +  '<div class="form-group">'
+    +    '<label for="old_extras" class="control-label col-md-4">The <span class="question-content-type">old extras</span> I would like are</label>'
+    +    '<div class="col-md-8 checkbox-columns">'
+    +      '<% oldExtras.forEach(function(extra) { %>'
+    +        '<label class="checkbox-inline" for="<%= extra.title %>">'
+    +          '<input type="checkbox" name="old_extras" id="<%= extra.title %>" value="<%= extra.title %>"><%= extra.title %>'
+    +        '</label>'
+    +      '<% }) %>'
+    +    '</div>'
+    +  '</div>'
     + '</form>'
   );
 
@@ -182,6 +192,7 @@
     this.newPromos = this.contentManager.getAllNewPromos().filter(function(promo) { return promo.addon; });
     this.oldPromos = this.contentManager.getAllOldPromos().filter(function(promo) { return promo.addon; });
     this.newCrossovers = this.contentManager.getAllNewCrossovers().filter(function(crossover) { return crossover.addon; });
+    this.oldExtras = this.contentManager.getAllOldExtras().filter(function(extra) { return extra.addon; });
   }
 
   KdmComparator.prototype.initialize = function() {
@@ -198,7 +209,8 @@
       oldPinups: this.oldPinups,
       newPromos: this.newPromos,
       oldPromos: this.oldPromos,
-      newCrossovers: this.newCrossovers
+      newCrossovers: this.newCrossovers,
+      oldExtras: this.oldExtras
     }));
   };
 

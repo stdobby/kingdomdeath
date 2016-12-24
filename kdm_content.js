@@ -304,7 +304,7 @@
 
     // Old Extras
     { title: 'Anna & Adam Explorers', price: undefined, contentType: CONTENT_TYPES.OLD_EXTRA, addon: false, wave: 3 },
-    { title: "Satan", price: 25, contentType: CONTENT_TYPES.OLD_EXTRA, addon: true, wave: 3 },
+    { title: "Satan Twins", price: 25, contentType: CONTENT_TYPES.OLD_EXTRA, addon: true, wave: 3 },
 
     // New Pinups
     { title: "Black Knight Armor", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
@@ -1075,6 +1075,10 @@
 
   KdmContentManager.prototype.getAllNewCrossovers = function() {
     return this.getAllItems().filter(function(item) { return _.isEqual(item.contentType, CONTENT_TYPES.NEW_CROSSOVER); }).sort(itemSort);
+  };
+
+  KdmContentManager.prototype.getAllOldExtras = function() {
+    return this.getAllItems().filter(function(item) { return _.isEqual(item.contentType, CONTENT_TYPES.OLD_EXTRA); }).sort(itemSort);
   };
 
   KdmContentManager.prototype.getGamblersChestRolls = function() {
