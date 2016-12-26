@@ -414,9 +414,6 @@
   };
 
   const GAMBLERS_CHEST_ROLLS = [{
-    rollNumber: 0,
-    rollResultMin: 8,
-    rollResultMax: 12,
     title: "Philosophy of Death",
     type: "Game System",
     mini: false,
@@ -427,9 +424,6 @@
       quantity: 1
     }]
   }, {
-    rollNumber: 0,
-    rollResultMin: null,
-    rollResultMax: null,
     title: "Advanced KD:M Rulebook",
     type: "Advanced Rulebook",
     mini: false,
@@ -440,9 +434,6 @@
       quantity: 1
     }]
   }, {
-    rollNumber: 1,
-    rollResultMin: 66,
-    rollResultMax: 69,
     title: "Nightmare Adam",
     type: "Promo",
     mini: true,
@@ -461,9 +452,6 @@
       quantity: 1
     }]
   }, {
-    rollNumber: 2,
-    rollResultMin: 35,
-    rollResultMax: 37,
     title: "White Fang",
     type: "Narrative Sculpture",
     mini: true,
@@ -478,9 +466,6 @@
       quantity: 1
     }]
   }, {
-    rollNumber: 2,
-    rollResultMin: null,
-    rollResultMax: null,
     title: "Sci-fi Aya the Survivor",
     type: "Promo",
     mini: true,
@@ -499,9 +484,6 @@
       quantity: 1
     }]
   }, {
-    rollNumber: 3,
-    rollResultMin: 29,
-    rollResultMax: 31,
     title: "Last Axeman Standing",
     type: "Narrative Sculpture",
     mini: true,
@@ -516,9 +498,6 @@
       quantity: 1
     }]
   }, {
-    rollNumber: 4,
-    rollResultMin: 17,
-    rollResultMax: 20,
     title: "Scouts of Death",
     type: "Game Feature",
     mini: false,
@@ -538,9 +517,6 @@
       estimate: true
     }]
   }, {
-    rollNumber: 5,
-    rollResultMin: 85,
-    rollResultMax: 89,
     title: "Murderer",
     type: "Narrative Sculpture",
     mini: true,
@@ -567,9 +543,6 @@
       quantity: 2
     }]
   }, {
-    rollNumber: 6,
-    rollResultMin: 90,
-    rollResultMax: 93,
     title: "Bow Master of Deadrock",
     type: "Narrative Sculpture",
     mini: true,
@@ -588,9 +561,6 @@
       quantity: 1
     }]
   }, {
-    rollNumber: 6,
-    rollResultMin: 90,
-    rollResultMax: 93,
     title: "The Bloody Sword of Deadrock",
     type: "Narrative Sculpture",
     mini: true,
@@ -609,9 +579,6 @@
       quantity: 1
     }]
   }, {
-    rollNumber: 7,
-    rollResultMin: 13,
-    rollResultMax: 16,
     title: "The Romantic Adventurer",
     type: "Narrative Sculpture",
     mini: true,
@@ -634,9 +601,6 @@
       quantity: 1
     }]
   }, {
-    rollNumber: 7,
-    rollResultMin: 70,
-    rollResultMax: 73,
     title: "The Screaming Hoarder",
     type: "Narrative Sculpture",
     mini: true,
@@ -659,18 +623,12 @@
       quantity: 1
     }]
   }, {
-    rollNumber: 8,
-    rollResultMin: 1,
-    rollResultMax: 1,
     title: "Kingdom Death 1-1 Penalty",
     type: "Penalty",
     mini: false,
     updateNumber: 14,
     contents: []
   }, {
-    rollNumber: 9,
-    rollResultMin: 2,
-    rollResultMax: 7,
     title: "Dark Eye",
     type: "Narrative Sculpture",
     mini: true,
@@ -689,9 +647,6 @@
       quantity: 1
     }]
   }, {
-    rollNumber: 10,
-    rollResultMin: 24,
-    rollResultMax: 28,
     title: "Cockroach Queen",
     type: "Narrative Sculpture",
     mini: true,
@@ -714,18 +669,12 @@
       quantity: 1
     }]
   }, {
-    rollNumber: 11,
-    rollResultMin: 87,
-    rollResultMax: 87,
     title: "Murderer Penalty",
     type: "Penalty",
     mini: false,
     updateNumber: 18,
     contents: []
   }, {
-    rollNumber: 12,
-    rollResultMin: 41,
-    rollResultMax: 43,
     title: "Beast Hunter Armor",
     type: "Narrative Sculpture",
     mini: true,
@@ -756,9 +705,6 @@
       quantity: 1
     }]
   }, {
-    rollNumber: 13,
-    rollResultMin: 55,
-    rollResultMax: 55,
     title: "Mad & Mighty Striker",
     type: "Narrative Sculpture",
     mini: true,
@@ -781,9 +727,6 @@
       quantity: 1
     }]
   }, {
-    rollNumber: 14,
-    rollResultMin: 74,
-    rollResultMax: 77,
     title: "Bone Eater",
     type: "Narrative Sculpture",
     mini: true,
@@ -810,9 +753,6 @@
       quantity: 1
     }]
   }, {
-    rollNumber: 15,
-    rollResultMin: 50,
-    rollResultMax: 53,
     title: "Bright Knives",
     type: "Narrative Sculpture",
     mini: true,
@@ -835,9 +775,6 @@
       quantity: 1
     }]
   }, {
-    rollNumber: 16,
-    rollResultMin: 21,
-    rollResultMax: 23,
     title: "Father & Son",
     type: "Narrative Sculpture",
     mini: true,
@@ -860,10 +797,6 @@
       quantity: 1
     }]
   }, {
-    rollNumber: 17,
-    rollResultMin: 9,
-    rollResultMax: 9,
-    rebased: true,
     title: "Cursed Spear",
     type: "Narrative Sculpture",
     mini: true,
@@ -886,10 +819,6 @@
       quantity: 1
     }]
   }, {
-    rollNumber: 18,
-    rollResultMin: 5,
-    rollResultMax: 6,
-    rebased: true,
     title: "Sprinter Armor",
     type: "Narrative Sculpture",
     mini: true,
@@ -920,10 +849,6 @@
       quantity: 1
     }]
   }, {
-    rollNumber: 19,
-    rollResultMin: 10,
-    rollResultMax: 10,
-    rebased: true,
     title: "Honorable Berserker",
     type: "Narrative Sculpture",
     mini: true,
@@ -950,10 +875,6 @@
       quantity: 1
     }]
   }, {
-    rollNumber: 20,
-    rollResultMin: 18,
-    rollResultMax: 18,
-    rebased: true,
     title: "Female Scout of Death",
     type: "Narrative Sculpture",
     mini: true,
@@ -972,10 +893,6 @@
       quantity: 1
     }]
   }, {
-    rollNumber: 21,
-    rollResultMin: 11,
-    rollResultMax: 11,
-    rebased: true,
     title: "Romantic Leyline Walker",
     type: "Narrative Sculpture",
     mini: true,
@@ -991,10 +908,6 @@
       estimate: true
     }]
   }, {
-    rollNumber: 22,
-    rollResultMin: 16,
-    rollResultMax: 16,
-    rebased: true,
     title: "Anna the Gourmet Hunter",
     type: "Narrative Sculpture",
     mini: true,
@@ -1019,6 +932,39 @@
       title: "New Cooking Recipes",
       type: "Cooking Recipe",
       quantity: 1,
+      estimate: true
+    }]
+  }, {
+    title: "The Axerman Family",
+    type: "Narrative Sculpture",
+    mini: true,
+    updateNumber: 32,
+    contents: [{
+      title: "Father Axerman",
+      type: "Miniature",
+      quantity: 1
+    }, {
+      title: "Mother Axerman",
+      type: "Miniature",
+      quantity: 1
+    }, {
+      title: "Baby Axerman",
+      type: "Miniature",
+      quantity: 1
+    }]
+  }, {
+    title: "Atnas the Child-Eater",
+    type: "Nemesis",
+    mini: true,
+    updateNumber: 32,
+    contents: [{
+      title: "Atnas the Child-Eater",
+      type: "Miniature",
+      quantity: 1
+    }, {
+      title: "Atnas Game Cards",
+      type: "Game Card",
+      quantity: 70,
       estimate: true
     }]
   }];
