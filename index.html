@@ -7,11 +7,58 @@
     <meta http-equiv="pragma" content="no-cache" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <title>KDM Content Calculator</title>
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
-    <link rel="stylesheet" type="text/css" href="kdm.css"></link>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/bulma@0.2.3/css/bulma.css"></link>
   </head>
   <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div id="app">
+      <nav class="nav">
+        <div class="nav-left">
+          <a class="nav-item is-brand" href="#"><h3 class="title is-3">KD:M - Pledge Helper</h3></a>
+        </div>
+
+        <div class="nav-center">
+          <a class="nav-item" href="#">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          <a class="nav-item" href="#">
+            <span class="icon">
+              <i class="fa fa-twitter"></i>
+            </span>
+          </a>
+        </div>
+
+        <span class="nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+
+        <div class="nav-right nav-menu">
+          <router-link to="/calculator" class="nav-item is-tab">Calculator</router-link>
+          <router-link to="/comparator" class="nav-item is-tab">Comparator</router-link>
+          <router-link to="/nodechart" class="nav-item is-tab">Node Chart</router-link>
+          <router-link to="/gamblersbox" class="nav-item is-tab">Gambler's Box</router-link>
+          <router-link to="/pledge_values" class="nav-item is-tab">Pledge Values</router-link>
+          <router-link to="/add_on_menu" class="nav-item is-tab">Add-On Menu</router-link>
+        </div>
+      </nav>
+
+      <router-view></router-view>
+    </div>
+
+    <script src="https://unpkg.com/vue@2.1.8/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router@2.1.1/dist/vue-router.js"></script>
+    <script src="https://unpkg.com/vue-strap@1.0.11/dist/vue-strap.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.2/lodash.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/content.js"></script>
+    <script src="js/pledge_values.js"></script>
+    <script src="js/add_on_menu.js"></script>
+    <script src="js/app.js"></script>
+
+    <!-- <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
@@ -87,6 +134,6 @@
         e.preventDefault();
         $(this).tab('show');
       });
-    </script>
+    </script> -->
   </body>
 </html>
