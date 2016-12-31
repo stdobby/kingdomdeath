@@ -5,15 +5,11 @@
     routes: [
       {
         path: '/pledge_values',
-        redirect: '/pledge_values/core_game'
+        redirect: '/pledge_values/core',
       },
       {
-        path: '/pledge_values/core_game',
-        component: Vue.component('pledge-values-core-game')
-      },
-      {
-        path: '/pledge_values/update_pack',
-        component: Vue.component('pledge-values-update-pack')
+        path: '/pledge_values/:pledgeType',
+        component: Vue.component('pledge-values-content')
       },
       {
         path: '/add_on_menu',

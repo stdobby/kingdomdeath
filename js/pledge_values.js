@@ -2,8 +2,11 @@
   'use strict';
 
   const pledges = kdm.content.getPledges();
-  const updatePackPledges = pledges.filter(function(pledge) { return pledge.pledgeType === 'update'; });
-  const coreGamePledges = pledges.filter(function(pledge) { return pledge.pledgeType === 'core'; });
+  const isPledgeType = function(pledgeType) {
+    return function(pledge) {
+      return pledge.pledgeType === pledgeType;
+    };
+  };
 
   Vue.component('pledge-components', {
     template: `
@@ -61,8 +64,8 @@
       <div class="container is-fluid">
         <div class="tabs is-centered">
           <ul>
-            <li><router-link to="/pledge_values/core_game" class="nav-item is-tab">Core Game</router-link></li>
-            <li><router-link to="/pledge_values/update_pack" class="nav-item is-tab">Update Pack</router-link></li>
+            <li><router-link to="/pledge_values/core" class="nav-item is-tab">Core Game</router-link></li>
+            <li><router-link to="/pledge_values/update" class="nav-item is-tab">Update Pack</router-link></li>
           </ul>
         </div>
         <div class="tile is-ancestor">
@@ -75,28 +78,15 @@
         </div>
       </div>
     `,
-    props: ['pledges']
-  });
-
-  Vue.component('pledge-values-update-pack', {
-    template: `
-      <pledge-values-content v-bind:pledges="pledges" />
-    `,
     data: function() {
       return {
-        pledges: updatePackPledges
+        pledges: pledges.filter(isPledgeType(this.$route.params.pledgeType))
       };
-    }
-  });
-
-  Vue.component('pledge-values-core-game', {
-    template: `
-      <pledge-values-content v-bind:pledges="pledges" />
-    `,
-    data: function() {
-      return {
-        pledges: coreGamePledges
-      };
+    },
+    watch: {
+      '$route': function(to, from) {
+        this.pledges = pledges.filter(isPledgeType(to.params.pledgeType));
+      }
     }
   });
 })();
