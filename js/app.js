@@ -9,10 +9,14 @@
       },
       {
         path: '/pledge_values/:pledgeType',
-        component: Vue.component('pledge-values-content')
+        component: Vue.component('pledge-values')
       },
       {
         path: '/add_on_menu',
+        redirect: '/add_on_menu/all'
+      },
+      {
+        path: '/add_on_menu/:addOnType',
         component: Vue.component('add-on-menu')
       }
     ],

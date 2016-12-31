@@ -5,6 +5,14 @@ var kdm = (function(kdm) {
     return value ? '$' + value : '???';
   });
 
+  Vue.filter('boolean', function(value) {
+    return value ? 'Yes' : 'No';
+  });
+
+  Vue.filter('percentage', function(value) {
+    return value ? value + '%' : '???';
+  });
+
   var utils = kdm.utils = {};
 
   utils.isGamersContent = function(item) {
