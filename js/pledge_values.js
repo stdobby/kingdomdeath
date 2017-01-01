@@ -63,8 +63,8 @@
       <tr>
         <td>{{ pledge.pledgeLevel }}</td>
         <td>{{ pledge.pledgePrice | currency }}</td>
-        <td>{{ gamersValue | currency }}</td>
-        <td>{{ ksValue | currency }}</td>
+        <td v-bind:class="gamersClassObj">{{ gamersValue | currency }}</td>
+        <td v-bind:class="ksClassObj">{{ ksValue | currency }}</td>
       </tr>
     `,
     computed: {
@@ -74,10 +74,20 @@
           return value + item.ksPrice;
         }, 0);
       },
+      gamersClassObj: function() {
+        return {
+          'is-higher': this.gamersValue >= this.pledge.pledgePrice
+        };
+      },
       ksValue: function() {
         return this.pledge.items.reduce(function(value, item) {
           return value + item.ksPrice;
         }, 0);
+      },
+      ksClassObj: function() {
+        return {
+          'is-higher': this.ksValue >= this.pledge.pledgePrice
+        };
       }
     },
     props: ['pledge']

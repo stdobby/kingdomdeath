@@ -1,3 +1,9 @@
+.is-higher {
+  background-color: #20bc56;
+  color: white;
+}
+
+/*
 body {
   padding-top: 10px;
 }
@@ -104,4 +110,4 @@ dd {
 
 #nodechart th {
   width: 12.5%;
-}
+}*/
