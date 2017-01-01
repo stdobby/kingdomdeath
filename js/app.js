@@ -4,6 +4,10 @@
   const router = new VueRouter({
     routes: [
       {
+        path: '/calculator',
+        component: Vue.component('calculator')
+      },
+      {
         path: '/pledge_values',
         redirect: '/pledge_values/core',
       },
