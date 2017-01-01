@@ -1,6 +1,7 @@
 (function() {
   'use strict';
 
+  const items = kdm.content.getItems();
   const pledges = kdm.content.getPledges();
   const isPledgeType = function(pledgeType) {
     return function(pledge) {
@@ -8,10 +9,50 @@
     };
   };
 
+  pledges.forEach(function(pledge) {
+    pledge.items = items.filter(pledge.contains || function() { return false; });
+  });
+
+  Vue.component('pledge-components-row', {
+    template: `
+      <tr>
+        <td>{{ item.title }}</td>
+        <td>{{ item.new | boolean }}</td>
+        <td>{{ item.type | capitalize }}</td>
+        <td>{{ item.pureGameplay | boolean }}</td>
+        <td>{{ item.ksPrice | currency }}</td>
+      </tr>
+    `,
+    props: ['item']
+  });
+
   Vue.component('pledge-components', {
     template: `
       <div class="tile is-child panel">
         <p class="panel-heading">{{ pledge.pledgeLevel }} - {{ pledge.pledgePrice | currency }}</p>
+        <table class="table is-bordered is-narrow">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>New</th>
+              <th>Type</th>
+              <th>Pure Gameplay</th>
+              <th>KS Price</th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <th>Item</th>
+              <th>New</th>
+              <th>Type</th>
+              <th>Pure Gameplay</th>
+              <th>KS Price</th>
+            </tr>
+          </tfoot>
+          <tbody>
+            <pledge-components-row v-for="item in pledge.items" v-bind:item="item" />
+          </tbody>
+        </table>
       </div>
     `,
     props: ['pledge']
@@ -22,10 +63,23 @@
       <tr>
         <td>{{ pledge.pledgeLevel }}</td>
         <td>{{ pledge.pledgePrice | currency }}</td>
-        <td>{{ pledge.gamersValue | currency }}</td>
-        <td>{{ pledge.ksValue | currency }}</td>
+        <td>{{ gamersValue | currency }}</td>
+        <td>{{ ksValue | currency }}</td>
       </tr>
     `,
+    computed: {
+      gamersValue: function() {
+        const pureGameplayItems = _.filter(this.pledge.items, 'pureGameplay');
+        return pureGameplayItems.reduce(function(value, item) {
+          return value + item.ksPrice;
+        }, 0);
+      },
+      ksValue: function() {
+        return this.pledge.items.reduce(function(value, item) {
+          return value + item.ksPrice;
+        }, 0);
+      }
+    },
     props: ['pledge']
   });
 
@@ -62,7 +116,7 @@
   Vue.component('pledge-values-content', {
     template: `
       <div class="tile is-ancestor">
-        <div class="tile is-4 is-parent">
+        <div class="tile is-5 is-parent">
           <pledge-value-breakdown v-bind:pledges="pledges" />
         </div>
         <div class="tile is-vertical is-parent">

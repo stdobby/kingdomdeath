@@ -13,6 +13,10 @@ var kdm = (function(kdm) {
     return value ? value + '%' : '???';
   });
 
+  Vue.filter('capitalize', function(value) {
+    return value ? value.charAt(0).toUpperCase() + value.slice(1) : value;
+  });
+
   var utils = kdm.utils = {};
 
   utils.isGamersContent = function(item) {

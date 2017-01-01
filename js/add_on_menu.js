@@ -1,13 +1,7 @@
 (function() {
   'use strict';
 
-  const DISPLAY_TYPES = {
-    crossover: "Crossovers",
-    expansion: "Expansions",
-    extra: "Extras",
-    pinup: "Pinups",
-    promo: "Promos"
-  };
+  const DISPLAY_TYPES = kdm.content.getDisplayTypes();
   const getDisplayType = function(type) { return DISPLAY_TYPES[type] || type; };
 
   const allAddOns = _.filter(kdm.content.getItems(), "addOn");
