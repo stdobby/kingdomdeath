@@ -280,14 +280,15 @@
     { title: "Red Witches Expansion", price: 40, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4 },
     { title: "Screaming God Expansion", price: 50, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 'NODE_5' },
     { title: "The First Hero Expansion", price: 35, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4 },
-
+    { title: "The Silver City", price: 65, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4},
+     
     // Old Expansions
     { title: "Dragon King Expansion", price: 75, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2, expansionNode: 'NODE_4', speculated: true },
     { title: "Dung Beetle Knight Expansion", price: 30, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2, expansionNode: 'NODE_4', speculated: true },
     { title: "Flower Knight Expansion", price: 40, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2, expansionNode: 'NODE_3', speculated: true },
     { title: "Gorm Expansion", price: 50, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2, expansionNode: 'NODE_1' },
     { title: "Green Knight Armor Expansion", price: 15, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2 },
-    { title: "Lion God Expansion", price: undefined, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: false, wave: 2, expansionNode: 'NODE_5', speculated: true },
+    { title: "Lion God Expansion", price: 40, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2, expansionNode: 'NODE_5', speculated: true },
     { title: "Lion Knight Expansion", price: 35, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2, expansionNode: 'NEMESIS_2', speculated: true },
     { title: "Lonely Tree Expansion", price: 40, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2 },
     { title: "Manhunter Expansion", price: 35, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2, expansionNode: 'NEMESIS_1', speculated: true },
@@ -320,6 +321,7 @@
     { title: "Male Nightmare Ram Armor", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Male Screaming God Armor", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Male Twilight Knight", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
+    { title: "Mountain Dungeon Armor", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Nightmare Ram Armor & Ramette", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Pond Scum Armor", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Remastered Apotheosis", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
@@ -966,6 +968,30 @@
       type: "Game Card",
       quantity: 70,
       estimate: true
+    }]
+  }, {
+    title: "Neko Twilight Knight",
+    type: "Pinup",
+    mini: true,
+    updateNumber: 33,
+    contents: [{
+      title: "Neko Twilight Knight",
+      type: "Miniature",
+      quantity: 1
+    }]
+  }, {
+    title: "White Lion Guys!",
+    type: "Narrative Sculpture",
+    mini: true,
+    updateNumber: 34,
+    contents: [{
+      title: "White Lion Guy",
+      type: "Miniature",
+      quantity: 1
+    }, {
+      title: "White Lion Gal",
+      type: "Miniature",
+      quantity: 1
     }]
   }];
 
