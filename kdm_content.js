@@ -1084,6 +1084,17 @@
     }).sort(sortCampaignNodesByNodeNumber);
   };
 
+  KdmContentManager.prototype.containsRoleSurvivors = function(pledgeTitle) {
+    return _.includes([
+      "Ancient Gold Lantern",
+      "Satan's Lantern",
+      "Twin Satan's Lantern",
+      "True Form Satan's Lantern",
+      "Final Form Satan's Lantern",
+      "God Frogdog"
+    ], pledgeTitle);
+  };
+
   function convertLanternYear(campaignNode) {
     if (campaignNode.lantern_year_min === campaignNode.lantern_year_max) {
       return campaignNode.lantern_year_min;

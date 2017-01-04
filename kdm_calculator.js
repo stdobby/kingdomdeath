@@ -5,6 +5,11 @@
 
   var pledgeTemplate = _.template(
     '<h3 style="margin-bottom: 30px">Pledge and Shipping Calculator</h3>'
+    + '<div class="alert alert-info col-md-offset-4 col-md-4">'
+    +   '<p><i class="fa fa-square-o"></i> means the item <strong>is not</strong> included in the pledge</p>'
+    +   '<p><i class="fa fa-check-square-o"></i> means the item <strong>is</strong> included in the pledge</p>'
+    +   '<p><i class="fa fa-exclamation-triangle"></i> means the item is included as part of another item</p>'
+    + '</div>'
     + '<form class="form-horizontal">'
     +  '<div id="pledgeBuilder" class="col-md-8">'
     +  '<div class="form-group">'
@@ -41,11 +46,14 @@
     +    '<label for="<%= addon.title %>" class="control-label col-md-6"><%= addon.title %></label>'
     +    '<div class="col-md-6">'
       +    '<div class="col-xs-10">'
-      +     '<select class="form-control" data-type="addon" data-title="<%= addon.title %>">'
-      +      '<% for (var i = 0; i <= 10; i++) { %>'
-      +       '<option value="<%= i %>"><%= i %> (+$<%= addon.price * i %>)</option>'
-      +      '<% } %>'
-      +     '</select>'
+      +     '<div class="input-group">'
+      +       '<span class="input-group-addon"><i class="fa fa-square-o %>"></i></span>'
+      +       '<select class="form-control" data-type="addon" data-title="<%= addon.title %>">'
+      +         '<% for (var i = 0; i <= 10; i++) { %>'
+      +           '<option value="<%= i %>"><%= i %> (+$<%= addon.price * i %>)</option>'
+      +         '<% } %>'
+      +       '</select>'
+      +     '</div>'
       +    '</div>'
       +    '<div class="col-xs-2" style="padding: 7px 0 0 0; text-align: left;">'
       +     '<span class="glyphicon glyphicon-plus" aria-hidden="true" style="color: darkgreen; margin-right: 8px; cursor: pointer"></span>'
@@ -159,11 +167,15 @@
     var self = this;
 
     self.$wrapperEl = $(wrapperEl);
+    self.contentManager = KdmContentManager;
     self.pledges = KdmContentManager.getPledges();
     self.items = KdmContentManager.getAllItems();
     self.addons = KdmContentManager.getAddOns();
     self.addonsByType = _.groupBy(self.addons, 'contentType.type');
     self.shippingCalculator = new KdmShippingCalculator();
+    self.$wrapperEl.on('change', 'select[data-type=pledge]', function() {
+      self.updateAddOnIcons();
+    });
     self.$wrapperEl.on('change', 'select', function() {
       self.updateTotals();
       self.updateShippingBreakdown();
@@ -250,6 +262,27 @@
       subtotal: subtotal,
       orderItems: orderItems
     }
+  };
+
+  KdmForm.prototype.updateAddOnIcons = function() {
+    var self = this;
+    var pledge = this.getPledgeOrder(this.$wrapperEl.find('select[data-type=pledge]')).item;
+    var applicableAddOns = pledge.getApplicableItems(this.addons);
+    var applicableAddOnTitles = _.map(applicableAddOns, 'title');
+
+    this.$wrapperEl.find('select[data-type=addon]').each(function() {
+      var $this = $(this);
+      var title = $this.attr('data-title');
+      var $span = $this.prev('span');
+      var includedInPledge = _.includes(applicableAddOnTitles, title);
+      var containsRoleSurvivors = self.contentManager.containsRoleSurvivors(pledge.title);
+
+      $span.find('i').toggleClass('fa-square-o', !includedInPledge).toggleClass('fa-check-square-o', includedInPledge).removeClass('fa-exclamation-triangle');
+
+      if (title === 'Role Survivors' && containsRoleSurvivors) {
+        $span.find('i').removeClass('fa-square-o fa-check-square-o').addClass('fa-exclamation-triangle');
+      }
+    });
   };
 
   KdmForm.prototype.updateTotals = function() {
