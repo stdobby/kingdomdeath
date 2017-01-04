@@ -24,87 +24,18 @@
     +    '</select>'
     +   '</div>'
     +  '</div>'
-    +  '<div class="form-group">'
-    +    '<label for="new_expansions" class="control-label col-md-4">The <span class="question-content-type">new expansions</span> I would like are</label>'
-    +    '<div class="col-md-8 checkbox-columns">'
-    +      '<% newExpansions.forEach(function(newExpansion) { %>'
-    +        '<label class="checkbox-inline" for="<%= newExpansion.title %>">'
-    +          '<input type="checkbox" data-type="addon" name="new_expansions" id="<%= newExpansion.title %>" value="<%= newExpansion.title %>"><%= newExpansion.title %>'
-    +        '</label>'
-    +      '<% }) %>'
+    +  '<% addOnGroups.forEach(function(addOnGroup) { %>'
+    +    '<div class="form-group">'
+    +      '<label for="<%= addOnGroup.contentType %>" class="control-label col-md-4">The <span class="question-content-type"><%= addOnGroup.contentDisplayType %></span> I would like are</label>'
+    +      '<div class="col-md-8 checkbox-columns">'
+    +        '<% addOnGroup.addOns.forEach(function(addOn) { %>'
+    +          '<label class="checkbox-inline" for="<%= addOn.title %>">'
+    +            '<input type="checkbox" data-type="addon" name="<%= addOnGroup.contentType %>" id="<%= addOn.title %>" value="<%= addOn.title %>"><%= addOn.title %>'
+    +          '</label>'
+    +        '<% }) %>'
+    +      '</div>'
     +    '</div>'
-    +  '</div>'
-    +  '<div class="form-group">'
-    +    '<label for="old_expansions" class="control-label col-md-4">The <span class="question-content-type">old expansions</span> I would like are</label>'
-    +    '<div class="col-md-8 checkbox-columns">'
-    +      '<% oldExpansions.forEach(function(oldExpansion) { %>'
-    +        '<label class="checkbox-inline" for="<%= oldExpansion.title %>">'
-    +          '<input type="checkbox" data-type="addon" name="old_expansions" id="<%= oldExpansion.title %>" value="<%= oldExpansion.title %>"><%= oldExpansion.title %>'
-    +        '</label>'
-    +      '<% }) %>'
-    +    '</div>'
-    +  '</div>'
-    +  '<div class="form-group">'
-    +    '<label for="new_pinups" class="control-label col-md-4">The <span class="question-content-type">new pinups</span> I would like are</label>'
-    +    '<div class="col-md-8 checkbox-columns">'
-    +      '<% newPinups.forEach(function(pinup) { %>'
-    +        '<label class="checkbox-inline" for="<%= pinup.title %>">'
-    +          '<input type="checkbox" data-type="addon" name="new_pinups" id="<%= pinup.title %>" value="<%= pinup.title %>"><%= pinup.title %>'
-    +        '</label>'
-    +      '<% }) %>'
-    +    '</div>'
-    +  '</div>'
-    +  '<div class="form-group">'
-    +    '<label for="old_pinups" class="control-label col-md-4">The <span class="question-content-type">old pinups</span> I would like are</label>'
-    +    '<div class="col-md-8 checkbox-columns">'
-    +      '<% oldPinups.forEach(function(pinup) { %>'
-    +        '<label class="checkbox-inline" for="<%= pinup.title %>">'
-    +          '<input type="checkbox" data-type="addon" name="old_pinups" id="<%= pinup.title %>" value="<%= pinup.title %>"><%= pinup.title %>'
-    +        '</label>'
-    +      '<% }) %>'
-    +    '</div>'
-    +  '</div>'
-    +  '<div class="form-group">'
-    +    '<label for="new_promos" class="control-label col-md-4">The <span class="question-content-type">new promos</span> I would like are</label>'
-    +    '<div class="col-md-8 checkbox-columns">'
-    +      '<% newPromos.forEach(function(promo) { %>'
-    +        '<label class="checkbox-inline" for="<%= promo.title %>">'
-    +          '<input type="checkbox" data-type="addon" name="new_promos" id="<%= promo.title %>" value="<%= promo.title %>"><%= promo.title %>'
-    +        '</label>'
-    +      '<% }) %>'
-    +    '</div>'
-    +  '</div>'
-    +  '<div class="form-group">'
-    +    '<label for="old_promos" class="control-label col-md-4">The <span class="question-content-type">old promos</span> I would like are</label>'
-    +    '<div class="col-md-8 checkbox-columns">'
-    +      '<% oldPromos.forEach(function(promo) { %>'
-    +        '<label class="checkbox-inline" for="<%= promo.title %>">'
-    +          '<input type="checkbox" data-type="addon" name="old_promos" id="<%= promo.title %>" value="<%= promo.title %>"><%= promo.title %>'
-    +        '</label>'
-    +      '<% }) %>'
-    +    '</div>'
-    +  '</div>'
-    +  '<div class="form-group">'
-    +    '<label for="new_crossovers" class="control-label col-md-4">The <span class="question-content-type">new crossovers</span> I would like are</label>'
-    +    '<div class="col-md-8 checkbox-columns">'
-    +      '<% newCrossovers.forEach(function(crossover) { %>'
-    +        '<label class="checkbox-inline" for="<%= crossover.title %>">'
-    +          '<input type="checkbox" data-type="addon" name="new_crossovers" id="<%= crossover.title %>" value="<%= crossover.title %>"><%= crossover.title %>'
-    +        '</label>'
-    +      '<% }) %>'
-    +    '</div>'
-    +  '</div>'
-    +  '<div class="form-group">'
-    +    '<label for="old_extras" class="control-label col-md-4">The <span class="question-content-type">old extras</span> I would like are</label>'
-    +    '<div class="col-md-8 checkbox-columns">'
-    +      '<% oldExtras.forEach(function(extra) { %>'
-    +        '<label class="checkbox-inline" for="<%= extra.title %>">'
-    +          '<input type="checkbox" data-type="addon" name="old_extras" id="<%= extra.title %>" value="<%= extra.title %>"><%= extra.title %>'
-    +        '</label>'
-    +      '<% }) %>'
-    +    '</div>'
-    +  '</div>'
-    + '</form>'
+    +  '<% }) %>'
   );
 
   const resultsTemplate = _.template(
@@ -202,15 +133,42 @@
   };
 
   KdmComparator.prototype.initializeQuestionnaire = function() {
+    const addOnGroups = [{
+      contentType: 'new_expansions',
+      contentDisplayType: 'new expansions',
+      addOns: this.newExpansions
+    }, {
+      contentType: 'old_expansions',
+      contentDisplayType: 'old expansions',
+      addOns: this.oldExpansions
+    }, {
+      contentType: 'new_pinups',
+      contentDisplayType: 'new pinups',
+      addOns: this.newPinups
+    }, {
+      contentType: 'old_pinups',
+      contentDisplayType: 'old pinups',
+      addOns: this.oldPinups
+    }, {
+      contentType: 'new_promos',
+      contentDisplayType: 'new promos',
+      addOns: this.newPromos
+    }, {
+      contentType: 'old_promos',
+      contentDisplayType: 'old promos',
+      addOns: this.oldPromos
+    }, {
+      contentType: 'new_crossovers',
+      contentDisplayType: 'new crossovers',
+      addOns: this.newCrossovers
+    }, {
+      contentType: 'old_extras',
+      contentDisplayType: 'old extras',
+      addOns: this.oldExtras
+    }];
+
     this.$wrapperEl.find('.questionnaire').html(questionnaireTemplate({
-      newExpansions: this.newExpansions,
-      oldExpansions: this.oldExpansions,
-      newPinups: this.newPinups,
-      oldPinups: this.oldPinups,
-      newPromos: this.newPromos,
-      oldPromos: this.oldPromos,
-      newCrossovers: this.newCrossovers,
-      oldExtras: this.oldExtras
+      addOnGroups: addOnGroups
     }));
   };
 
