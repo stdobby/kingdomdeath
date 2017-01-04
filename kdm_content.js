@@ -269,7 +269,7 @@
 
     // New Expansions
     { title: "Black Knight Expansion", price: 50, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 'NODE_3' },
-    { title: "Campaigns of Death", price: 40, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4 },
+    { title: "Campaigns of Death Expansion", price: 40, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4 },
     { title: "Death Armor Expansion", price: 20, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4 },
     { title: "Frogdog Expansion", price: 50, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 'NODE_1' },
     { title: "Gryphon Expansion", price: 75, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 'NODE_4' },
@@ -280,7 +280,7 @@
     { title: "Red Witches Expansion", price: 40, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4 },
     { title: "Screaming God Expansion", price: 50, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 'NODE_5' },
     { title: "The First Hero Expansion", price: 35, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4 },
-    { title: "The Silver City", price: 65, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4},
+    { title: "The Silver City Expansion", price: 65, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4},
 
     // Old Expansions
     { title: "Dragon King Expansion", price: 75, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2, expansionNode: 'NODE_4', speculated: true },

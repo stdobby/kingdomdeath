@@ -29,7 +29,7 @@
     +    '<div class="col-md-8 checkbox-columns">'
     +      '<% newExpansions.forEach(function(newExpansion) { %>'
     +        '<label class="checkbox-inline" for="<%= newExpansion.title %>">'
-    +          '<input type="checkbox" name="new_expansions" id="<%= newExpansion.title %>" value="<%= newExpansion.title %>"><%= newExpansion.title %>'
+    +          '<input type="checkbox" data-type="addon" name="new_expansions" id="<%= newExpansion.title %>" value="<%= newExpansion.title %>"><%= newExpansion.title %>'
     +        '</label>'
     +      '<% }) %>'
     +    '</div>'
@@ -39,7 +39,7 @@
     +    '<div class="col-md-8 checkbox-columns">'
     +      '<% oldExpansions.forEach(function(oldExpansion) { %>'
     +        '<label class="checkbox-inline" for="<%= oldExpansion.title %>">'
-    +          '<input type="checkbox" name="old_expansions" id="<%= oldExpansion.title %>" value="<%= oldExpansion.title %>"><%= oldExpansion.title %>'
+    +          '<input type="checkbox" data-type="addon" name="old_expansions" id="<%= oldExpansion.title %>" value="<%= oldExpansion.title %>"><%= oldExpansion.title %>'
     +        '</label>'
     +      '<% }) %>'
     +    '</div>'
@@ -49,7 +49,7 @@
     +    '<div class="col-md-8 checkbox-columns">'
     +      '<% newPinups.forEach(function(pinup) { %>'
     +        '<label class="checkbox-inline" for="<%= pinup.title %>">'
-    +          '<input type="checkbox" name="new_pinups" id="<%= pinup.title %>" value="<%= pinup.title %>"><%= pinup.title %>'
+    +          '<input type="checkbox" data-type="addon" name="new_pinups" id="<%= pinup.title %>" value="<%= pinup.title %>"><%= pinup.title %>'
     +        '</label>'
     +      '<% }) %>'
     +    '</div>'
@@ -59,7 +59,7 @@
     +    '<div class="col-md-8 checkbox-columns">'
     +      '<% oldPinups.forEach(function(pinup) { %>'
     +        '<label class="checkbox-inline" for="<%= pinup.title %>">'
-    +          '<input type="checkbox" name="old_pinups" id="<%= pinup.title %>" value="<%= pinup.title %>"><%= pinup.title %>'
+    +          '<input type="checkbox" data-type="addon" name="old_pinups" id="<%= pinup.title %>" value="<%= pinup.title %>"><%= pinup.title %>'
     +        '</label>'
     +      '<% }) %>'
     +    '</div>'
@@ -69,7 +69,7 @@
     +    '<div class="col-md-8 checkbox-columns">'
     +      '<% newPromos.forEach(function(promo) { %>'
     +        '<label class="checkbox-inline" for="<%= promo.title %>">'
-    +          '<input type="checkbox" name="new_promos" id="<%= promo.title %>" value="<%= promo.title %>"><%= promo.title %>'
+    +          '<input type="checkbox" data-type="addon" name="new_promos" id="<%= promo.title %>" value="<%= promo.title %>"><%= promo.title %>'
     +        '</label>'
     +      '<% }) %>'
     +    '</div>'
@@ -79,7 +79,7 @@
     +    '<div class="col-md-8 checkbox-columns">'
     +      '<% oldPromos.forEach(function(promo) { %>'
     +        '<label class="checkbox-inline" for="<%= promo.title %>">'
-    +          '<input type="checkbox" name="old_promos" id="<%= promo.title %>" value="<%= promo.title %>"><%= promo.title %>'
+    +          '<input type="checkbox" data-type="addon" name="old_promos" id="<%= promo.title %>" value="<%= promo.title %>"><%= promo.title %>'
     +        '</label>'
     +      '<% }) %>'
     +    '</div>'
@@ -89,7 +89,7 @@
     +    '<div class="col-md-8 checkbox-columns">'
     +      '<% newCrossovers.forEach(function(crossover) { %>'
     +        '<label class="checkbox-inline" for="<%= crossover.title %>">'
-    +          '<input type="checkbox" name="new_crossovers" id="<%= crossover.title %>" value="<%= crossover.title %>"><%= crossover.title %>'
+    +          '<input type="checkbox" data-type="addon" name="new_crossovers" id="<%= crossover.title %>" value="<%= crossover.title %>"><%= crossover.title %>'
     +        '</label>'
     +      '<% }) %>'
     +    '</div>'
@@ -99,7 +99,7 @@
     +    '<div class="col-md-8 checkbox-columns">'
     +      '<% oldExtras.forEach(function(extra) { %>'
     +        '<label class="checkbox-inline" for="<%= extra.title %>">'
-    +          '<input type="checkbox" name="old_extras" id="<%= extra.title %>" value="<%= extra.title %>"><%= extra.title %>'
+    +          '<input type="checkbox" data-type="addon" name="old_extras" id="<%= extra.title %>" value="<%= extra.title %>"><%= extra.title %>'
     +        '</label>'
     +      '<% }) %>'
     +    '</div>'
@@ -240,7 +240,7 @@
   };
 
   KdmComparator.prototype.getRequiredItems = function() {
-    var requiredTitles = this.getFormValues('input:checked');
+    var requiredTitles = this.getFormValues('input[data-type=addon]:checked');
     var requiredItems = this.addons.filter(function(item) { return _.includes(requiredTitles, item.title); }).sort(itemSort);
     var requiresGamblersChest = this.$wrapperEl.find('select[data-type=gamblersChest]').val() === 'yes';
     if (requiresGamblersChest) {
