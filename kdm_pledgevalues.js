@@ -2,7 +2,17 @@
   'use strict';
 
   const pledgeTableTemplate = _.template(
-      '<div class="row-fluid">'
+      '<div class="alert alert-info col-sm-offset-2 col-sm-8 col-md-offset-4 col-md-4">'
+    +   '<p>'
+    +     'To calculate the "gamers" value, I am including the following:'
+    +     '<ul>'
+    +       '<li>1.5 Core Game / 1.5 Update Pack</li>'
+    +       '<li>Gambler\'s Chest</li>'
+    +       '<li>Expansions</li>'
+    +     '</ul>'
+    +   '</p>'
+    + '</div>'
+    + '<div class="row-fluid">'
     +   '<div class="table-responsive col-sm-offset-2 col-sm-8 col-md-offset-4 col-md-4">'
     +     '<table class="table table-bordered table-condensed">'
     +       '<thead>'
