@@ -105,3 +105,12 @@ dd {
 #nodechart th {
   width: 12.5%;
 }
+
+.select-all-checkbox {
+  height: 30px;
+  padding-left: 15px;
+}
+
+.select-all-checkbox .checkbox-inline {
+  background-color: white;
+}

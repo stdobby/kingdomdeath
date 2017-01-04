@@ -25,6 +25,14 @@
     +   '</div>'
     +  '</div>'
     +  '<% addOnGroups.forEach(function(addOnGroup) { %>'
+    +    '<hr />'
+    +    '<div class="form-group">'
+    +      '<div class="col-md-offset-4 cold-md-8 select-all-checkbox">'
+    +        '<label class="checkbox-inline">'
+    +          '<input type="checkbox" data-type="select_all" data-target="<%= addOnGroup.contentType %>"> Select/Unselect All'
+    +        '</label>'
+    +      '</div>'
+    +    '</div>'
     +    '<div class="form-group">'
     +      '<label for="<%= addOnGroup.contentType %>" class="control-label col-md-4">The <span class="question-content-type"><%= addOnGroup.contentDisplayType %></span> I would like are</label>'
     +      '<div class="col-md-8 checkbox-columns">'
@@ -177,12 +185,25 @@
     self.$wrapperEl.on('change', 'select', function() {
       self.updateResults();
     });
-    self.$wrapperEl.on('change', 'input', function() {
+    self.$wrapperEl.on('change', 'input[data-type=select_all]', function() {
+      self.toggleCheckboxesForSection($(this));
+      self.updateResults();
+    });
+    self.$wrapperEl.on('change', 'input[data-type=addon]', function() {
       self.updateResults();
     });
   };
 
+  KdmComparator.prototype.toggleCheckboxesForSection = function($selectAllCheckbox) {
+    var targetContentType = $selectAllCheckbox.attr('data-target');
+    var selectAll = $selectAllCheckbox.is(':checked');
+    var $checkboxes = this.$wrapperEl.find('input[name=' + targetContentType + ']');
+
+    $checkboxes.prop('checked', selectAll);
+  };
+
   KdmComparator.prototype.updateResults = function() {
+    console.log('update results');
     var pledges = this.getPotentialPledgesForGameType();
     var requiredItems = this.getRequiredItems();
     var potentialOrders = this.getPotentialOrders(pledges, requiredItems);
