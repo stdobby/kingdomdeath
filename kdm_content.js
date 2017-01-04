@@ -309,6 +309,7 @@
 
     // New Pinups
     { title: "Black Knight Armor", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
+    { title: "Death Armor", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Disciple of the Witch", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Dung Ball", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Dung Beetle Dancer", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
@@ -340,6 +341,7 @@
     { title: "Promos of Death", price: 125, contentType: CONTENT_TYPES.OLD_PROMO, addon: true, wave: 3 },
 
     // New Crossovers
+    { title: "Goth Amy, The Unraveling", price: 20, contentType: CONTENT_TYPES.NEW_CROSSOVER, addon: true, wave: 3 },
     { title: "LY3 Candy & Cola", price: 20, contentType: CONTENT_TYPES.NEW_CROSSOVER, addon: true, wave: 3 }
   ];
 
@@ -991,6 +993,40 @@
     }, {
       title: "White Lion Gal",
       type: "Miniature",
+      quantity: 1
+    }]
+  }, {
+    title: "Imitation Butcher Armor",
+    type: "Narrative Sculpture",
+    mini: true,
+    updateNumber: 35,
+    contents: [{
+      title: "Imitation Butcher Armor",
+      type: "Miniature",
+      quantity: 1
+    }, {
+      title: "Unique Base Insert",
+      type: "Base Insert",
+      quantity: 1
+    }, {
+      title: "Hybrid Leather & Lantern Armor Set Card",
+      type: "Armor Set Card",
+      quantity: 1
+    }, {
+      title: "Imitation Butcher Mask Gear Card",
+      type: "Gear Card",
+      quantity: 1
+    }, {
+      title: "Male Imitation Butcher Armor Head",
+      type: "Armor Kit Piece",
+      quantity: 1
+    }, {
+      title: "Female Imitation Butcher Armor Head",
+      type: "Armor Kit Piece",
+      quantity: 1
+    }, {
+      title: "Ballad of the Butcher",
+      type: "Settlement Event",
       quantity: 1
     }]
   }];

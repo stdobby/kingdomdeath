@@ -203,7 +203,6 @@
   };
 
   KdmComparator.prototype.updateResults = function() {
-    console.log('update results');
     var pledges = this.getPotentialPledgesForGameType();
     var requiredItems = this.getRequiredItems();
     var potentialOrders = this.getPotentialOrders(pledges, requiredItems);
