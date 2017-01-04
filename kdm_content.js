@@ -281,7 +281,7 @@
     { title: "Screaming God Expansion", price: 50, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 'NODE_5' },
     { title: "The First Hero Expansion", price: 35, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4 },
     { title: "The Silver City", price: 65, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4},
-     
+
     // Old Expansions
     { title: "Dragon King Expansion", price: 75, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2, expansionNode: 'NODE_4', speculated: true },
     { title: "Dung Beetle Knight Expansion", price: 30, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2, expansionNode: 'NODE_4', speculated: true },
@@ -1047,6 +1047,10 @@
 
   KdmContentManager.prototype.getAllNewCrossovers = function() {
     return this.getAllItems().filter(function(item) { return _.isEqual(item.contentType, CONTENT_TYPES.NEW_CROSSOVER); }).sort(itemSort);
+  };
+
+  KdmContentManager.prototype.getAllNewExtras = function() {
+    return this.getAllItems().filter(function(item) { return _.isEqual(item.contentType, CONTENT_TYPES.NEW_EXTRA); }).sort(itemSort);
   };
 
   KdmContentManager.prototype.getAllOldExtras = function() {
