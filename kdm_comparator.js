@@ -276,7 +276,11 @@
       const missingItems = missingItemTitles.map(function(title) { return allItemsByTitle[title]; });
       const extraItems = _.difference(applicableItemTitles, requiredItemTitles).map(function(title) { return allItemsByTitle[title]; });
       const pledgeCost = pledge.price;
-      const addOnCost = _.sumBy(missingItems, function(item) { return item.price; });
+      const eligibleForDiscount = this.checkIfPledgeIsEligibleForFirstGamblersChestDiscount(pledge.title);
+      const firstGamblersChestCost = eligibleForDiscount ? 100 : 150;
+      const addOnCost = _.sumBy(missingItems, function(item) {
+        return item.title === "Gambler's Chest" ? firstGamblersChestCost : item.price;
+      });
       const totalCost = pledgeCost + addOnCost;
 
       return {
@@ -297,6 +301,10 @@
     });
 
     return potentialOrders;
+  };
+
+  KdmComparator.prototype.checkIfPledgeIsEligibleForFirstGamblersChestDiscount = function(pledgeTitle) {
+    return _.includes(['Black Friday Lantern', 'Black Friday Lantern Upgrade'], pledgeTitle);
   };
 
   KdmComparator.prototype.renderPotentialOrders = function(potentialOrders) {
