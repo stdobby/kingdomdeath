@@ -61,6 +61,9 @@
   const isAddOn = function(item) { return item.addon; };
 
   const addOnGroups = [{
+    groupTitle: 'Main Components',
+    addOns: contentManager.getAllMainComponents().filter(isAddOn)
+  }, {
     groupTitle: 'New Expansions',
     addOns: contentManager.getAllNewExpansions().filter(isAddOn)
   }, {

@@ -1057,6 +1057,10 @@
     return this.getAllItems().filter(function(item) { return item.addon; });
   };
 
+  KdmContentManager.prototype.getAllMainComponents = function() {
+    return this.getAllItems().filter(function(item) { return _.isEqual(item.contentType, CONTENT_TYPES.MAIN_COMPONENT); }).sort(itemSort);
+  };
+
   KdmContentManager.prototype.getAllNewExpansions = function() {
     return this.getAllItems().filter(function(item) { return _.isEqual(item.contentType, CONTENT_TYPES.NEW_EXPANSION); }).sort(itemSort);
   };
