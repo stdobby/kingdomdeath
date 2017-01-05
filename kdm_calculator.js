@@ -175,6 +175,7 @@
     self.shippingCalculator = new KdmShippingCalculator();
     self.$wrapperEl.on('change', 'select[data-type=pledge]', function() {
       self.updateAddOnIcons();
+      self.updateGamblersChestCost();
     });
     self.$wrapperEl.on('change', 'select', function() {
       self.updateTotals();
@@ -190,6 +191,7 @@
     this.listenToResetButton();
     this.listenToIncrementButtons();
     this.listenToDecrementButtons();
+    this.updateGamblersChestCost();
     this.updateTotals();
     this.updateShippingBreakdown();
   };
@@ -233,6 +235,7 @@
     var self = this;
     var region = null;
     var orders = [];
+    var pledgeTitle = null;
 
     self.$wrapperEl.find('select').each(function() {
       var $select = $(this);
@@ -244,6 +247,7 @@
           break;
         case 'pledge':
           orders.push(self.getPledgeOrder($select));
+          pledgeTitle = self.getPledgeOrder($select).item.title;
           break;
         case 'shipping':
           region = $select.val();
@@ -254,7 +258,16 @@
       }
     });
 
-    var subtotal = _.sumBy(orders, function(order) { return order.item.price * order.quantity; });
+    var eligibleForDiscount = this.checkIfPledgeIsEligibleForFirstGamblersChestDiscount(pledgeTitle);
+    var firstGamblersChestCost = eligibleForDiscount ? 100 : 150;
+    var additionalGamblersChestCost = 150;
+
+    var subtotal = _.sumBy(orders, function(order) {
+      if (order.item.title === "Gambler's Chest") {
+        return self.calculateCostOfGamblersChestAddOn(firstGamblersChestCost, additionalGamblersChestCost, order.quantity);
+      }
+      return order.item.price * order.quantity;
+    });
     var orderItems = self.getOrderItems(orders);
 
     return {
@@ -262,6 +275,30 @@
       subtotal: subtotal,
       orderItems: orderItems
     }
+  };
+
+  KdmForm.prototype.updateGamblersChestCost = function() {
+    var pledge = this.getPledgeOrder(this.$wrapperEl.find('select[data-type=pledge]')).item;
+    var eligibleForDiscount = this.checkIfPledgeIsEligibleForFirstGamblersChestDiscount(pledge.title);
+    var $gamblersChestSelect = this.$wrapperEl.find('select[data-title="Gambler\'s Chest"]');
+    var firstGamblersChestCost = eligibleForDiscount ? 100 : 150;
+    var additionalGamblersChestCost = 150;
+
+    for (var i = 0; i <= 10; i++) {
+      var cost = this.calculateCostOfGamblersChestAddOn(firstGamblersChestCost, additionalGamblersChestCost, i);
+      var text = i + ' (+$' + cost + ')';
+      $gamblersChestSelect.find('option[value=' + i + ']').html(text);
+    }
+  };
+
+  KdmForm.prototype.checkIfPledgeIsEligibleForFirstGamblersChestDiscount = function(pledgeTitle) {
+    return _.includes(['Black Friday Lantern', 'Black Friday Lantern Upgrade'], pledgeTitle);
+  };
+
+  KdmForm.prototype.calculateCostOfGamblersChestAddOn = function(firstChestCost, additionalChestCost, quantity) {
+    if (quantity === 0) { return 0; }
+    if (quantity === 1) { return firstChestCost; }
+    return firstChestCost + (additionalChestCost * (quantity - 1));
   };
 
   KdmForm.prototype.updateAddOnIcons = function() {
