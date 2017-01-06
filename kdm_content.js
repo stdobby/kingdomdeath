@@ -268,35 +268,322 @@
     { title: "1.5 Update Pack", price: 60, contentType: CONTENT_TYPES.MAIN_COMPONENT, addon: false, wave: 1 },
 
     // New Expansions
-    { title: "Black Knight Expansion", price: 50, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 'NODE_3' },
-    { title: "Campaigns of Death Expansion", price: 40, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4 },
-    { title: "Death Armor Expansion", price: 20, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4 },
-    { title: "Frogdog Expansion", price: 50, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 'NODE_1' },
-    { title: "Gryphon Expansion", price: 75, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 'NODE_4' },
-    { title: "Honeycomb Weaver Expansion", price: 50, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 'NODE_1' },
-    { title: "Inverted Mountain Campaign Expansion", price: 50, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4 },
-    { title: "Ivory Dragon Expansion", price: 100, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 'NODE_5' },
-    { title: "Nightmare Ram Expansion", price: 40, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 'NODE_3', speculated: true },
-    { title: "Oblivion Mosquito Expansion", price: 50, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 'NODE_2' },
-    { title: "Pariah Expansion", price: 40, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 'NEMESIS_1' },
-    { title: "Red Witches Expansion", price: 40, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4 },
-    { title: "Screaming God Expansion", price: 50, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 'NODE_5' },
-    { title: "The First Hero Expansion", price: 35, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4 },
-    { title: "The Silver City Expansion", price: 65, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4},
+    {
+      title: "Black Knight Expansion",
+      price: 50,
+      contentType: CONTENT_TYPES.NEW_EXPANSION,
+      addon: true,
+      wave: 4,
+      expansionNode: 'NODE_3',
+      nodes: [{
+        title: "Black Knight",
+        node: 'NODE_3'
+      }]
+    },
+    {
+      title: "Campaigns of Death Expansion",
+      price: 40,
+      contentType: CONTENT_TYPES.NEW_EXPANSION,
+      addon: true,
+      wave: 4 ,
+      nodes: []
+    },
+    {
+      title: "Death Armor Expansion",
+      price: 20,
+      contentType: CONTENT_TYPES.NEW_EXPANSION,
+      addon: true,
+      wave: 4 ,
+      nodes: []
+    },
+    {
+      title: "Frogdog Expansion",
+      price: 50,
+      contentType: CONTENT_TYPES.NEW_EXPANSION,
+      addon: true,
+      wave: 4,
+      expansionNode: 'NODE_1' ,
+      nodes: [{
+        title: "Frogdog",
+        node: 'NODE_1'
+      }]
+    },
+    {
+      title: "Gryphon Expansion",
+      price: 75,
+      contentType: CONTENT_TYPES.NEW_EXPANSION,
+      addon: true,
+      wave: 4,
+      expansionNode: 'NODE_4',
+      nodes: [{
+        title: "Gryphon",
+        node: 'NODE_4'
+      }]
+    },
+    {
+      title: "Honeycomb Weaver Expansion",
+      price: 50,
+      contentType: CONTENT_TYPES.NEW_EXPANSION,
+      addon: true,
+      wave: 4,
+      expansionNode: 'NODE_1',
+      nodes: [{
+        title: "10yr Honeycomb Weaver",
+        node: 'NODE_1'
+      }, {
+        title: "100yr Honeycomb Weaver",
+        node: 'NODE_3'
+      }]
+    },
+    {
+      title: "Inverted Mountain Campaign Expansion",
+      price: 50,
+      contentType: CONTENT_TYPES.NEW_EXPANSION,
+      addon: true,
+      wave: 4,
+      nodes: []
+    },
+    {
+      title: "Ivory Dragon Expansion",
+      price: 100,
+      contentType: CONTENT_TYPES.NEW_EXPANSION,
+      addon: true,
+      wave: 4,
+      expansionNode: 'NODE_5',
+      nodes: [{
+        title: "Ivory Dragon",
+        node: 'NODE_5'
+      }]
+    },
+    {
+      title: "Nightmare Ram Expansion",
+      price: 40,
+      contentType: CONTENT_TYPES.NEW_EXPANSION,
+      addon: true,
+      wave: 4,
+      expansionNode: 'NODE_3',
+      speculated: true,
+      nodes: [{
+        title: "Nightmare Ram",
+        node: 'NODE_3'
+      }]
+    },
+    {
+      title: "Oblivion Mosquito Expansion",
+      price: 50,
+      contentType: CONTENT_TYPES.NEW_EXPANSION,
+      addon: true,
+      wave: 4,
+      expansionNode: 'NODE_2',
+      nodes: [{
+        title: "Oblivion Mosquito",
+        node: 'NODE_2'
+      }]
+    },
+    {
+      title: "Pariah Expansion",
+      price: 40,
+      contentType: CONTENT_TYPES.NEW_EXPANSION,
+      addon: true,
+      wave: 4,
+      expansionNode: 'NEMESIS_1',
+      nodes: [{
+        title: "Pariah",
+        node: 'NEMESIS_1'
+      }]
+    },
+    {
+      title: "Red Witches Expansion",
+      price: 40,
+      contentType: CONTENT_TYPES.NEW_EXPANSION,
+      addon: true,
+      wave: 4,
+      nodes: []
+    },
+    {
+      title: "Screaming God Expansion",
+      price: 50,
+      contentType: CONTENT_TYPES.NEW_EXPANSION,
+      addon: true,
+      wave: 4,
+      expansionNode: 'NODE_5',
+      nodes: [{
+        title: "Screaming God",
+        node: 'NODE_5'
+      }]
+    },
+    {
+      title: "The First Hero Expansion",
+      price: 35,
+      contentType: CONTENT_TYPES.NEW_EXPANSION,
+      addon: true,
+      wave: 4,
+      nodes: []
+    },
+    {
+      title: "The Silver City Expansion",
+      price: 65,
+      contentType: CONTENT_TYPES.NEW_EXPANSION,
+      addon: true,
+      wave: 4,
+      nodes: []
+    },
 
     // Old Expansions
-    { title: "Dragon King Expansion", price: 75, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2, expansionNode: 'NODE_4', speculated: true },
-    { title: "Dung Beetle Knight Expansion", price: 30, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2, expansionNode: 'NODE_4', speculated: true },
-    { title: "Flower Knight Expansion", price: 40, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2, expansionNode: 'NODE_3', speculated: true },
-    { title: "Gorm Expansion", price: 50, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2, expansionNode: 'NODE_1' },
-    { title: "Green Knight Armor Expansion", price: 15, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2 },
-    { title: "Lion God Expansion", price: 40, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2, expansionNode: 'NODE_5', speculated: true },
-    { title: "Lion Knight Expansion", price: 35, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2, expansionNode: 'NEMESIS_2', speculated: true },
-    { title: "Lonely Tree Expansion", price: 40, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2 },
-    { title: "Manhunter Expansion", price: 35, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2, expansionNode: 'NEMESIS_1', speculated: true },
-    { title: "Slenderman Expansion", price: 40, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2, expansionNode: 'NEMESIS_2', speculated: true },
-    { title: "Spidicules Expansion", price: 60, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2, expansionNode: 'NODE_2', speculated: true },
-    { title: "Sunstalker Expansion", price: 60, contentType: CONTENT_TYPES.OLD_EXPANSION, addon: true, wave: 2, expansionNode: 'NODE_4', speculated: true },
+    {
+      title: "Dragon King Expansion",
+      price: 75,
+      contentType: CONTENT_TYPES.OLD_EXPANSION,
+      addon: true,
+      wave: 2,
+      expansionNode: 'NODE_4',
+      speculated: true,
+      nodes: [{
+        title: "Dragon King",
+        node: 'NODE_4',
+        speculated: true
+      }]
+    },
+    {
+      title: "Dung Beetle Knight Expansion",
+      price: 30,
+      contentType: CONTENT_TYPES.OLD_EXPANSION,
+      addon: true,
+      wave: 2,
+      expansionNode: 'NODE_4',
+      speculated: true,
+      nodes: [{
+        title: "Dung Beetle Knight",
+        node: 'NODE_4',
+        speculated: true
+      }]
+    },
+    {
+      title: "Flower Knight Expansion",
+      price: 40,
+      contentType: CONTENT_TYPES.OLD_EXPANSION,
+      addon: true,
+      wave: 2,
+      expansionNode: 'NODE_3',
+      speculated: true,
+      nodes: [{
+        title: "Flower Knight",
+        node: 'NODE_3',
+        speculated: true
+      }]
+    },
+    {
+      title: "Gorm Expansion",
+      price: 50,
+      contentType: CONTENT_TYPES.OLD_EXPANSION,
+      addon: true,
+      wave: 2,
+      expansionNode: 'NODE_1',
+      nodes: [{
+        title: "Gorm",
+        node: 'NODE_1'
+      }]
+    },
+    {
+      title: "Green Knight Armor Expansion",
+      price: 15,
+      contentType: CONTENT_TYPES.OLD_EXPANSION,
+      addon: true,
+      wave: 2,
+      nodes: []
+    },
+    {
+      title: "Lion God Expansion",
+      price: 40,
+      contentType: CONTENT_TYPES.OLD_EXPANSION,
+      addon: true,
+      wave: 2,
+      expansionNode: 'NODE_5',
+      speculated: true,
+      nodes: [{
+        title: "Lion God",
+        node: 'NODE_5',
+        speculated: true
+      }]
+    },
+    {
+      title: "Lion Knight Expansion",
+      price: 35,
+      contentType: CONTENT_TYPES.OLD_EXPANSION,
+      addon: true,
+      wave: 2,
+      expansionNode: 'NEMESIS_2',
+      speculated: true,
+      nodes: [{
+        title: "Lion Knight",
+        node: 'NEMESIS_2',
+        speculated: true
+      }]
+    },
+    {
+      title: "Lonely Tree Expansion",
+      price: 40,
+      contentType: CONTENT_TYPES.OLD_EXPANSION,
+      addon: true,
+      wave: 2,
+      nodes: []
+    },
+    {
+      title: "Manhunter Expansion",
+      price: 35,
+      contentType: CONTENT_TYPES.OLD_EXPANSION,
+      addon: true,
+      wave: 2,
+      expansionNode: 'NEMESIS_1',
+      speculated: true,
+      nodes: [{
+        title: "Manhunter",
+        node: 'NEMESIS_1',
+        speculated: true
+      }]
+    },
+    {
+      title: "Slenderman Expansion",
+      price: 40,
+      contentType: CONTENT_TYPES.OLD_EXPANSION,
+      addon: true,
+      wave: 2,
+      expansionNode: 'NEMESIS_2',
+      speculated: true,
+      nodes: [{
+        title: "Slenderman",
+        node: 'NEMESIS_2',
+        speculated: true
+      }]
+    },
+    {
+      title: "Spidicules Expansion",
+      price: 60,
+      contentType: CONTENT_TYPES.OLD_EXPANSION,
+      addon: true,
+      wave: 2,
+      expansionNode: 'NODE_2',
+      speculated: true,
+      nodes: [{
+        title: "Spidicules",
+        node: 'NODE_2',
+        speculated: true
+      }]
+    },
+    {
+      title: "Sunstalker Expansion",
+      price: 60,
+      contentType: CONTENT_TYPES.OLD_EXPANSION,
+      addon: true,
+      wave: 2,
+      expansionNode: 'NODE_4',
+      speculated: true,
+      nodes: [{
+        title: "Sunstalker",
+        node: 'NODE_4',
+        speculated: true
+      }]
+    },
 
     // New Extras
     { title: "Extra Hardcover 1.5 Core Game Rulebook", price: 40, contentType: CONTENT_TYPES.NEW_EXTRA, addon: true, wave: 3 },
@@ -1128,16 +1415,32 @@
   };
 
   KdmContentManager.prototype.getCampaignNodes = function() {
-    const expansionsWithNodes = this.getAllItems().filter(function(item) { return item.expansionNode; });
-    const expansionsByCampaignNode = _.groupBy(expansionsWithNodes, 'expansionNode');
-    return _.map(expansionsByCampaignNode, function(expansions, nodeNumber) {
-      const expansionsByNewness = _.groupBy(expansions, 'contentType.new');
+    const expansionsWithNodes = this.getAllItems().filter(function(item) { return !_.isEmpty(item.nodes); });
+    const expansionsByCampaignNode = {};
+
+    expansionsWithNodes.forEach(function(expansion) {
+      expansion.nodes.forEach(function(node) {
+        if (!expansionsByCampaignNode[node.node]) {
+          expansionsByCampaignNode[node.node] = [];
+        }
+
+        expansionsByCampaignNode[node.node].push({
+          title: node.title,
+          new: expansion.contentType.new,
+          speculated: node.speculated
+        });
+      });
+    });
+
+    return _.map(expansionsByCampaignNode, function(expansions, nodeTitle) {
+      const expansionsByNewness = _.groupBy(expansions, 'new');
       const newExpansions = (expansionsByNewness['true'] || []).sort(itemSort);
       const oldExpansions = (expansionsByNewness['false'] || []).sort(itemSort);
-      const campaignNode = CAMPAIGN_NODES[nodeNumber];
+      const campaignNode = CAMPAIGN_NODES[nodeTitle];
       const lanternYear = convertLanternYear(campaignNode);
+
       return {
-        nodeNumber: nodeNumber,
+        nodeNumber: nodeTitle,
         nodeOrder: campaignNode.node_order,
         title: campaignNode.title,
         description: campaignNode.description,
