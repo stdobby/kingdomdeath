@@ -620,6 +620,7 @@
     { title: "Remastered Apotheosis", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Screaming God Armor", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Storm Knight Armor", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
+    { title: "Twilight Deserter Knight", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
 
     // Old Pinups
     { title: 'Pinups of Death 1', price: 100, contentType: CONTENT_TYPES.OLD_PINUP, addon: true, wave: 3 },
@@ -1341,6 +1342,48 @@
       title: "Settlement Event Card",
       type: "Settlement Event",
       quantity: 1
+    }]
+  }, {
+    title: "Food Innovation Tree",
+    type: "Innovation Tree",
+    mini: false,
+    updateNumber: 38,
+    contents: [{
+      title: "Innovation Cards",
+      type: "Innovation Card",
+      quantity: 5
+    }, {
+      title: "Food Innovation",
+      type: "Advanced Rulebook Upgrade",
+      quantity: 1
+    }]
+  }, {
+    title: "Herb Gatherer",
+    type: "Narrative Sculpture",
+    mini: true,
+    updateNumber: 38,
+    contents: [{
+      title: "Herb Gatherer",
+      type: "Miniature",
+      quantity: 1
+    }, {
+      title: "Unique Base Insert",
+      type: "Base Insert",
+      quantity: 1
+    }, {
+      title: "Gathering Philosophy",
+      type: "Philosophy",
+      quantity: 1
+    }, {
+      title: "Fighting Art",
+      type: "Fighting Art",
+      quantity: 1,
+      estimate: true
+    }, {
+      title: "Gear Cards",
+      type: "Gear Card",
+      quantity: 1,
+      estimate: true
     }]
   }];
 
