@@ -273,7 +273,9 @@
     { title: "Death Armor Expansion", price: 20, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4 },
     { title: "Frogdog Expansion", price: 50, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 'NODE_1' },
     { title: "Gryphon Expansion", price: 75, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 'NODE_4' },
+    { title: "Honeycomb Weaver Expansion", price: 50, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 'NODE_1' },
     { title: "Inverted Mountain Campaign Expansion", price: 50, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4 },
+    { title: "Ivory Dragon Expansion", price: 100, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 'NODE_5' },
     { title: "Nightmare Ram Expansion", price: 40, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 'NODE_3', speculated: true },
     { title: "Oblivion Mosquito Expansion", price: 50, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 'NODE_2' },
     { title: "Pariah Expansion", price: 40, contentType: CONTENT_TYPES.NEW_EXPANSION, addon: true, wave: 4, expansionNode: 'NEMESIS_1' },
@@ -298,10 +300,12 @@
 
     // New Extras
     { title: "Extra Hardcover 1.5 Core Game Rulebook", price: 40, contentType: CONTENT_TYPES.NEW_EXTRA, addon: true, wave: 3 },
+    { title: "Death Dice", price: 18, contentType: CONTENT_TYPES.NEW_EXTRA, addon: true, wave: 3 },
     { title: "Frogdog T-Shirt", price: 25, contentType: CONTENT_TYPES.NEW_EXTRA, addon: true, wave: 3 },
     { title: "Gambler's Chest", price: 100, contentType: CONTENT_TYPES.NEW_EXTRA, addon: true, wave: 3 },
     { title: "Gambler's T-Shirt", price: 25, contentType: CONTENT_TYPES.NEW_EXTRA, addon: false, wave: 3 },
     { title: "Satan T-Shirt", price: 25, contentType: CONTENT_TYPES.NEW_EXTRA, addon: false, wave: 3 },
+    { title: "Stone Face Insert Pack", price: 20, contentType: CONTENT_TYPES.NEW_EXTRA, addon: false, wave: 3 },
 
     // Old Extras
     { title: 'Anna & Adam Explorers', price: undefined, contentType: CONTENT_TYPES.OLD_EXTRA, addon: false, wave: 3 },
@@ -317,6 +321,7 @@
     { title: "Faceless Survivor", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Frogdog Armor", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Gold Smoke Knight Armor", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
+    { title: "Honeycomb Weaver", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Kingsman", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Male Dung Beetle Dancer", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Male Nightmare Ram Armor", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
@@ -327,6 +332,7 @@
     { title: "Pond Scum Armor", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Remastered Apotheosis", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Screaming God Armor", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
+    { title: "Storm Knight Armor", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
 
     // Old Pinups
     { title: 'Pinups of Death 1', price: 100, contentType: CONTENT_TYPES.OLD_PINUP, addon: true, wave: 3 },
@@ -342,7 +348,8 @@
 
     // New Crossovers
     { title: "Goth Amy, The Unraveling", price: 20, contentType: CONTENT_TYPES.NEW_CROSSOVER, addon: true, wave: 3 },
-    { title: "LY3 Candy & Cola", price: 20, contentType: CONTENT_TYPES.NEW_CROSSOVER, addon: true, wave: 3 }
+    { title: "LY3 Candy & Cola", price: 20, contentType: CONTENT_TYPES.NEW_CROSSOVER, addon: true, wave: 3 },
+    { title: "Pathfinders of Death", price: 60, contentType: CONTENT_TYPES.NEW_CROSSOVER, addon: true, wave: 3 }
   ];
 
   const CAMPAIGN_NODES = {
@@ -1026,6 +1033,25 @@
       quantity: 1
     }, {
       title: "Ballad of the Butcher",
+      type: "Settlement Event",
+      quantity: 1
+    }]
+  }, {
+    title: "Savage Bone Eaters",
+    type: "Narrative Sculpture",
+    mini: true,
+    updateNumber: 36,
+    contents:[{
+      title: "Savage Bone Eater",
+      type: "Miniature",
+      quantity: 5
+    }, {
+      title: "New Resource Cards",
+      type: "Resource Card",
+      quantity: 1,
+      estimate: true
+    }, {
+      title: "Settlement Event Card",
       type: "Settlement Event",
       quantity: 1
     }]
