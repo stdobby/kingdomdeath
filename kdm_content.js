@@ -592,7 +592,7 @@
     { title: "Gambler's Chest", price: 100, contentType: CONTENT_TYPES.NEW_EXTRA, addon: true, wave: 3 },
     { title: "Gambler's T-Shirt", price: 25, contentType: CONTENT_TYPES.NEW_EXTRA, addon: false, wave: 3 },
     { title: "Satan T-Shirt", price: 25, contentType: CONTENT_TYPES.NEW_EXTRA, addon: false, wave: 3 },
-    { title: "Stone Face Insert Pack", price: 20, contentType: CONTENT_TYPES.NEW_EXTRA, addon: false, wave: 3 },
+    { title: "Stone Face Insert Pack", price: 20, contentType: CONTENT_TYPES.NEW_EXTRA, addon: true, wave: 3 },
 
     // Old Extras
     { title: 'Anna & Adam Explorers', price: undefined, contentType: CONTENT_TYPES.OLD_EXTRA, addon: false, wave: 3 },
