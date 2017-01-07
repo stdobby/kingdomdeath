@@ -686,6 +686,7 @@
     { title: "Promos of Death", price: 125, contentType: CONTENT_TYPES.OLD_PROMO, addon: true, wave: 3 },
 
     // New Crossovers
+    { title: "Death Drifter", price: 20, contentType: CONTENT_TYPES.NEW_CROSSOVER, addon: true, wave: 3 },
     { title: "Goth Amy, The Unraveling", price: 20, contentType: CONTENT_TYPES.NEW_CROSSOVER, addon: true, wave: 3 },
     { title: "LY3 Candy & Cola", price: 20, contentType: CONTENT_TYPES.NEW_CROSSOVER, addon: true, wave: 3 },
     { title: "Pathfinders of Death", price: 60, contentType: CONTENT_TYPES.NEW_CROSSOVER, addon: true, wave: 3 }
@@ -1480,6 +1481,50 @@
       quantity: 1
     }, {
       title: "Gourmand Philosophy",
+      type: "Philosophy",
+      quantity: 1
+    }, {
+      title: "Fighting Art",
+      type: "Fighting Art",
+      quantity: 1
+    }]
+  }, {
+    title: "Magma Masochist",
+    type: "Narrative Sculpture",
+    mini: true,
+    updateNumber: 46,
+    contents: [{
+      title: "Transcended Masochist",
+      type: "Miniature",
+      quantity: 1
+    }, {
+      title: "Unique Base Insert",
+      type: "Base Insert",
+      quantity: 1
+    }, {
+      title: "Starbound Philosophy",
+      type: "Philosophy",
+      quantity: 1
+    }, {
+      title: "Fighting Art",
+      type: "Fighting Art",
+      quantity: 1
+    }]
+  }, {
+    title: "Shadowstalker",
+    type: "Narrative Sculpture",
+    mini: true,
+    updateNumber: 46,
+    contents: [{
+      title: "Shadowstalker",
+      type: "Miniature",
+      quantity: 1
+    }, {
+      title: "Unique Base Insert",
+      type: "Base Insert",
+      quantity: 1
+    }, {
+      title: "Shadowstalker Philosophy",
       type: "Philosophy",
       quantity: 1
     }, {
