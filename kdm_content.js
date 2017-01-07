@@ -1436,6 +1436,24 @@
       quantity: 1,
       estimate: true
     }]
+  }, {
+    title: "Murder Victim",
+    type: "Narrative Sculpture",
+    mini: true,
+    updateNumber: 44,
+    contents: [{
+      title: "Dead Survivor",
+      type: "Miniature",
+      quantity: 1
+    }, {
+      title: "Murder Victim Disorder",
+      type: "Disorder",
+      quantity: 1
+    }, {
+      title: "New Terrain Card",
+      type: "Terrain Card",
+      quantity: 1
+    }]
   }];
 
   function KdmContentManager() {
