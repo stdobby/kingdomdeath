@@ -1454,6 +1454,39 @@
       type: "Terrain Card",
       quantity: 1
     }]
+  }, {
+    title: "Unknown Encounter Monster",
+    type: "Encounter Monster",
+    mini: true,
+    updateNumber: 45,
+    contents: [{
+      title: "Unknown Encounter Monsters",
+      type: "Encounter Monster",
+      quantity: 3,
+      estimate: true
+    }]
+  }, {
+    title: "Tough Guy",
+    type: "Narrative Sculpture",
+    mini: true,
+    updateNumber: 45,
+    contents: [{
+      title: "Herb Tough Guy",
+      type: "Miniature",
+      quantity: 1
+    }, {
+      title: "Unique Base Insert",
+      type: "Base Insert",
+      quantity: 1
+    }, {
+      title: "Gourmand Philosophy",
+      type: "Philosophy",
+      quantity: 1
+    }, {
+      title: "Fighting Art",
+      type: "Fighting Art",
+      quantity: 1
+    }]
   }];
 
   function KdmContentManager() {
