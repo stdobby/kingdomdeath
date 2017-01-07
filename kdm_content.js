@@ -644,6 +644,7 @@
     },
 
     // New Extras
+    { title: "2' x 3' Hard Plastic Showdown Board", price: 100, contentType: CONTENT_TYPES.NEW_EXTRA, addon: true, wave: 3 },
     { title: "Extra Hardcover 1.5 Core Game Rulebook", price: 40, contentType: CONTENT_TYPES.NEW_EXTRA, addon: true, wave: 3 },
     { title: "Death Dice", price: 18, contentType: CONTENT_TYPES.NEW_EXTRA, addon: true, wave: 3 },
     { title: "Frogdog T-Shirt", price: 25, contentType: CONTENT_TYPES.NEW_EXTRA, addon: true, wave: 3 },
@@ -673,6 +674,7 @@
     { title: "Gold Smoke Knight Armor", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Honeycomb Weaver", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Kingsman", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
+    { title: "Male Dragon Goblin", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Male Dung Beetle Dancer", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Male Nightmare Ram Armor", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Male Screaming God Armor", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
@@ -1565,6 +1567,16 @@
     }, {
       title: "Fighting Art",
       type: "Fighting Art",
+      quantity: 1
+    }]
+  }, {
+    title: "Gambler Nemesis",
+    type: "Nemesis",
+    mini: true,
+    updateNumber: 48,
+    contents: [{
+      title: "Gambler Nemesis",
+      type: "Nemesis",
       quantity: 1
     }]
   }];

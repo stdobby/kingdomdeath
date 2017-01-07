@@ -6,7 +6,7 @@
   var pledgeTemplate = _.template(
     '<h3 style="margin-bottom: 30px">Pledge and Shipping Calculator</h3>'
     + '<div class="alert alert-info col-md-offset-4 col-md-4">'
-    +   '<p><h4>Current as of Update #47</h4></p>'
+    +   '<p><h4>Current as of Update #48</h4></p>'
     +   '<p><i class="fa fa-square-o"></i> means the item <strong>is not</strong> included in the pledge</p>'
     +   '<p><i class="fa fa-check-square-o"></i> means the item <strong>is</strong> included in the pledge</p>'
     +   '<p><i class="fa fa-exclamation-triangle"></i> means the item is included as part of another item</p>'
