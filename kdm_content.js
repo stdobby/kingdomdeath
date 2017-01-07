@@ -195,6 +195,18 @@
       }
     },
     {
+      title: "Returning Gamer's Lantern",
+      gameType: "update_pack",
+      price: 1065,
+      getApplicableItems: function(items) {
+        var titles = ["1.5 Update Pack", "Gambler's Chest", "Watcher T-Shirt", "Death Dice"];
+        var types = ['Expansion'];
+        return items.filter(function(item) {
+          return _.includes(titles, item.title) || (item.contentType.new && _.includes(types, item.contentType.type));
+        });
+      }
+    },
+    {
       title: "Gamer's Lantern",
       gameType: "core_game",
       price: 1650,
