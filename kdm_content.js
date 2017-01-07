@@ -664,6 +664,7 @@
     { title: "Butcher", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Death Armor", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Disciple of the Witch", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
+    { title: "Dragon Goblin", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Dung Ball", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Dung Beetle Dancer", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Dung Beetle Knight", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
@@ -1537,6 +1538,28 @@
       quantity: 1
     }, {
       title: "Shadowstalker Philosophy",
+      type: "Philosophy",
+      quantity: 1
+    }, {
+      title: "Fighting Art",
+      type: "Fighting Art",
+      quantity: 1
+    }]
+  }, {
+    title: "Champion of the Goblin",
+    type: "Narrative Sculpture",
+    mini: true,
+    updateNumber: 47,
+    contents: [{
+      title: "Champion of the Goblin",
+      type: "Miniature",
+      quantity: 1
+    }, {
+      title: "Unique Base Insert",
+      type: "Base Insert",
+      quantity: 1
+    }, {
+      title: "Champion Philosophy",
       type: "Philosophy",
       quantity: 1
     }, {
