@@ -681,6 +681,7 @@
     { title: "Male Twilight Knight", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Mountain Dungeon Armor", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Nightmare Ram Armor & Ramette", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
+    { title: "Percival", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Pond Scum Armor", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Remastered Apotheosis", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Scout of Death", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
@@ -693,6 +694,7 @@
     { title: 'Pinups of Death 2', price: 115, contentType: CONTENT_TYPES.OLD_PINUP, addon: true, wave: 3 },
 
     // New Promos
+    { title: "Anonymous Survivor", price: 20, contentType: CONTENT_TYPES.NEW_PROMO, addon: true, wave: 3 },
     { title: "Role Survivors", price: 25, contentType: CONTENT_TYPES.NEW_PROMO, addon: true, wave: 3 },
     { title: "Super Survivors", price: 40, contentType: CONTENT_TYPES.NEW_PROMO, addon: true, wave: 3 },
 
