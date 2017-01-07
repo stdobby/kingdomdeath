@@ -41,6 +41,10 @@
     OLD_PROMO: {
       type: 'Promo',
       new: false
+    },
+    EXCLUSIVE: {
+      type: 'Exclusive',
+      new: false
     }
   };
 
@@ -191,6 +195,19 @@
       }
     },
     {
+      title: "Gamer's Lantern",
+      gameType: "core_game",
+      price: 1650,
+      getApplicableItems: function(items) {
+        var titles = ["1.5 Core Game", "Gambler's Chest", "Watcher T-Shirt", "Death Dice"];
+        var types = ['Expansion'];
+        return items.filter(function(item) {
+          return (_.includes(titles, item.title)
+                  || (_.includes(types, item.contentType.type) && item.title !== 'Role Survivors'));
+        });
+      }
+    },
+    {
       title: "Satan's Lantern",
       gameType: 'core_game',
       price: 1666,
@@ -252,6 +269,20 @@
       price: 2000,
       getApplicableItems: function(items) {
         var titles = ["1.5 Core Game", "Gambler's Chest", "Frogdog T-Shirt"];
+        var types = ['Expansion', 'Pinup', 'Promo'];
+        return items.filter(function(item) {
+          return (_.includes(titles, item.title)
+                  || (_.includes(types, item.contentType.type) && item.title !== 'Role Survivors')
+                  || (!item.contentType.new && item.contentType.type === 'Extra'));
+        });
+      }
+    },
+    {
+      title: "Percival's Lantern",
+      gameType: "core_game",
+      price: 2500,
+      getApplicableItems: function(items) {
+        var titles = ["1.5 Core Game", "Gambler's Chest", "Percival T-Shirt", "Death Dice", "Percival"];
         var types = ['Expansion', 'Pinup', 'Promo'];
         return items.filter(function(item) {
           return (_.includes(titles, item.title)
@@ -606,12 +637,15 @@
     { title: "Frogdog T-Shirt", price: 25, contentType: CONTENT_TYPES.NEW_EXTRA, addon: true, wave: 3 },
     { title: "Gambler's Chest", price: 100, contentType: CONTENT_TYPES.NEW_EXTRA, addon: true, wave: 3 },
     { title: "Gambler's T-Shirt", price: 25, contentType: CONTENT_TYPES.NEW_EXTRA, addon: false, wave: 3 },
+    { title: "Percival T-Shirt", price: 25, contentType: CONTENT_TYPES.NEW_EXTRA, addon: false, wave: 3 },
     { title: "Satan T-Shirt", price: 25, contentType: CONTENT_TYPES.NEW_EXTRA, addon: false, wave: 3 },
     { title: "Stone Face Insert Pack", price: 20, contentType: CONTENT_TYPES.NEW_EXTRA, addon: true, wave: 3 },
+    { title: "Watcher T-Shirt", price: 25, contentType: CONTENT_TYPES.NEW_EXTRA, addon: false, wave: 3 },
 
     // Old Extras
     { title: 'Anna & Adam Explorers', price: undefined, contentType: CONTENT_TYPES.OLD_EXTRA, addon: false, wave: 3 },
     { title: "Satan Twins", price: 25, contentType: CONTENT_TYPES.OLD_EXTRA, addon: true, wave: 3 },
+    { title: 'Percival', price: null, contentType: CONTENT_TYPES.EXCLUSIVE, addon: false, wave: 3 },
 
     // New Pinups
     { title: "Black Knight Armor", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
