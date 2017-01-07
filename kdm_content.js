@@ -269,6 +269,21 @@
 
     // New Expansions
     {
+      title: "Abyssal Woods Expansion",
+      price: 150,
+      contentType: CONTENT_TYPES.NEW_EXPANSION,
+      addon: true,
+      wave: 4,
+      expansionNode: 'NODE_5',
+      nodes: [{
+        title: "Abyssal Woods (Dragon Goblin)",
+        node: 'NODE_3'
+      }, {
+        title: "Abyssal Woods (Lvl 4 Dragon Goblin)",
+        node: 'NODE_5'
+      }]
+    },
+    {
       title: "Black Knight Expansion",
       price: 50,
       contentType: CONTENT_TYPES.NEW_EXPANSION,
@@ -600,6 +615,7 @@
 
     // New Pinups
     { title: "Black Knight Armor", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
+    { title: "Butcher", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Death Armor", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Disciple of the Witch", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
     { title: "Dung Ball", price: 15, contentType: CONTENT_TYPES.NEW_PINUP, addon: true, wave: 3 },
@@ -673,7 +689,7 @@
       lantern_year_min: 5,
       lantern_year_max: 7,
       estimate: true,
-      core_game_monsters: ["Phoenix (speculated)"]
+      core_game_monsters: ["Phoenix"]
     },
     'NODE_4': {
       node_order: 6,
